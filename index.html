@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!--=============== FAVICON ===============-->
+      <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+      <!--=============== REMIXICONS ===============-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+
+      <!--=============== SWIPER CSS ===============-->
+      <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="assets/css/main.css">
+
+      <!--=============== LEAFLET MAP ===============-->
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+      <title>Responsive architecture website</title>
+   </head>
+   <body>
+      <!--==================== HEADER ====================-->
+      <header class="header" id="header">
+         <nav class="nav container">
+            <a href="#" class="nav__logo">Architecture</a>
+            <div class="nav__menu" id="nav-menu">
+               <ul class="nav__list">
+                  <li>
+                     <a href="#home-hm" class="nav__link">Inicio</a>
+                  </li>
+
+                  <li>
+                     <a href="#about" class="nav__link">Acerca de nosotros</a>
+                  </li>
+
+                  <li>
+                     <a href="#services" class="nav__link">Servicios</a>
+                  </li>
+                  
+                  <li>
+
+                     <a href="#testimonials" class="nav__link">Testimonios</a>
+                  </li>
+
+                  <li>
+                     <a href="#contact-center" class="nav__link">Contacto</a>
+                  </li>
+
+                  <li>
+                    <a href="#residencias-mapa-section" class="nav__link">Proyectos</a>
+                 </li>
+               </ul>
+
+               <!--========= Close Button =========-->
+               <div class="nav__close" id="nav-close">
+                  <i class="ri-close-large-line"></i>
+               </div>
+            </div>
+
+             <!--========= Close Button =========-->
+             <div class="nav__toggle" id="nav-toggle">
+               <i class="ri-menu-line"></i>
+            </div>           
+         </nav>
+         
+      </header>
+
+      <!--==================== MAIN ====================-->
+      <main class="main">
+         <!--==================== HOME ====================-->
+         <section class="home" id="home-hm">
+            <div class="home__swiper swiper">
+               <div class="swiper-wrapper">
+                  <article class="home__article swiper-slide">
+                     <div class="home__data container">
+                        <h3 class="home__subtittle" data-swiper-parallax="500">Architecture</h3>
+                        <h1 class="home__tittle" data-swiper-parallax="400">Relaxing Steep <br> Lake house</h1>
+                        <a href="./sections/cumbres.html" class="home__button" data-swiper-parallax="300">
+                           See Project <i class="ri-arrow-right-s-line"></i>
+                        </a>
+                     </div>
+
+                     <img src="assets/img/home-1.jpg" alt="image" class="home__img" data-swiper-parallax="-300">
+                  </article>
+
+                  <article class="home__article swiper-slide">
+                     <div class="home__data container">
+                        <h3 class="home__subtittle" data-swiper-parallax="500">Architecture</h3>
+                        <h1 class="home__tittle" data-swiper-parallax="400">Luxury House <br> In The Forest</h1>
+                        <a href="#" class="home__button" data-swiper-parallax="300">
+                           See Project <i class="ri-arrow-right-s-line"></i>
+                        </a>
+                     </div>
+
+                     <img src="assets/img/home-2.jpg" alt="image" class="home__img" data-swiper-parallax="-300">
+                  </article>
+
+                  <article class="home__article swiper-slide">
+                     <div class="home__data container">
+                        <h3 class="home__subtittle" data-swiper-parallax="500">Architecture</h3>
+                        <h1 class="home__tittle" data-swiper-parallax="400">Modern House <br> On The Rock</h1>
+                        <a href="#" class="home__button" data-swiper-parallax="300">
+                           See Project <i class="ri-arrow-right-s-line"></i>
+                        </a>
+                     </div>
+
+                     <img src="assets/img/home-3.jpg" alt="" class="home__img" data-swiper-parallax="-300">
+                  </article>
+
+                  <article class="home__article swiper-slide">
+                     <div class="home__data container">
+                        <h3 class="home__subtittle" data-swiper-parallax="500">Architecture</h3>
+                        <h1 class="home__tittle" data-swiper-parallax="400">Luxury <br> Curved House</h1>
+                        <a href="#" class="home__button" data-swiper-parallax="300">
+                           See Project <i class="ri-arrow-right-s-line"></i>
+                        </a>
+                     </div>
+
+                     <img src="assets/img/home-4.jpg" alt="" class="home__img" data-swiper-parallax="-300">
+                  </article>
+               </div>
+            </div>
+
+            <div class="home__content">
+               <div class="home__social">
+                  <a href="#" target="_blank" class="home__social-link">
+                     <i class="ri-facebook-circle-line"></i>
+                  </a>
+
+                  <a href="#" target="_blank" class="home__social-link">
+                     <i class="ri-instagram-line"></i>
+                  </a>
+
+                  <a href="#" target="_blank" class="home__social-link">
+                     <i class="ri-twitter-x-line"></i>
+                  </a>
+               </div>
+
+               <!--==== If we need pagination ====-->
+               <div class="swiper-pagination"></div>
+
+               <!--==== Navigation buttons ====-->
+               <div class="swiper-navigation">
+                  <div class="swiper-button-prev">
+                     <i class="ri-arrow-left-s-line"></i> 
+                  </div>
+                  
+                  <div class="swiper-button-next">
+                     <i class="ri-arrow-right-s-line"></i>
+                  </div>
+               </div>
+
+
+            </div>
+            
+         </section>
+      </main>
+
+        <!--==================== ABOUT ====================-->
+<section class="about section" id="about">
+    <div class="about__container container">
+       <span class="section__subtitle">Sobre Nosotros</span>
+       <h2 class="section__title">Construyendo Sueños <br> Desde 2010</h2>
+       
+       <div class="about__content">
+          <div class="about__data">
+             <p class="about__description">
+                Somos una empresa líder en el desarrollo de residencias exclusivas, 
+                comprometidos con la excelencia y la innovación en cada proyecto. 
+                Con presencia en las principales ciudades de la república, 
+                transformamos espacios en hogares excepcionales.
+             </p>
+ 
+             <div class="about__stats">
+                <div class="about__stat">
+                   <h3 class="about__stat-number">13+</h3>
+                   <p class="about__stat-text">Años de Experiencia</p>
+                </div>
+ 
+                <div class="about__stat">
+                   <h3 class="about__stat-number">200+</h3>
+                   <p class="about__stat-text">Proyectos Completados</p>
+                </div>
+ 
+                <div class="about__stat">
+                   <h3 class="about__stat-number">15</h3>
+                   <p class="about__stat-text">Estados con Presencia</p>
+                </div>
+             </div>
+          </div>
+ 
+          <div class="about__images">
+             <div class="about__images-container">
+                <img src="assets/img/home-1.jpg" alt="Proyecto residencial" class="about__img-1">
+                <img src="assets/img/home-2.jpg" alt="Diseño interior" class="about__img-2">
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+        
+        <!--==================== SERVICES ====================-->
+        <section class="services section" id="services">
+            <div class="services__container container">
+            <span class="section__subtitle">Nuestros Servicios</span>
+            <h2 class="section__title">Soluciones Integrales <br> Para Tu Hogar</h2>
+        
+            <div class="services__content">
+                <article class="services__card">
+                    <i class="ri-home-heart-line services__icon"></i>
+                    <h3 class="services__title">Diseño Residencial</h3>
+                    <p class="services__description">
+                        Creamos espacios únicos que reflejan tu estilo de vida, 
+                        combinando estética y funcionalidad en cada detalle.
+                    </p>
+                </article>
+        
+                <article class="services__card">
+                    <i class="ri-building-line services__icon"></i>
+                    <h3 class="services__title">Desarrollo Inmobiliario</h3>
+                    <p class="services__description">
+                        Gestionamos proyectos residenciales completos, 
+                        desde la conceptualización hasta la entrega final.
+                    </p>
+                </article>
+        
+                <article class="services__card">
+                    <i class="ri-paint-line services__icon"></i>
+                    <h3 class="services__title">Personalización</h3>
+                    <p class="services__description">
+                        Adaptamos cada espacio a tus necesidades específicas,
+                        ofreciendo acabados y materiales de primera calidad.
+                    </p>
+                </article>
+        
+                <article class="services__card">
+                    <i class="ri-earth-line services__icon"></i>
+                    <h3 class="services__title">Ubicaciones Premium</h3>
+                    <p class="services__description">
+                        Desarrollamos proyectos en las zonas más exclusivas
+                        y con mayor plusvalía de la república.
+                    </p>
+                </article>
+            </div>
+            </div>
+        </section>
+
+      <!--==================== TESTIMONIALS ====================-->
+<section class="testimonials section" id="testimonials">
+   <div class="testimonials__container container">
+       <span class="section__subtitle">Testimonios</span>
+       <h2 class="section__title">Lo que dicen nuestros <br> clientes</h2>
+
+       <div class="testimonials__swiper swiper">
+           <div class="swiper-wrapper">
+               <!-- Testimonial 1 -->
+               <div class="testimonial__card swiper-slide">
+                   <div class="testimonial__avatar">
+                       <img src="assets/img/avatar1.jpg" alt="avatar" class="testimonial__img">
+                   </div>
+                   <div class="testimonial__content">
+                       <div class="testimonial__rating">
+                           <i class="ri-star-fill"></i>
+                           <i class="ri-star-fill"></i>
+                           <i class="ri-star-fill"></i>
+                           <i class="ri-star-fill"></i>
+                           <i class="ri-star-fill"></i>
+                       </div>
+                       <p class="testimonial__description">
+                           "Excelente ubicación y acabados de primera. La atención fue excepcional."
+                       </p>
+                       <h3 class="testimonial__name">Carlos Ramírez</h3>
+                       <div class="testimonial__location">
+                           <i class="ri-map-pin-line"></i>
+                           <span>Viñedos 2 Residencial</span>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- Testimonial 1 -->
+               <div class="testimonial__card swiper-slide">
+                  <div class="testimonial__avatar">
+                      <img src="assets/img/avatar1.jpg" alt="avatar" class="testimonial__img">
+                  </div>
+                  <div class="testimonial__content">
+                      <div class="testimonial__rating">
+                          <i class="ri-star-fill"></i>
+                          <i class="ri-star-fill"></i>
+                          <i class="ri-star-fill"></i>
+                          <i class="ri-star-fill"></i>
+                          <i class="ri-star-fill"></i>
+                      </div>
+                      <p class="testimonial__description">
+                          "Excelente ubicación y acabados de primera. La atención fue excepcional."
+                      </p>
+                      <h3 class="testimonial__name">Carlos Ramírez</h3>
+                      <div class="testimonial__location">
+                          <i class="ri-map-pin-line"></i>
+                          <span>Viñedos 2 Residencial</span>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Testimonial 1 -->
+              <div class="testimonial__card swiper-slide">
+               <div class="testimonial__avatar">
+                   <img src="assets/img/avatar1.jpg" alt="avatar" class="testimonial__img">
+               </div>
+               <div class="testimonial__content">
+                   <div class="testimonial__rating">
+                       <i class="ri-star-fill"></i>
+                       <i class="ri-star-fill"></i>
+                       <i class="ri-star-fill"></i>
+                       <i class="ri-star-fill"></i>
+                       <i class="ri-star-fill"></i>
+                   </div>
+                   <p class="testimonial__description">
+                       "Excelente ubicación y acabados de primera. La atención fue excepcional."
+                   </p>
+                   <h3 class="testimonial__name">Carlos Ramírez</h3>
+                   <div class="testimonial__location">
+                       <i class="ri-map-pin-line"></i>
+                       <span>Viñedos 2 Residencial</span>
+                   </div>
+               </div>
+           </div>
+
+           <!-- Testimonial 1 -->
+           <div class="testimonial__card swiper-slide">
+            <div class="testimonial__avatar">
+                <img src="assets/img/avatar1.jpg" alt="avatar" class="testimonial__img">
+            </div>
+            <div class="testimonial__content">
+                <div class="testimonial__rating">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                </div>
+                <p class="testimonial__description">
+                    "Excelente ubicación y acabados de primera. La atención fue excepcional."
+                </p>
+                <h3 class="testimonial__name">Carlos Ramírez</h3>
+                <div class="testimonial__location">
+                    <i class="ri-map-pin-line"></i>
+                    <span>Viñedos 2 Residencial</span>
+                </div>
+            </div>
+        </div>
+
+        
+       </div>
+   </div>
+</section>
+
+<!--==================== CONTACT CENTER ====================-->
+<section class="contact-center section" id="contact-center">
+    <div class="contact-center__container container">
+       <span class="section__subtitle">Contacto</span>
+        <h2 class="contact-center__title">Centro de atención telefónica</h2>
+        
+        <div class="contact-center__grid">
+            <!-- Programar llamada -->
+            <div class="contact-center__item" data-modal="schedule" role="button" tabindex="0" aria-label="Programar una llamada">
+                <i class="ri-calendar-2-line"></i>
+                <h3>Programa una llamada</h3>
+                <p>Elige tu horario</p>
+            </div>
+ 
+            <!-- Dejar datos -->
+            <div class="contact-center__item" data-modal="data" role="button" tabindex="0" aria-label="Dejar tus datos">
+                <i class="ri-mail-send-line"></i>
+                <h3>Deja tus datos</h3>
+                <p>Te contactamos</p>
+            </div>
+ 
+            <!-- Agenda visita asesor (NUEVA OPCIÓN) -->
+            <div class="contact-center__item" data-modal="advisor" role="button" tabindex="0" aria-label="Agenda una visita con un asesor">
+                <i class="ri-user-star-line"></i>
+                <h3>Agenda una visita</h3>
+                <p>Habla con un asesor</p>
+            </div>
+ 
+            <!-- WhatsApp -->
+            <div class="contact-center__item" data-modal="whatsapp" role="button" tabindex="0" aria-label="Contactar por WhatsApp">
+                <i class="ri-whatsapp-line"></i>
+                <h3>Contacto directo</h3>
+                <p>WhatsApp</p>
+            </div>
+        </div>
+ 
+        <div class="contact-center__info">
+            <p class="contact-center__phone">
+                <i class="ri-phone-line"></i> 800 1080 108
+            </p>
+            <p class="contact-center__hours">
+                <i class="ri-time-line"></i> L-V: 8:00 - 21:00 | S-D: 8:00 - 21:00
+            </p>
+        </div>
+    </div>
+ 
+    <!-- Popup Programar Llamada -->
+    <div class="popup" id="popup-schedule" role="dialog" aria-labelledby="schedule-title">
+        <div class="popup-content">
+            <h3 id="schedule-title">Programa tu llamada</h3>
+            <form class="popup-form" id="scheduleForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Número de teléfono" required>
+                </div>
+                <div class="form-group">
+                    <input type="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <select name="time" required>
+                        <option value="">Selecciona un horario</option>
+                        <option value="morning">8:00 - 12:00</option>
+                        <option value="afternoon">12:00 - 16:00</option>
+                        <option value="evening">16:00 - 21:00</option>
+                    </select>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn-submit">Enviar</button>
+                    <button type="button" class="btn-cancel popup-close-button">Cancelar</button>
+                </div>
+            </form>
+            <button class="popup-close-button close-x" aria-label="Cerrar">&times;</button>
+        </div>
+    </div>
+ 
+    <!-- Popup Dejar Datos -->
+    <div class="popup" id="popup-data" role="dialog" aria-labelledby="data-title">
+        <div class="popup-content">
+            <h3 id="data-title">Déjanos tus datos</h3>
+            <form class="popup-form" id="dataForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn-submit">Enviar</button>
+                    <button type="button" class="btn-cancel popup-close-button">Cancelar</button>
+                </div>
+            </form>
+            <button class="popup-close-button close-x" aria-label="Cerrar">&times;</button>
+        </div>
+    </div>
+ 
+    <!-- Popup Agenda Visita con Asesor (NUEVO) -->
+    <div class="popup" id="popup-advisor" role="dialog" aria-labelledby="advisor-title">
+        <div class="popup-content">
+            <h3 id="advisor-title">Agenda una visita con un asesor</h3>
+            <form class="popup-form" id="advisorForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Número de teléfono" required>
+                </div>
+                <div class="form-group">
+                    <select name="location" required>
+                        <option value="">Selecciona una sucursal</option>
+                        <option value="centro">Sucursal Centro</option>
+                        <option value="norte">Sucursal Norte</option>
+                        <option value="sur">Sucursal Sur</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <select name="time" required>
+                        <option value="">Selecciona un horario</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea name="comments" placeholder="¿En qué podemos ayudarte?" rows="3" maxlength="200"></textarea>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn-submit">Agendar cita</button>
+                    <button type="button" class="btn-cancel popup-close-button">Cancelar</button>
+                </div>
+            </form>
+            <button class="popup-close-button close-x" aria-label="Cerrar">&times;</button>
+        </div>
+    </div>
+</section>
+<!--==================== MAPA ====================-->
+<section id="residencias-mapa-section" class="residencias-mapa-container">
+    <div class="residencias-mapa-content">
+        <span class="section__subtitle">Ubicaciones</span>
+        <h2 class="contact-center__title">Conoce nuestros proyectos</h2>
+    </div>
+    <div id="residencias-interactive-map" class="residencias-interactive-map"></div>
+</section>
+
+<!--==================== FOOTER ====================-->
+<footer class="footer">
+    <div class="footer__container container">
+        <!-- Columna principal con logo y descripción -->
+        <div class="footer__main">
+            <h3 class="footer__logo">Architecture</h3>
+            <p class="footer__description">
+                Transformamos espacios en hogares excepcionales 
+                con presencia en las principales ciudades de México.
+            </p>
+            <div class="footer__social">
+                <a href="#" class="footer__social-link">
+                    <i class="ri-facebook-fill"></i>
+                </a>
+                <a href="#" class="footer__social-link">
+                    <i class="ri-instagram-line"></i>
+                </a>
+                <a href="#" class="footer__social-link">
+                    <i class="ri-whatsapp-line"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Links rápidos -->
+        <div class="footer__content">
+            <h3 class="footer__title">Enlaces</h3>
+            <ul class="footer__links">
+                <li><a href="#home-hm" class="footer__link">Inicio</a></li>
+                <li><a href="#about" class="footer__link">Nosotros</a></li>
+                <li><a href="#services" class="footer__link">Servicios</a></li>
+                <li><a href="#contact-center" class="footer__link">Contacto</a></li>
+                <li><a href="#residencias-mapa-section" class="footer__link">Proyectos</a></li>
+            </ul>
+        </div>
+
+        <!-- Contacto -->
+        <div class="footer__content">
+            <h3 class="footer__title">Contacto</h3>
+            <div class="footer__info">
+                <p><i class="ri-map-pin-line"></i> Ciudad de México, México</p>
+                <p><i class="ri-phone-line"></i> +52 (55) 1234-5678</p>
+                <p><i class="ri-mail-line"></i> info@architecture.com</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer__copy">
+        <span>&#169; Architecture. Todos los derechos reservados</span>
+    </div>
+</footer>
+
+
+      <!--=============== SWIPER JS ===============-->
+      <script src="assets/js/swiper-bundle.min.js"></script>
+
+      <!--=============== LEAFLET JS ===============-->
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+      <!--=============== MAIN JS ===============-->
+      <script src="assets/js/main.js"></script>
+
+   </body>
+</html>

@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!--=============== FAVICON ===============-->
+   <link rel="shortcut icon" href="../assets/img/logo.png" type="image/x-icon">
+
+   <!--=============== REMIXICONS ===============-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+
+   <!--=============== SWIPER CSS ===============-->
+   <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css">
+
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="../assets/css/cumbres.css">
+
+   <!--=============== LEAFLET MAP ===============-->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+   <title>Cumbres Del Sol</title>
+</head>
+<body>
+   <!--==================== HEADER ====================-->
+   <header class="cumbres-header" id="cumbres-header">
+      <nav class="cumbres-nav container">
+         <a href="#" class="cumbres-nav__logo">
+            <div class="cumbres-logo-container">
+                <img src="../assets/img/logo.png" alt="Logo Cumbres Del Sol" class="cumbres-logo-img">
+                <span class="cumbres-logo-text">Cumbres Del Sol</span>
+            </div>
+        </a>
+         <div class="cumbres-nav__menu" id="cumbres-nav-menu">
+            <ul class="cumbres-nav__list">
+               <li>
+                  <a href="#cumbres-home" class="cumbres-nav__link">Inicio</a>
+               </li>
+
+               <li>
+                  <a href="#cumbres-about" class="cumbres-nav__link">Acerca de nosotros</a>
+               </li>
+
+               <li>
+                  <a href="#cumbres-mapa-section" class="cumbres-nav__link">Ubicación</a>
+               </li>
+               
+               <li>
+                  <a href="#diseno-personalizado" class="cumbres-nav__link">Diseño</a>
+               </li>
+
+               <li>
+                  <a href="#cumbres-contact" class="cumbres-nav__link">Contacto</a>
+               </li>
+
+            </ul>
+
+            <!--========= Close Button =========-->
+            <div class="cumbres-nav__close" id="cumbres-nav-close">
+               <i class="ri-close-large-line"></i>
+            </div>
+         </div>
+
+          <!--========= Toggle Button =========-->
+          <div class="cumbres-nav__toggle" id="cumbres-nav-toggle">
+            <i class="ri-menu-line"></i>
+         </div>           
+      </nav>
+      
+   </header>
+
+   <!--==================== MAIN ====================-->
+   <main class="cumbres-main">
+      <!--==================== HOME ====================-->
+      <section class="cumbres-home" id="cumbres-home">
+         <div class="cumbres-home__swiper swiper">
+            <div class="swiper-wrapper">
+               <article class="cumbres-home__article swiper-slide">
+                  <div class="cumbres-home__data container">
+                     <h3 class="cumbres-home__subtitle" data-swiper-parallax="500">Cumbres Del Sol</h3>
+                     <h1 class="cumbres-home__title" data-swiper-parallax="400">Residencia Mirador <br> Vista al Mar</h1>
+                     <a href="#" class="cumbres-home__button" data-swiper-parallax="300"></a>
+                  </div>
+
+                  <img src="../assets/img/cumbres-1.jpg" alt="Residencia Mirador" class="cumbres-home__img" data-swiper-parallax="-300">
+               </article>
+
+               <article class="cumbres-home__article swiper-slide">
+                  <div class="cumbres-home__data container">
+                     <h3 class="cumbres-home__subtitle" data-swiper-parallax="500">Cumbres Del Sol</h3>
+                     <h1 class="cumbres-home__title" data-swiper-parallax="400">Residencia Bosque <br> Entre Pinos</h1>
+                  </div>
+
+                  <img src="../assets/img/cumbres-2.jpg" alt="Residencia Bosque" class="cumbres-home__img" data-swiper-parallax="-300">
+               </article>
+
+               <article class="cumbres-home__article swiper-slide">
+                  <div class="cumbres-home__data container">
+                     <h3 class="cumbres-home__subtitle" data-swiper-parallax="500">Cumbres Del Sol</h3>
+                     <h1 class="cumbres-home__title" data-swiper-parallax="400">Residencia Roca <br> Arquitectura Moderna</h1>
+                     <a href="#" class="cumbres-home__button" data-swiper-parallax="300"></a>
+                  </div>
+
+                  <img src="assets/img/cumbres-3.jpg" alt="Residencia Roca" class="cumbres-home__img" data-swiper-parallax="-300">
+               </article>
+
+               <article class="cumbres-home__article swiper-slide">
+                  <div class="cumbres-home__data container">
+                     <h3 class="cumbres-home__subtitle" data-swiper-parallax="500">Cumbres Del Sol</h3>
+                     <h1 class="cumbres-home__title" data-swiper-parallax="400">Residencia Curva <br> Diseño Exclusivo</h1>
+                     <a href="#" class="cumbres-home__button" data-swiper-parallax="300"></a>
+                  </div>
+
+                  <img src="assets/img/cumbres-4.jpg" alt="Residencia Curva" class="cumbres-home__img" data-swiper-parallax="-300">
+               </article>
+            </div>
+         </div>
+
+         <div class="cumbres-home__content">
+            <div class="cumbres-home__social">
+               <a href="#" target="_blank" class="cumbres-home__social-link">
+                  <i class="ri-facebook-circle-line"></i>
+               </a>
+
+               <a href="#" target="_blank" class="cumbres-home__social-link">
+                  <i class="ri-instagram-line"></i>
+               </a>
+
+               <a href="#" target="_blank" class="cumbres-home__social-link">
+                  <i class="ri-twitter-x-line"></i>
+               </a>
+            </div>
+
+            <!--==== If we need pagination ====-->
+            <div class="swiper-pagination"></div>
+
+            <!--==== Navigation buttons ====-->
+            <div class="cumbres-swiper-navigation">
+               <div class="swiper-button-prev">
+                  <i class="ri-arrow-left-s-line"></i> 
+               </div>
+               
+               <div class="swiper-button-next">
+                  <i class="ri-arrow-right-s-line"></i>
+               </div>
+            </div>
+         </div>
+      </section>
+
+
+      <!--==================== ABOUT ====================-->
+<section class="cumbres-about" id="cumbres-about">
+   <div class="cumbres-about__container container">
+      <div class="cumbres-about__content">
+         <div class="cumbres-about__data">
+            <h2 class="cumbres-section__title">¿Quiénes Somos?</h2>
+            <h3 class="cumbres-about__subtitle">Un Refugio en Armonía con la Naturaleza</h3>
+            
+            <p class="cumbres-about__description">
+               En <span class="cumbres-about__highlight">Cumbres del Sol</span>, creemos que la vida debe disfrutarse con tranquilidad, rodeados de naturaleza y en un entorno seguro. Ubicado en las majestuosas montañas de <span class="cumbres-about__highlight">Singuilucan, Hidalgo</span>, nuestro desarrollo campestre ha sido diseñado para quienes buscan un equilibrio entre comodidad, bienestar y una conexión genuina con el entorno natural.
+            </p>
+            
+            <p class="cumbres-about__description">
+               Nuestra comunidad es el lugar ideal para familias, jubilados e inversionistas que desean un espacio exclusivo donde la calidad de vida es una prioridad.
+            </p>
+         </div>
+         
+         <div class="cumbres-about__image">
+            <img src="assets/img/home-1.jpg" alt="Vista panorámica de Cumbres del Sol" class="cumbres-about__img">
+         </div>
+      </div>
+      
+      <div class="cumbres-about__values">
+         <h3 class="cumbres-about__subtitle">Nuestros Valores</h3>
+         <div class="cumbres-about__values-grid">
+            <div class="cumbres-about__value-card">
+               <i class="ri-plant-line cumbres-about__value-icon"></i>
+               <h4 class="cumbres-about__value-title">Tranquilidad</h4>
+               <p class="cumbres-about__value-description">Un ambiente sereno donde cada día es un descanso para el alma.</p>
+            </div>
+            
+            <div class="cumbres-about__value-card">
+               <i class="ri-home-heart-line cumbres-about__value-icon"></i>
+               <h4 class="cumbres-about__value-title">Naturaleza</h4>
+               <p class="cumbres-about__value-description">Un espacio rodeado de áreas verdes, diseñado para la vida al aire libre.</p>
+            </div>
+            
+            <div class="cumbres-about__value-card">
+               <i class="ri-shield-check-line cumbres-about__value-icon"></i>
+               <h4 class="cumbres-about__value-title">Seguridad</h4>
+               <p class="cumbres-about__value-description">Acceso controlado y comunidad cerrada para la tranquilidad de nuestros residentes.</p>
+            </div>
+         </div>
+      </div>
+      
+      <p class="cumbres-about__conclusion">
+         En <span class="cumbres-about__highlight">Cumbres del Sol</span>, más que un lugar para vivir, hemos creado un estilo de vida en armonía con el entorno. Te invitamos a descubrir un hogar donde la paz, la belleza y el bienestar se encuentran en cada rincón.
+      </p>
+   </div>
+</section>
+
+<!--==================== MAPA DE CUMBRES DEL SOL ====================-->
+<section id="cumbres-mapa-section" class="cumbres-mapa-container">
+   <div class="cumbres-mapa-content">
+       <h2 class="cumbres-title">Ubicación Privilegiada</h2>
+       <div class="cumbres-description">
+           <p>Ubicado en el corazón de las majestuosas montañas de <em>Singuilucan, Hidalgo</em>, <em>Cumbres del Sol</em> es un desarrollo campestre que combina la paz de la naturaleza con la comodidad de la conectividad moderna.</p>
+       </div>
+   </div>
+   <div id="cumbres-interactive-map" class="cumbres-interactive-map"></div>
+</section>
+
+<!--==================== AMENIDADES ====================-->
+<section class="amenidades" id="amenidades">
+   <div class="amenidades__container">
+     <h2 class="section__title">Amenidades que Inspiran</h2>
+     <p class="section__description">
+       Descubre las exclusivas amenidades de <em>Cumbres del Sol</em>, diseñadas para brindar comodidad, bienestar y experiencias inolvidables en un entorno natural. Aquí, cada espacio ha sido pensado para enriquecer tu estilo de vida y ofrecer momentos de relajación, convivencia y conexión con la naturaleza.
+     </p>
+ 
+     <div class="amenidades__grid">
+       <!-- Áreas Verdes -->
+       <div class="amenidades__card">
+         <div class="amenidades__image">
+           <img src="assets/img/home-2.jpg" alt="Áreas Verdes" />
+         </div>
+         <div class="amenidades__content">
+           <div class="amenidades__icon-container">
+             <i class="ri-plant-line"></i>
+           </div>
+           <h3 class="amenidades__title">Áreas Verdes</h3>
+           <p class="amenidades__description">
+             Disfruta de amplias áreas verdes rodeadas de flora autóctona, perfectas para caminatas matutinas, meditación o simplemente relajarte en un ambiente de paz y armonía.
+           </p>
+         </div>
+       </div>
+ 
+       <!-- Asadores -->
+       <div class="amenidades__card">
+         <div class="amenidades__image">
+           <img src="assets/img/cumbres-4.jpg" alt="Asadores" />
+         </div>
+         <div class="amenidades__content">
+           <div class="amenidades__icon-container">
+             <i class="ri-restaurant-line"></i>
+           </div>
+           <h3 class="amenidades__title">Asadores</h3>
+           <p class="amenidades__description">
+             Vive momentos inolvidables con familiares y amigos en nuestra zona de asadores. Diseñados para reuniones al aire libre donde puedas preparar deliciosos platillos.
+           </p>
+         </div>
+       </div>
+ 
+       <!-- Fogatero -->
+       <div class="amenidades__card">
+         <div class="amenidades__image">
+           <img src="assets/img/cumbres-4.jpg" alt="Fogatero" />
+         </div>
+         <div class="amenidades__content">
+           <div class="amenidades__icon-container">
+             <i class="ri-fire-line"></i>
+           </div>
+           <h3 class="amenidades__title">Fogatero</h3>
+           <p class="amenidades__description">
+             Imagina una noche despejada, el sonido de la naturaleza y un cálido fuego iluminando la velada. El lugar ideal para compartir historias y crear recuerdos inolvidables.
+           </p>
+         </div>
+       </div>
+ 
+       <!-- Temazcal -->
+       <div class="amenidades__card">
+         <div class="amenidades__image">
+           <img src="assets/img/cumbres-4.jpg" alt="Temazcal" />
+         </div>
+         <div class="amenidades__content">
+           <div class="amenidades__icon-container">
+             <i class="ri-rest-time-line"></i>
+           </div>
+           <h3 class="amenidades__title">Temazcal</h3>
+           <p class="amenidades__description">
+             Sumérgete en una experiencia ancestral con nuestro temazcal, un espacio diseñado para la relajación y el bienestar físico y mental.
+           </p>
+         </div>
+       </div>
+ 
+       <!-- Área de Camping -->
+       <div class="amenidades__card">
+         <div class="amenidades__image">
+           <img src="assets/img/cumbres-4.jpg" alt="Área de Camping" />
+         </div>
+         <div class="amenidades__content">
+           <div class="amenidades__icon-container">
+             <i class="ri-tent-line"></i>
+           </div>
+           <h3 class="amenidades__title">Área de Camping</h3>
+           <p class="amenidades__description">
+             Para los amantes de la aventura, contamos con un área de camping donde puedes instalar tu tienda y disfrutar de una noche bajo las estrellas.
+           </p>
+         </div>
+       </div>
+ 
+       <!-- Palapas -->
+       <div class="amenidades__card">
+         <div class="amenidades__image">
+           <img src="assets/img/cumbres-1.jpg" alt="Palapas" />
+         </div>
+         <div class="amenidades__content">
+           <div class="amenidades__icon-container">
+             <i class="ri-home-smile-line"></i>
+           </div>
+           <h3 class="amenidades__title">Palapas</h3>
+           <p class="amenidades__description">
+             Nuestras palapas ofrecen sombra y comodidad en un entorno natural, ideales para reuniones, eventos o simplemente para disfrutar de un día al aire libre.
+           </p>
+         </div>
+       </div>
+ 
+       <!-- Acceso Controlado -->
+       <div class="amenidades__card">
+         <div class="amenidades__image">
+           <img src="assets/img/cumbres-2.jpg" alt="Acceso Controlado" />
+         </div>
+         <div class="amenidades__content">
+           <div class="amenidades__icon-container">
+             <i class="ri-lock-star-line"></i>
+           </div>
+           <h3 class="amenidades__title">Acceso Controlado</h3>
+           <p class="amenidades__description">
+             Tu bienestar es nuestra prioridad. <em>Cumbres del Sol</em> es un desarrollo con acceso controlado, brindando seguridad a nuestros residentes y visitantes.
+           </p>
+         </div>
+       </div>
+ 
+       <!-- Baños -->
+       <div class="amenidades__card">
+         <div class="amenidades__image">
+           <img src="assets/img/cumbres-4.jpg" alt="Baños" />
+         </div>
+         <div class="amenidades__content">
+           <div class="amenidades__icon-container">
+             <i class="ri-service-line"></i>
+           </div>
+           <h3 class="amenidades__title">Baños</h3>
+           <p class="amenidades__description">
+             Nuestras instalaciones cuentan con baños limpios y bien equipados en las áreas comunes, asegurando el máximo confort para residentes y visitantes.
+           </p>
+         </div>
+       </div>
+ 
+       <!-- Pet Friendly -->
+       <div class="amenidades__card">
+         <div class="amenidades__image">
+           <img src="assets/img/cumbres-3.jpg" alt="Pet Friendly" />
+         </div>
+         <div class="amenidades__content">
+           <div class="amenidades__icon-container">
+             <i class="ri-footprint-line"></i>
+           </div>
+           <h3 class="amenidades__title">Pet Friendly</h3>
+           <p class="amenidades__description">
+             Sabemos que tu mascota es parte de tu familia. Encuentra un entorno amigable para ellos, con espacios abiertos donde pueden correr, jugar y explorar con seguridad.
+           </p>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+    
+<!-- =============== DISEÑO Y PERSONALIZACIÓN SECTION =============== -->
+<section class="diseno-personalizado" id="diseno-personalizado">
+  <div class="diseno-personalizado__container">
+    <h2 class="diseno-personalizado__title">Diseño y Personalización de tu Hogar</h2>
+    <p class="diseno-personalizado__description">
+      En <em>Cumbres del Sol</em>, no solo adquieres un lote, sino la oportunidad de construir un hogar que se adapte a tu estilo de vida y necesidades. Con una variedad de opciones en materiales y combinaciones, puedes diseñar una casa única en armonía con la naturaleza.
+    </p>
+
+    <!-- Mapa de Lotes (Imagen grande) -->
+    <div class="diseno-personalizado__map-main">
+      <img src="assets/img/mapa.png" alt="Mapa General de Lotes en Cumbres del Sol" />
+    </div>
+
+    <div class="diseno-personalizado__main-grid">
+      <!-- Lotes con Diferentes Dimensiones (Container 1) -->
+      <div class="diseno-personalizado__feature-card">
+        <div class="diseno-personalizado__image">
+          <img src="assets/img/cumbres-5.jpg" alt="Lotes con Diferentes Dimensiones" />
+        </div>
+        <div class="diseno-personalizado__content">
+          <div class="diseno-personalizado__icon-container">
+            <i class="ri-landscape-line"></i>
+          </div>
+          <h3 class="diseno-personalizado__feature-title">Lotes con Diferentes Dimensiones</h3>
+          <p class="diseno-personalizado__feature-text">
+            Cada terreno en <em>Cumbres del Sol</em> cuenta con medidas variadas para ajustarse a distintos proyectos arquitectónicos y necesidades. Ya sea que busques un espacio más compacto y funcional o un terreno amplio para desarrollar una casa con áreas recreativas, aquí encontrarás la opción ideal.
+          </p>
+        </div>
+      </div>
+
+      <!-- Estilo de Construcción a tu Medida (Container 2) -->
+      <div class="diseno-personalizado__feature-card">
+        <div class="diseno-personalizado__image">
+          <img src="assets/img/cumbres-4.jpg" alt="Estilo de Construcción a tu Medida" />
+        </div>
+        <div class="diseno-personalizado__content">
+          <div class="diseno-personalizado__icon-container">
+            <i class="ri-home-gear-line"></i>
+          </div>
+          <h3 class="diseno-personalizado__feature-title">Estilo de Construcción a tu Medida</h3>
+          <p class="diseno-personalizado__feature-text">
+            Cada hogar puede ser diseñado con un enfoque personalizado, eligiendo entre diferentes materiales que ofrecen ventajas estéticas y funcionales.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Materiales de Construcción (Separada y ajustada) -->
+    <div class="diseno-personalizado__materials">
+      <h3 class="diseno-personalizado__materials-title">Materiales de Construcción</h3>
+      <div class="diseno-personalizado__materials-grid">
+        <div class="diseno-personalizado__material-item">
+          <div class="diseno-personalizado__material-icon">
+            <i class="ri-home-3-line"></i>
+          </div>
+          <h4 class="diseno-personalizado__material-name">Tabique</h4>
+          <p class="diseno-personalizado__material-desc">Construcción tradicional, resistente y con excelente aislamiento térmico.</p>
+        </div>
+        
+        <div class="diseno-personalizado__material-item">
+          <div class="diseno-personalizado__material-icon">
+            <i class="ri-home-4-line"></i>
+          </div>
+          <h4 class="diseno-personalizado__material-name">Madera</h4>
+          <p class="diseno-personalizado__material-desc">Un diseño cálido y acogedor, ideal para quienes buscan un entorno rústico y natural.</p>
+        </div>
+        
+        <div class="diseno-personalizado__material-item">
+          <div class="diseno-personalizado__material-icon">
+            <i class="ri-home-7-line"></i>
+          </div>
+          <h4 class="diseno-personalizado__material-name">Piedra</h4>
+          <p class="diseno-personalizado__material-desc">Solidez y elegancia que se integran perfectamente con el paisaje.</p>
+        </div>
+        
+        <div class="diseno-personalizado__material-item">
+          <div class="diseno-personalizado__material-icon">
+            <i class="ri-stack-line"></i>
+          </div>
+          <h4 class="diseno-personalizado__material-name">Combinaciones</h4>
+          <p class="diseno-personalizado__material-desc">Mezcla de materiales para lograr una estética equilibrada y un mayor aprovechamiento de sus propiedades.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Propuestas de Diseño (Carrusel mantenido) -->
+    <div class="diseno-personalizado__carousel-container">
+      <div class="diseno-personalizado__carousel">
+        <div class="diseno-personalizado__carousel-slide active">
+          <img src="assets/img/cumbres-4.jpg" alt="Propuesta de Diseño 1" />
+          <div class="diseno-personalizado__carousel-caption">Modelo Contemporáneo</div>
+        </div>
+        <div class="diseno-personalizado__carousel-slide">
+          <img src="assets/img/cumbres-3.jpg" alt="Propuesta de Diseño 2" />
+          <div class="diseno-personalizado__carousel-caption">Diseño Mediterráneo</div>
+        </div>
+        <div class="diseno-personalizado__carousel-slide">
+          <img src="assets/img/cumbres-2.jpg" alt="Propuesta de Diseño 3" />
+          <div class="diseno-personalizado__carousel-caption">Estilo Minimalista</div>
+        </div>
+        
+        <button class="diseno-personalizado__carousel-btn prev">
+          <i class="ri-arrow-left-s-line"></i>
+        </button>
+        <button class="diseno-personalizado__carousel-btn next">
+          <i class="ri-arrow-right-s-line"></i>
+        </button>
+        
+        <div class="diseno-personalizado__carousel-indicator">
+          <span class="diseno-personalizado__carousel-dot active" data-slide="0"></span>
+          <span class="diseno-personalizado__carousel-dot" data-slide="1"></span>
+          <span class="diseno-personalizado__carousel-dot" data-slide="2"></span>
+        </div>
+      </div>
+      
+      <div class="diseno-personalizado__carousel-content">
+        <div class="diseno-personalizado__icon">
+          <i class="ri-palette-line"></i>
+        </div>
+        <h3 class="diseno-personalizado__feature-title">Propuestas de Diseño</h3>
+        <p class="diseno-personalizado__feature-text">
+          Te ofrecemos diferentes opciones arquitectónicas basadas en la combinación de materiales, optimizando distribución, iluminación y funcionalidad.
+        </p>
+        <div class="diseno-personalizado__badges">
+          <span class="diseno-personalizado__badge"><i class="ri-home-5-line"></i> Contemporáneo</span>
+          <span class="diseno-personalizado__badge"><i class="ri-home-4-line"></i> Mediterráneo</span>
+          <span class="diseno-personalizado__badge"><i class="ri-home-3-line"></i> Minimalista</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== SECCIÓN CONTACTO =============== -->
+<section class="cumbres-contact" id="cumbres-contact">
+  <div class="cumbres-contact__container">
+    <h2 class="cumbres-contact__title">Contacto</h2>
+    <p class="cumbres-contact__description">
+      En <span class="cumbres-contact__highlight">Cumbres del Sol</span>, estamos listos para asesorarte en cada paso de tu inversión. Ponte en contacto con nosotros a través de las siguientes opciones:
+    </p>
+
+    <div class="cumbres-contact__options">
+      <!-- Opción 1: Agendar Cita -->
+      <div class="cumbres-contact__card" id="cumbres-schedule">
+        <div class="cumbres-contact__card-icon">
+          <i class="ri-calendar-line"></i>
+        </div>
+        <h3 class="cumbres-contact__card-title">Agendar una Cita</h3>
+        <p class="cumbres-contact__card-description">
+          Programa una visita personalizada para conocer los lotes disponibles y resolver todas tus dudas.
+        </p>
+        <button class="cumbres-contact__card-button" id="cumbres-schedule-btn">
+          Agendar ahora
+        </button>
+      </div>
+
+      <!-- Opción 2: WhatsApp -->
+      <div class="cumbres-contact__card" id="cumbres-whatsapp">
+        <div class="cumbres-contact__card-icon">
+          <i class="ri-whatsapp-line"></i>
+        </div>
+        <h3 class="cumbres-contact__card-title">WhatsApp</h3>
+        <p class="cumbres-contact__card-description">
+          Comunícate de manera rápida y directa con nuestro equipo para recibir atención inmediata.
+        </p>
+        <button class="cumbres-contact__card-button" id="cumbres-whatsapp-btn">
+          Contactar
+        </button>
+      </div>
+
+      <!-- Opción 3: Planes de Financiamiento -->
+      <div class="cumbres-contact__card" id="cumbres-financing">
+        <div class="cumbres-contact__card-icon">
+          <i class="ri-money-dollar-circle-line"></i>
+        </div>
+        <h3 class="cumbres-contact__card-title">Financiamiento</h3>
+        <p class="cumbres-contact__card-description">
+          Te ofrecemos opciones flexibles para adquirir tu lote sin comprometer tu estabilidad financiera.
+        </p>
+        <button class="cumbres-contact__card-button" id="cumbres-financing-btn">
+          Ver opciones
+        </button>
+      </div>
+
+      <!-- Opción 4: Boletín Informativo -->
+      <div class="cumbres-contact__card" id="cumbres-newsletter">
+        <div class="cumbres-contact__card-icon">
+          <i class="ri-mail-send-line"></i>
+        </div>
+        <h3 class="cumbres-contact__card-title">Boletín Informativo</h3>
+        <p class="cumbres-contact__card-description">
+          Suscríbete para recibir actualizaciones sobre el proyecto, promociones y novedades.
+        </p>
+        <button class="cumbres-contact__card-button" id="cumbres-newsletter-btn">
+          Suscribirme
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para Agendar Cita -->
+  <div class="cumbres-modal" id="cumbres-schedule-modal">
+    <div class="cumbres-modal__content">
+      <span class="cumbres-modal__close" id="cumbres-schedule-close">&times;</span>
+      <h3 class="cumbres-modal__title">Agenda tu visita personalizada</h3>
+      <p class="cumbres-modal__description">
+        Te mostraremos en detalle las opciones de construcción y los beneficios de nuestra comunidad.
+      </p>
+      
+      <form class="cumbres-modal__form">
+        <div class="cumbres-modal__form-group">
+          <label for="cumbres-name" class="cumbres-modal__label">Nombre completo</label>
+          <input type="text" id="cumbres-name" class="cumbres-modal__input" placeholder="Ingresa tu nombre" required>
+        </div>
+        
+        <div class="cumbres-modal__form-group">
+          <label for="cumbres-email" class="cumbres-modal__label">Correo electrónico</label>
+          <input type="email" id="cumbres-email" class="cumbres-modal__input" placeholder="correo@ejemplo.com" required>
+        </div>
+        
+        <div class="cumbres-modal__form-group">
+          <label for="cumbres-phone" class="cumbres-modal__label">Teléfono</label>
+          <input type="tel" id="cumbres-phone" class="cumbres-modal__input" placeholder="Tu número de contacto" required>
+        </div>
+        
+        <div class="cumbres-modal__form-group">
+          <label for="cumbres-date" class="cumbres-modal__label">Fecha de visita</label>
+          <input type="date" id="cumbres-date" class="cumbres-modal__input" required>
+        </div>
+        
+        <div class="cumbres-modal__form-group">
+          <label for="cumbres-time" class="cumbres-modal__label">Hora preferida</label>
+          <select id="cumbres-time" class="cumbres-modal__select" required>
+            <option value="" disabled selected>Selecciona una hora</option>
+            <option value="10:00">10:00 AM</option>
+            <option value="11:00">11:00 AM</option>
+            <option value="12:00">12:00 PM</option>
+            <option value="13:00">1:00 PM</option>
+            <option value="16:00">4:00 PM</option>
+            <option value="17:00">5:00 PM</option>
+          </select>
+        </div>
+        
+        <button type="submit" class="cumbres-modal__submit">Confirmar cita</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal para WhatsApp -->
+  <div class="cumbres-modal" id="cumbres-whatsapp-modal">
+    <div class="cumbres-modal__content">
+      <span class="cumbres-modal__close" id="cumbres-whatsapp-close">&times;</span>
+      <h3 class="cumbres-modal__title">Contacto directo vía WhatsApp</h3>
+      <div class="cumbres-modal__whatsapp">
+        <div class="cumbres-modal__whatsapp-info">
+          <p class="cumbres-modal__description">
+            Nuestro equipo de asesores está listo para atenderte de inmediato.
+          </p>
+          <p class="cumbres-modal__schedule">
+            <i class="ri-time-line"></i> Horario de atención: Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 10:00 AM - 2:00 PM
+          </p>
+          <a href="https://wa.me/1234567890" target="_blank" class="cumbres-modal__whatsapp-button">
+            <i class="ri-whatsapp-line"></i> Iniciar chat ahora
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para Planes de Financiamiento -->
+  <div class="cumbres-modal" id="cumbres-financing-modal">
+    <div class="cumbres-modal__content cumbres-modal__content--financing">
+      <span class="cumbres-modal__close" id="cumbres-financing-close">&times;</span>
+      <div class="cumbres-financing">
+        <div class="cumbres-financing__header">
+          <h3 class="cumbres-financing__title">Planes de Financiamiento</h3>
+          <p class="cumbres-financing__subtitle">Soluciones flexibles para tu inversión</p>
+        </div>
+        
+        <div class="cumbres-financing__options">
+          <div class="cumbres-financing__card">
+            <div class="cumbres-financing__card-header">
+              <i class="ri-coin-line cumbres-financing__icon"></i>
+              <h4 class="cumbres-financing__card-title">Plan Básico</h4>
+            </div>
+            <ul class="cumbres-financing__list">
+              <li class="cumbres-financing__item">
+                <i class="ri-check-line"></i> Enganche desde 20%
+              </li>
+              <li class="cumbres-financing__item">
+                <i class="ri-check-line"></i> Mensualidades fijas hasta 3 años
+              </li>
+              <li class="cumbres-financing__item">
+                <i class="ri-check-line"></i> Sin revisión de buró de crédito
+              </li>
+            </ul>
+          </div>
+          
+          <div class="cumbres-financing__card cumbres-financing__card--featured">
+            <div class="cumbres-financing__tag">Recomendado</div>
+            <div class="cumbres-financing__card-header">
+              <i class="ri-building-line cumbres-financing__icon"></i>
+              <h4 class="cumbres-financing__card-title">Plan Integral</h4>
+            </div>
+            <ul class="cumbres-financing__list">
+              <li class="cumbres-financing__item">
+                <i class="ri-check-line"></i> Lote + Construcción en un solo financiamiento
+              </li>
+              <li class="cumbres-financing__item">
+                <i class="ri-check-line"></i> Tasas preferenciales
+              </li>
+              <li class="cumbres-financing__item">
+                <i class="ri-check-line"></i> Plazos hasta 15 años
+              </li>
+              <li class="cumbres-financing__item">
+                <i class="ri-check-line"></i> Asesoría personalizada
+              </li>
+            </ul>
+          </div>
+          
+          <div class="cumbres-financing__card">
+            <div class="cumbres-financing__card-header">
+              <i class="ri-bank-line cumbres-financing__icon"></i>
+              <h4 class="cumbres-financing__card-title">Plan Empresarial</h4>
+            </div>
+            <ul class="cumbres-financing__list">
+              <li class="cumbres-financing__item">
+                <i class="ri-check-line"></i> Beneficios fiscales
+              </li>
+              <li class="cumbres-financing__item">
+                <i class="ri-check-line"></i> Inversión a largo plazo
+              </li>
+              <li class="cumbres-financing__item">
+                <i class="ri-check-line"></i> Opciones para desarrolladores
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="cumbres-financing__contact">
+          <p class="cumbres-financing__contact-text">Agenda una asesoría personalizada para encontrar el plan ideal para ti</p>
+          <button class="cumbres-financing__contact-button" id="cumbres-financing-adviser-btn">
+            <i class="ri-user-line"></i> Contactar a un asesor
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para Newsletter -->
+  <div class="cumbres-modal" id="cumbres-newsletter-modal">
+    <div class="cumbres-modal__content">
+      <span class="cumbres-modal__close" id="cumbres-newsletter-close">&times;</span>
+      <h3 class="cumbres-modal__title">Suscríbete a nuestro boletín</h3>
+      <div class="cumbres-newsletter">
+        <p class="cumbres-modal__description">
+          Mantente informado sobre las últimas novedades y promociones exclusivas.
+        </p>
+        
+        <div class="cumbres-newsletter__benefits">
+          <h4 class="cumbres-newsletter__benefits-title">Ventajas de estar suscrito:</h4>
+          <ul class="cumbres-newsletter__list">
+            <li class="cumbres-newsletter__item">
+              <i class="ri-star-line"></i> Ofertas exclusivas para suscriptores
+            </li>
+            <li class="cumbres-newsletter__item">
+              <i class="ri-notification-line"></i> Noticias anticipadas sobre el proyecto
+            </li>
+            <li class="cumbres-newsletter__item">
+              <i class="ri-calendar-event-line"></i> Invitaciones a eventos especiales
+            </li>
+            <li class="cumbres-newsletter__item">
+              <i class="ri-price-tag-3-line"></i> Promociones de temporada
+            </li>
+          </ul>
+        </div>
+        
+        <form class="cumbres-newsletter__form">
+          <div class="cumbres-newsletter__input-group">
+            <input type="email" class="cumbres-newsletter__input" placeholder="Tu correo electrónico" required>
+            <button type="submit" class="cumbres-newsletter__button">
+              Suscribirme <i class="ri-arrow-right-line"></i>
+            </button>
+          </div>
+          <div class="cumbres-newsletter__privacy">
+            <input type="checkbox" id="cumbres-privacy" required>
+            <label for="cumbres-privacy">Acepto recibir comunicaciones y la política de privacidad</label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+<!-- =============== FOOTER =============== -->
+<footer class="cumbres-footer">
+  <div class="cumbres-footer__container">
+    <div class="cumbres-footer__content">
+      <!-- Logo y descripción -->
+      <div class="cumbres-footer__group">
+        <h3 class="cumbres-footer__logo">CUMBRES DEL SOL</h3>
+        <p class="cumbres-footer__description">
+          Descubre nuestros exclusivos espacios diseñados para brindarte la mejor experiencia con vistas panorámicas inigualables.
+        </p>
+        <div class="cumbres-footer__social">
+          <a href="#" class="cumbres-footer__social-link">
+            <i class="ri-facebook-fill"></i>
+          </a>
+          <a href="#" class="cumbres-footer__social-link">
+            <i class="ri-instagram-line"></i>
+          </a>
+          <a href="#" class="cumbres-footer__social-link">
+            <i class="ri-twitter-x-fill"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Enlaces Rápidos -->
+      <div class="cumbres-footer__group">
+        <h3 class="cumbres-footer__title">Enlaces Rápidos</h3>
+        <ul class="cumbres-footer__links">
+          <li>
+            <a href="#" class="cumbres-footer__link">Inicio</a>
+          </li>
+          <li>
+            <a href="#cumbres-about" class="cumbres-footer__link">Acerca</a>
+          </li>
+          <li>
+            <a href="#cumbres-mapa-section" class="cumbres-footer__link">Ubicación</a>
+          </li>
+          <li>
+            <a href="#diseno-personalizado" class="cumbres-footer__link">Diseño</a>
+          </li>
+          <li>
+            <a href="#cumbres-contact" class="cumbres-footer__link">Contacto</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Información de Contacto con enlaces funcionales -->
+      <div class="cumbres-footer__group">
+        <h3 class="cumbres-footer__title">Contáctanos</h3>
+        <ul class="cumbres-footer__info">
+          <li class="cumbres-footer__info-item">
+            <a href="https://maps.google.com/?q=Cumbres+Del+Sol,México" target="_blank" class="cumbres-footer__contact-link">
+              <i class="ri-map-pin-line cumbres-footer__info-icon"></i>
+              <p class="cumbres-footer__info-text">
+                Av. Principal #123<br>Cumbres Del Sol, México
+              </p>
+            </a>
+          </li>
+          <li class="cumbres-footer__info-item">
+            <a href="tel:+525551234567" class="cumbres-footer__contact-link">
+              <i class="ri-phone-line cumbres-footer__info-icon"></i>
+              <p class="cumbres-footer__info-text">
+                +52 555 123 4567
+              </p>
+            </a>
+          </li>
+          <li class="cumbres-footer__info-item">
+            <a href="mailto:info@cumbresdelsol.com" class="cumbres-footer__contact-link">
+              <i class="ri-mail-line cumbres-footer__info-icon"></i>
+              <p class="cumbres-footer__info-text">
+                info@cumbresdelsol.com
+              </p>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Horarios de Atención -->
+      <div class="cumbres-footer__group">
+        <h3 class="cumbres-footer__title">Horarios de Atención</h3>
+        <div class="cumbres-footer__schedule">
+          <div class="cumbres-footer__schedule-item">
+            <span class="cumbres-footer__schedule-day">Lunes - Viernes:</span>
+            <span class="cumbres-footer__schedule-hours">9:00 - 19:00</span>
+          </div>
+          <div class="cumbres-footer__schedule-item">
+            <span class="cumbres-footer__schedule-day">Sábados:</span>
+            <span class="cumbres-footer__schedule-hours">10:00 - 16:00</span>
+          </div>
+          <div class="cumbres-footer__schedule-item">
+            <span class="cumbres-footer__schedule-day">Domingos:</span>
+            <span class="cumbres-footer__schedule-hours">Solo citas previas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cumbres-footer__bottom">
+      <p class="cumbres-footer__copy">
+        © 2025 Cumbres Del Sol. Todos los derechos reservados
+      </p>
+      <div class="cumbres-footer__terms">
+        <a href="#" class="cumbres-footer__terms-link">Términos y Condiciones</a>
+        <a href="#" class="cumbres-footer__terms-link">Política de Privacidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+</section>
+
+   </main>
+
+   <!--=============== SWIPER JS ===============-->
+   <script src="../assets/js/swiper-bundle.min.js"></script>
+
+   <!--=============== LEAFLET JS ===============-->
+   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+   <!--=============== MAIN JS ===============-->
+   <script src="../assets/js/cumbres.js"></script>
+
+</body>
+</html>
