@@ -3,7 +3,6 @@ name: Deploy static content to Pages
 on:
   push:
     branches: ["Demo"]
-
   workflow_dispatch:
 
 permissions:
@@ -26,6 +25,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true  # Asegúrate de habilitar Pages explícitamente
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
