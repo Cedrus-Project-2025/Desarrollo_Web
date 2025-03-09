@@ -69,8 +69,51 @@ def home():
         'about_imagen1': 'static/img/home-1.jpg',
         'about_imagen2': 'static/img/home-2.jpg'
     }
+    
+    # ==================== MAPA ====================
+    mapa_data = {
+        'mapa_subtitulo': 'Ubicaciones',
+        'mapa_titulo': 'Conoce nuestros proyectos',
+        'mapa_zoom_inicial': 5,
+        'mapa_centro_latitud': 23.634501,
+        'mapa_centro_longitud': -102.552784,
+        'marcadores': [
+            {
+                'nombre': 'Residencial Cumbres',
+                'latitud': 25.686613,
+                'longitud': -100.355682,
+                'descripcion': 'Desarrollo residencial de lujo en Monterrey',
+                'imagen': 'static/img/home-1.jpg',
+                'link': 'https://www.google.com/maps?q=25.686613,-100.355682'
+            },
+            {
+                'nombre': 'Bosques Modernos',
+                'latitud': 19.432608,
+                'longitud': -99.133209,
+                'descripcion': 'Casas sustentables en Ciudad de México',
+                'imagen': 'static/img/home-2.jpg',
+                'link': 'https://www.google.com/maps?q=19.432608,-99.133209'
+            },
+            {
+                'nombre': 'Lomas del Mar',
+                'latitud': 20.634980,
+                'longitud': -105.230003,
+                'descripcion': 'Villas frente al mar en Puerto Vallarta',
+                'imagen': 'static/img/home-3.jpg',
+                'link': 'https://www.google.com/maps?q=20.634980,-105.230003'
+            },
+            {
+                'nombre': 'Sierra Vista',
+                'latitud': 28.632996,
+                'longitud': -106.069099,
+                'descripcion': 'Residencias de montaña en Chihuahua',
+                'imagen': 'static/img/home-4.jpg',
+                'link': 'https://www.google.com/maps?q=28.632996,-106.069099'
+            }
+        ]
+    }
 
-    return render_template('index.html', home=home_data, about=about_data)
+    return render_template('index.html', home=home_data, about=about_data, mapa=mapa_data)
 
 # Si tienes más secciones en 'sections/', puedes definir más rutas
 @app.route('/projects/cumbres')

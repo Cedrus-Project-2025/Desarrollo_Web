@@ -419,58 +419,36 @@ document.addEventListener('DOMContentLoaded', () => {
     setMinDates();
 });
 /*=============== MAP FUNCTIONALITY ===============*/
-// Función para inicializar el mapa de residencias
 function initializeResidenciasMap() {
-    // Configuración inicial del mapa
-    const map = L.map('residencias-interactive-map', {
-        scrollWheelZoom: false, // Desactivar zoom con scroll
-        dragging: true, // Permitir arrastrar
-        touchZoom: true, // Zoom táctil activado
-        doubleClickZoom: true, // Zoom con doble clic activado
-        zoomControl: true // Controles de zoom activados
-    }).setView([23.6345, -102.5528], 5);
+    const mapContainer = document.getElementById('residencias-interactive-map');
     
-    // Forzar la desactivación del scroll
+    const zoom = parseInt(mapContainer.getAttribute('data-zoom'));
+    const centerLat = parseFloat(mapContainer.getAttribute('data-center-lat'));
+    const centerLng = parseFloat(mapContainer.getAttribute('data-center-lng'));
+    const marcadores = JSON.parse(mapContainer.getAttribute('data-marcadores'));
+
+    const map = L.map('residencias-interactive-map', {
+        scrollWheelZoom: false,
+        dragging: true,
+        touchZoom: true,
+        doubleClickZoom: true,
+        zoomControl: true
+    }).setView([centerLat, centerLng], zoom);
+
     map.scrollWheelZoom.disable();
 
-    // Prevenir que se active nuevamente el scroll con clics
     map.on('click', function () {
         map.scrollWheelZoom.disable();
     });
 
-    // Habilitar la interacción con el mapa cuando el usuario haga clic en él
-    document.querySelector('.residencias-interactive-map').addEventListener('click', function () {
+    mapContainer.addEventListener('click', function () {
         this.classList.add('active');
     });
 
-    // Agregar capa de OpenStreetMap
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
-    
-    // Datos de ubicaciones de residencias
-    const residenciasLocations = [
-        {
-            name: "Residencia CDMX",
-            coords: [19.4326, -99.1332],
-            img: "https://th.bing.com/th/id/R.db7b7f51a8816ff9c08e2342598ed4cb?rik=JI89URI6OpQf6g&pid=ImgRaw&r=0",
-            link: "https://www.google.com/maps?q=19.4326,-99.1332"
-        },
-        {
-            name: "Residencia Guadalajara",
-            coords: [20.6597, -103.3496],
-            img: "https://th.bing.com/th/id/R.db7b7f51a8816ff9c08e2342598ed4cb?rik=JI89URI6OpQf6g&pid=ImgRaw&r=0",
-            link: "https://www.google.com/maps?q=20.6597,-103.3496"
-        },
-        {
-            name: "Residencia Monterrey",
-            coords: [25.6866, -100.3161],
-            img: "https://th.bing.com/th/id/R.db7b7f51a8816ff9c08e2342598ed4cb?rik=JI89URI6OpQf6g&pid=ImgRaw&r=0",
-            link: "https://www.google.com/maps?q=25.6866,-100.3161"
-        }
-    ];
-    
-    // Personalizar ícono del marcador con Remixicon como base 
+
     const customIcon = '<i class="ri-map-pin-fill" style="font-size: 36px; color:rgb(0, 0, 0);"></i>';
     const residenciasIcon = L.divIcon({
         html: customIcon,
@@ -479,47 +457,25 @@ function initializeResidenciasMap() {
         iconAnchor: [15, 42],
         popupAnchor: [0, -42]
     });
-    
-    // Agregar marcadores con popups personalizados
-    residenciasLocations.forEach(loc => {
-        L.marker(loc.coords, {icon: residenciasIcon})
+
+    marcadores.forEach(loc => {
+        L.marker([loc.latitud, loc.longitud], { icon: residenciasIcon })
             .addTo(map)
             .bindPopup(
                 `<div class="residencias-popup-content">
-                    <b>${loc.name}</b>
-                    <img src="${loc.img}" alt="${loc.name}">
+                    <b>${loc.nombre}</b>
+                    <p>${loc.descripcion}</p>
+                    <img src="${loc.imagen}" alt="${loc.nombre}" style="width: 100%; margin-top: 5px;">
                     <a href="${loc.link}" target="_blank"><i class="ri-road-map-line"></i> Cómo llegar</a>
                 </div>`
             );
     });
-    
-    // Cargar y agregar el SVG del mapa de México
-    fetch('mx.svg')
-        .then(response => response.text())
-        .then(svgText => {
-            const parser = new DOMParser();
-            const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
-            const svgElement = svgDoc.documentElement;
-            
-            // Agregar eventos a los estados
-            svgElement.querySelectorAll('path').forEach(path => {
-                path.addEventListener('click', function() {
-                    alert('Has seleccionado el estado: ' + this.id);
-                });
-            });
-            
-            // Agregar el SVG al mapa
-            L.svgOverlay(svgElement, [[14, -118], [32, -86]]).addTo(map);
-        })
-        .catch(error => console.error('Error cargando el mapa de México:', error));
 
-    // Agregar control de zoom personalizado en una posición específica
     map.zoomControl.setPosition('topright');
 }
 
-// Inicializar el mapa cuando el DOM esté listo
+// Espera a que el DOM esté listo
 document.addEventListener('DOMContentLoaded', initializeResidenciasMap);
-
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 const sections = document.querySelectorAll('section[id]');

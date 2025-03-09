@@ -50,75 +50,86 @@ const cumbresHomeSwiper = new Swiper('.cumbres-home__swiper', {
 
 /*=============== MAPA INTERACTIVO ===============*/
 document.addEventListener('DOMContentLoaded', function () {
-    const map = L.map('cumbres-interactive-map', {
-        scrollWheelZoom: false, // Deshabilitado al inicio
-        dragging: true,
-        touchZoom: true,
-        doubleClickZoom: true,
-        zoomControl: true
-    }).setView([20.35, -98.4823], 10);
+  const map = L.map('cumbres-interactive-map', {
+      scrollWheelZoom: false, // Deshabilitado al inicio
+      dragging: true,
+      touchZoom: true,
+      doubleClickZoom: true,
+      zoomControl: true
+  }).setView([20.35, -98.4823], 10);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
 
-    const cumbresLocations = [
-        {
-            name: "Cumbres del Sol - Campestre",
-            coords: [20.0784, -98.4823],
-            img: "https://th.bing.com/th/id/R.db7b7f51a8816ff9c08e2342598ed4cb?rik=JI89URI6OpQf6g&pid=ImgRaw&r=0",
-            link: "https://www.google.com/maps?q=20.0784,-98.4823",
-            description: "Desarrollo campestre con lotes residenciales en un entorno natural incomparable."
-        }
-    ];
+  const cumbresLocations = [
+      {
+          name: "Cumbres del Sol - Campestre",
+          coords: [20.0784, -98.4823],
+          img: "https://th.bing.com/th/id/R.db7b7f51a8816ff9c08e2342598ed4cb?rik=JI89URI6OpQf6g&pid=ImgRaw&r=0",
+          link: "https://www.google.com/maps?q=20.0784,-98.4823",
+          description: "Desarrollo campestre con lotes residenciales en un entorno natural incomparable."
+      }
+  ];
 
-    const cumbresIcon = L.divIcon({
-        html: '<i class="ri-map-pin-fill" style="font-size: 36px; color:rgb(0, 0, 0);"></i>',
-        className: 'custom-div-icon',
-        iconSize: [30, 42],
-        iconAnchor: [15, 42],
-        popupAnchor: [0, -42]
-    });
+  const cumbresIcon = L.divIcon({
+      html: '<i class="ri-map-pin-fill" style="font-size: 36px; color:rgb(0, 0, 0);"></i>',
+      className: 'custom-div-icon',
+      iconSize: [30, 42],
+      iconAnchor: [15, 42],
+      popupAnchor: [0, -42]
+  });
 
-    cumbresLocations.forEach(loc => {
-        L.marker(loc.coords, { icon: cumbresIcon }).addTo(map)
-            .bindPopup(`
-                <div class="cumbres-popup-content">
-                    <b>${loc.name}</b>
-                    <img src="${loc.img}" alt="${loc.name}">
-                    <p>${loc.description}</p>
-                    <a href="${loc.link}" target="_blank"><i class="ri-road-map-line"></i> Cómo llegar</a>
-                </div>
-            `);
-    });
+  cumbresLocations.forEach(loc => {
+      L.marker(loc.coords, { icon: cumbresIcon }).addTo(map)
+          .bindPopup(`
+              <div class="cumbres-popup-content">
+                  <b>${loc.name}</b>
+                  <img src="${loc.img}" alt="${loc.name}">
+                  <p>${loc.description}</p>
+                  <a href="${loc.link}" target="_blank"><i class="ri-road-map-line"></i> Cómo llegar</a>
+              </div>
+          `);
+  });
 
-    L.polygon([
-        [20.0800, -98.4850],
-        [20.0850, -98.4800],
-        [20.0830, -98.4750],
-        [20.0770, -98.4750],
-        [20.0750, -98.4790],
-        [20.0780, -98.4840]
-    ], {
-        color: '#006600',
-        fillColor: '#88cc88',
-        fillOpacity: 0.4,
-        weight: 2
-    }).addTo(map).bindPopup("Desarrollo Cumbres del Sol");
+  L.polygon([
+      [20.0800, -98.4850],
+      [20.0850, -98.4800],
+      [20.0830, -98.4750],
+      [20.0770, -98.4750],
+      [20.0750, -98.4790],
+      [20.0780, -98.4840]
+  ], {
+      color: '#006600',
+      fillColor: '#88cc88',
+      fillOpacity: 0.4,
+      weight: 2
+  }).addTo(map).bindPopup("Desarrollo Cumbres del Sol");
 
-    // Habilitar el zoom con scroll cuando el usuario haga clic en el mapa
-    const mapContainer = document.getElementById('cumbres-interactive-map');
+  // Añadir un botón de control para activar/desactivar el zoom con scroll
+  const zoomControlButton = document.createElement('div');
+  zoomControlButton.className = 'zoom-control-button';
+  zoomControlButton.innerHTML = '<button id="toggle-zoom">Activar zoom con scroll</button>';
+  document.querySelector('#cumbres-interactive-map').parentNode.insertBefore(zoomControlButton, document.querySelector('#cumbres-interactive-map').nextSibling);
 
-    mapContainer.addEventListener('click', () => {
-        map.scrollWheelZoom.enable();
-    });
+  let zoomActive = false;
+  const toggleButton = document.getElementById('toggle-zoom');
 
-    // Deshabilitar el zoom cuando el mouse salga del mapa
-    mapContainer.addEventListener('mouseleave', () => {
-        map.scrollWheelZoom.disable();
-    });
+  toggleButton.addEventListener('click', function() {
+      if (zoomActive) {
+          map.scrollWheelZoom.disable();
+          zoomActive = false;
+          toggleButton.textContent = 'Activar zoom con scroll';
+      } else {
+          map.scrollWheelZoom.enable();
+          zoomActive = true;
+          toggleButton.textContent = 'Desactivar zoom con scroll';
+      }
+  });
+
+  // El mapa ya no activa automáticamente el zoom con scroll al hacer clic
+  // Solo se activará/desactivará mediante el botón
 });
-
 /*=============== DISEÑO ===============*/
 // Carrusel de propuestas de diseño
 document.addEventListener('DOMContentLoaded', function() {

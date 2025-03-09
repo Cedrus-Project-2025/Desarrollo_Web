@@ -499,10 +499,17 @@
 <!--==================== MAPA ====================-->
 <section id="residencias-mapa-section" class="residencias-mapa-container">
     <div class="residencias-mapa-content">
-        <span class="section__subtitle">Ubicaciones</span>
-        <h2 class="contact-center__title">Conoce nuestros proyectos</h2>
+        <span class="section__subtitle">{{ mapa.mapa_subtitulo }}</span>
+        <h2 class="contact-center__title">{{ mapa.mapa_titulo }}</h2>
     </div>
-    <div id="residencias-interactive-map" class="residencias-interactive-map"></div>
+    
+    <div id="residencias-interactive-map"
+         class="residencias-interactive-map"
+         data-zoom="{{ mapa.mapa_zoom_inicial }}"
+         data-center-lat="{{ mapa.mapa_centro_latitud }}"
+         data-center-lng="{{ mapa.mapa_centro_longitud }}"
+         data-marcadores='{{ mapa.marcadores | tojson }}'>
+    </div>
 </section>
 
 <!--==================== FOOTER ====================-->
