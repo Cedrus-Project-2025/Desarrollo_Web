@@ -70,137 +70,132 @@
 
       <!--==================== MAIN ====================-->
       <main class="main">
-         <!--==================== HOME ====================-->
-         <section class="home" id="home-hm">
-            <div class="home__swiper swiper">
-               <div class="swiper-wrapper">
-                  <article class="home__article swiper-slide">
-                     <div class="home__data container">
-                        <h3 class="home__subtittle" data-swiper-parallax="500">Architecture</h3>
-                        <h1 class="home__tittle" data-swiper-parallax="400">{{ valores.subtitulo }}<br> Lake house</h1>
-                        <a href="{{ url_for('cumbres')}}" class="home__button" data-swiper-parallax="300">
-                           {{ valores.titulo }} <i class="ri-arrow-right-s-line"></i>
-                        </a>
-                     </div>
-
-                     <img src="static/img/home-1.jpg" alt="image" class="home__img" data-swiper-parallax="-300">
-                  </article>
-
-                  <article class="home__article swiper-slide">
-                     <div class="home__data container">
-                        <h3 class="home__subtittle" data-swiper-parallax="500">Architecture</h3>
-                        <h1 class="home__tittle" data-swiper-parallax="400">Luxury House <br> In The Forest</h1>
-                        <a href="#" class="home__button" data-swiper-parallax="300">
-                           See Project <i class="ri-arrow-right-s-line"></i>
-                        </a>
-                     </div>
-
-                     <img src="static/img/home-2.jpg" alt="image" class="home__img" data-swiper-parallax="-300">
-                  </article>
-
-                  <article class="home__article swiper-slide">
-                     <div class="home__data container">
-                        <h3 class="home__subtittle" data-swiper-parallax="500">Architecture</h3>
-                        <h1 class="home__tittle" data-swiper-parallax="400">Modern House <br> On The Rock</h1>
-                        <a href="#" class="home__button" data-swiper-parallax="300">
-                           See Project <i class="ri-arrow-right-s-line"></i>
-                        </a>
-                     </div>
-
-                     <img src="static/img/home-3.jpg" alt="" class="home__img" data-swiper-parallax="-300">
-                  </article>
-
-                  <article class="home__article swiper-slide">
-                     <div class="home__data container">
-                        <h3 class="home__subtittle" data-swiper-parallax="500">Architecture</h3>
-                        <h1 class="home__tittle" data-swiper-parallax="400">Luxury <br> Curved House</h1>
-                        <a href="#" class="home__button" data-swiper-parallax="300">
-                           See Project <i class="ri-arrow-right-s-line"></i>
-                        </a>
-                     </div>
-
-                     <img src="static/img/home-4.jpg" alt="" class="home__img" data-swiper-parallax="-300">
-                  </article>
-               </div>
-            </div>
-
-            <div class="home__content">
-               <div class="home__social">
-                  <a href="#" target="_blank" class="home__social-link">
-                     <i class="ri-facebook-circle-line"></i>
-                  </a>
-
-                  <a href="#" target="_blank" class="home__social-link">
-                     <i class="ri-instagram-line"></i>
-                  </a>
-
-                  <a href="#" target="_blank" class="home__social-link">
-                     <i class="ri-twitter-x-line"></i>
-                  </a>
-               </div>
-
-               <!--==== If we need pagination ====-->
-               <div class="swiper-pagination"></div>
-
-               <!--==== Navigation buttons ====-->
-               <div class="swiper-navigation">
-                  <div class="swiper-button-prev">
-                     <i class="ri-arrow-left-s-line"></i> 
-                  </div>
-                  
-                  <div class="swiper-button-next">
-                     <i class="ri-arrow-right-s-line"></i>
-                  </div>
-               </div>
-
-
-            </div>
-            
-         </section>
-      </main>
-
-        <!--==================== ABOUT ====================-->
-<section class="about section" id="about">
-    <div class="about__container container">
-       <span class="section__subtitle">Sobre Nosotros</span>
-       <h2 class="section__title">Construyendo Sueños <br> Desde 2010</h2>
-       
-       <div class="about__content">
-          <div class="about__data">
-             <p class="about__description">
-                Somos una empresa líder en el desarrollo de residencias exclusivas, 
-                comprometidos con la excelencia y la innovación en cada proyecto. 
-                Con presencia en las principales ciudades de la república, 
-                transformamos espacios en hogares excepcionales.
-             </p>
- 
-             <div class="about__stats">
-                <div class="about__stat">
-                   <h3 class="about__stat-number">13+</h3>
-                   <p class="about__stat-text">Años de Experiencia</p>
-                </div>
- 
-                <div class="about__stat">
-                   <h3 class="about__stat-number">200+</h3>
-                   <p class="about__stat-text">Proyectos Completados</p>
-                </div>
- 
-                <div class="about__stat">
-                   <h3 class="about__stat-number">15</h3>
-                   <p class="about__stat-text">Estados con Presencia</p>
-                </div>
+      <!--==================== HOME ====================-->
+<section class="home" id="home-hm">
+    <div class="home__swiper swiper">
+       <div class="swiper-wrapper">
+          <article class="home__article swiper-slide">
+             <div class="home__data container">
+                <h3 class="home__subtittle" data-swiper-parallax="500">{{ home.slide1_subtitulo }}</h3>
+                <h1 class="home__tittle" data-swiper-parallax="400">{{ home.slide1_titulo_parte1 }}<br> {{ home.slide1_titulo_parte2 }}</h1>
+                <a href="{{ url_for(home.ruta_cumbres) }}" class="home__button" data-swiper-parallax="300">
+                   {{ home.slide1_boton_texto }} <i class="ri-arrow-right-s-line"></i>
+                </a>
              </div>
+ 
+             <img src="{{ home.slide1_imagen }}" alt="Lake house" class="home__img" data-swiper-parallax="-300">
+          </article>
+ 
+          <article class="home__article swiper-slide">
+             <div class="home__data container">
+                <h3 class="home__subtittle" data-swiper-parallax="500">{{ home.slide2_subtitulo }}</h3>
+                <h1 class="home__tittle" data-swiper-parallax="400">{{ home.slide2_titulo_parte1 }} <br> {{ home.slide2_titulo_parte2 }}</h1>
+                <a href="#" class="home__button" data-swiper-parallax="300">
+                   {{ home.slide2_boton_texto }} <i class="ri-arrow-right-s-line"></i>
+                </a>
+             </div>
+ 
+             <img src="{{ home.slide2_imagen }}" alt="Forest house" class="home__img" data-swiper-parallax="-300">
+          </article>
+ 
+          <article class="home__article swiper-slide">
+             <div class="home__data container">
+                <h3 class="home__subtittle" data-swiper-parallax="500">{{ home.slide3_subtitulo }}</h3>
+                <h1 class="home__tittle" data-swiper-parallax="400">{{ home.slide3_titulo_parte1 }} <br> {{ home.slide3_titulo_parte2 }}</h1>
+                <a href="#" class="home__button" data-swiper-parallax="300">
+                   {{ home.slide3_boton_texto }} <i class="ri-arrow-right-s-line"></i>
+                </a>
+             </div>
+ 
+             <img src="{{ home.slide3_imagen }}" alt="Rock house" class="home__img" data-swiper-parallax="-300">
+          </article>
+ 
+          <article class="home__article swiper-slide">
+             <div class="home__data container">
+                <h3 class="home__subtittle" data-swiper-parallax="500">{{ home.slide4_subtitulo }}</h3>
+                <h1 class="home__tittle" data-swiper-parallax="400">{{ home.slide4_titulo_parte1 }} <br> {{ home.slide4_titulo_parte2 }}</h1>
+                <a href="#" class="home__button" data-swiper-parallax="300">
+                   {{ home.slide4_boton_texto }} <i class="ri-arrow-right-s-line"></i>
+                </a>
+             </div>
+ 
+             <img src="{{ home.slide4_imagen }}" alt="Curved house" class="home__img" data-swiper-parallax="-300">
+          </article>
+       </div>
+    </div>
+ 
+    <div class="home__content">
+       <div class="home__social">
+          <a href="{{ home.social_facebook }}" target="_blank" class="home__social-link">
+             <i class="ri-facebook-circle-line"></i>
+          </a>
+ 
+          <a href="{{ home.social_instagram }}" target="_blank" class="home__social-link">
+             <i class="ri-instagram-line"></i>
+          </a>
+ 
+          <a href="{{ home.social_twitter }}" target="_blank" class="home__social-link">
+             <i class="ri-twitter-x-line"></i>
+          </a>
+       </div>
+ 
+       <!--==== If we need pagination ====-->
+       <div class="swiper-pagination"></div>
+ 
+       <!--==== Navigation buttons ====-->
+       <div class="swiper-navigation">
+          <div class="swiper-button-prev">
+             <i class="ri-arrow-left-s-line"></i> 
           </div>
- 
-          <div class="about__images">
-             <div class="about__images-container">
-                <img src="static/img/home-1.jpg" alt="Proyecto residencial" class="about__img-1">
-                <img src="static/img/home-2.jpg" alt="Diseño interior" class="about__img-2">
-             </div>
+          
+          <div class="swiper-button-next">
+             <i class="ri-arrow-right-s-line"></i>
           </div>
        </div>
     </div>
  </section>
+      </main>
+
+       <!--==================== ABOUT ====================-->
+    <section class="about section" id="about">
+        <div class="about__container container">
+            <span class="section__subtitle">{{ about['about_subtitulo'] }}</span>
+            <h2 class="section__title">
+                {{ about['about_titulo_parte1'] }} <br> 
+                {{ about['about_titulo_parte2'] }}
+            </h2>
+            
+            <div class="about__content">
+                <div class="about__data">
+                    <p class="about__description">{{ about['about_descripcion'] }}</p>
+
+                    <div class="about__stats">
+                        <div class="about__stat">
+                            <h3 class="about__stat-number">{{ about['about_experiencia'] }}</h3>
+                            <p class="about__stat-text">{{ about['about_experiencia_texto'] }}</p>
+                        </div>
+
+                        <div class="about__stat">
+                            <h3 class="about__stat-number">{{ about['about_proyectos'] }}</h3>
+                            <p class="about__stat-text">{{ about['about_proyectos_texto'] }}</p>
+                        </div>
+
+                        <div class="about__stat">
+                            <h3 class="about__stat-number">{{ about['about_estados'] }}</h3>
+                            <p class="about__stat-text">{{ about['about_estados_texto'] }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about__images">
+                    <div class="about__images-container">
+                        <img src="{{ about['about_imagen1'] }}" alt="Proyecto residencial" class="about__img-1">
+                        <img src="{{ about['about_imagen2'] }}" alt="Diseño interior" class="about__img-2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
         
         <!--==================== SERVICES ====================-->
         <section class="services section" id="services">
