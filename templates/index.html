@@ -245,155 +245,62 @@
 
       <!--==================== TESTIMONIALS ====================-->
 <section class="testimonials section" id="testimonials">
-   <div class="testimonials__container container">
-       <span class="section__subtitle">Testimonios</span>
-       <h2 class="section__title">Lo que dicen nuestros <br> clientes</h2>
-
-       <div class="testimonials__swiper swiper">
-           <div class="swiper-wrapper">
-               <!-- Testimonial 1 -->
-               <div class="testimonial__card swiper-slide">
-                   <div class="testimonial__avatar">
-                       <img src="static/img/avatar1.jpg" alt="avatar" class="testimonial__img">
-                   </div>
-                   <div class="testimonial__content">
-                       <div class="testimonial__rating">
-                           <i class="ri-star-fill"></i>
-                           <i class="ri-star-fill"></i>
-                           <i class="ri-star-fill"></i>
-                           <i class="ri-star-fill"></i>
-                           <i class="ri-star-fill"></i>
-                       </div>
-                       <p class="testimonial__description">
-                           "Excelente ubicación y acabados de primera. La atención fue excepcional."
-                       </p>
-                       <h3 class="testimonial__name">Carlos Ramírez</h3>
-                       <div class="testimonial__location">
-                           <i class="ri-map-pin-line"></i>
-                           <span>Viñedos 2 Residencial</span>
-                       </div>
-                   </div>
-               </div>
-
-               <!-- Testimonial 1 -->
-               <div class="testimonial__card swiper-slide">
-                  <div class="testimonial__avatar">
-                      <img src="static/img/avatar1.jpg" alt="avatar" class="testimonial__img">
-                  </div>
-                  <div class="testimonial__content">
-                      <div class="testimonial__rating">
-                          <i class="ri-star-fill"></i>
-                          <i class="ri-star-fill"></i>
-                          <i class="ri-star-fill"></i>
-                          <i class="ri-star-fill"></i>
-                          <i class="ri-star-fill"></i>
-                      </div>
-                      <p class="testimonial__description">
-                          "Excelente ubicación y acabados de primera. La atención fue excepcional."
-                      </p>
-                      <h3 class="testimonial__name">Carlos Ramírez</h3>
-                      <div class="testimonial__location">
-                          <i class="ri-map-pin-line"></i>
-                          <span>Viñedos 2 Residencial</span>
-                      </div>
-                  </div>
-              </div>
-
-              <!-- Testimonial 1 -->
-              <div class="testimonial__card swiper-slide">
-               <div class="testimonial__avatar">
-                   <img src="static/img/avatar1.jpg" alt="avatar" class="testimonial__img">
-               </div>
-               <div class="testimonial__content">
-                   <div class="testimonial__rating">
-                       <i class="ri-star-fill"></i>
-                       <i class="ri-star-fill"></i>
-                       <i class="ri-star-fill"></i>
-                       <i class="ri-star-fill"></i>
-                       <i class="ri-star-fill"></i>
-                   </div>
-                   <p class="testimonial__description">
-                       "Excelente ubicación y acabados de primera. La atención fue excepcional."
-                   </p>
-                   <h3 class="testimonial__name">Carlos Ramírez</h3>
-                   <div class="testimonial__location">
-                       <i class="ri-map-pin-line"></i>
-                       <span>Viñedos 2 Residencial</span>
-                   </div>
-               </div>
-           </div>
-
-           <!-- Testimonial 1 -->
-           <div class="testimonial__card swiper-slide">
-            <div class="testimonial__avatar">
-                <img src="static/img/avatar1.jpg" alt="avatar" class="testimonial__img">
-            </div>
-            <div class="testimonial__content">
-                <div class="testimonial__rating">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
+    <div class="testimonials__container container">
+        <span class="section__subtitle">{{ testimonials.testimonials_subtitulo }}</span>
+        <h2 class="section__title">{{ testimonials.testimonials_titulo_parte1 }} <br> {{ testimonials.testimonials_titulo_parte2 }}</h2>
+ 
+        <div class="testimonials__swiper swiper">
+            <div class="swiper-wrapper">
+                {% for testimonio in testimonials.testimonios %}
+                <!-- Testimonial {{ loop.index }} -->
+                <div class="testimonial__card swiper-slide">
+                    <div class="testimonial__avatar">
+                        <img src="{{ testimonio.avatar }}" alt="avatar" class="testimonial__img">
+                    </div>
+                    <div class="testimonial__content">
+                        <div class="testimonial__rating">
+                            {% for i in range(testimonio.rating) %}
+                            <i class="ri-star-fill"></i>
+                            {% endfor %}
+                        </div>
+                        <p class="testimonial__description">
+                            "{{ testimonio.descripcion }}"
+                        </p>
+                        <h3 class="testimonial__name">{{ testimonio.nombre }}</h3>
+                        <div class="testimonial__location">
+                            <i class="ri-map-pin-line"></i>
+                            <span>{{ testimonio.ubicacion }}</span>
+                        </div>
+                    </div>
                 </div>
-                <p class="testimonial__description">
-                    "Excelente ubicación y acabados de primera. La atención fue excepcional."
-                </p>
-                <h3 class="testimonial__name">Carlos Ramírez</h3>
-                <div class="testimonial__location">
-                    <i class="ri-map-pin-line"></i>
-                    <span>Viñedos 2 Residencial</span>
-                </div>
+                {% endfor %}
             </div>
         </div>
-
-        
-       </div>
-   </div>
-</section>
-
+    </div>
+ </section>
 <!--==================== CONTACT CENTER ====================-->
 <section class="contact-center section" id="contact-center">
     <div class="contact-center__container container">
-       <span class="section__subtitle">Contacto</span>
-        <h2 class="contact-center__title">Centro de atención telefónica</h2>
+       <span class="section__subtitle">{{ contact_center.contact_subtitulo }}</span>
+        <h2 class="contact-center__title">{{ contact_center.contact_titulo }}</h2>
         
         <div class="contact-center__grid">
-            <!-- Programar llamada -->
-            <div class="contact-center__item" data-modal="schedule" role="button" tabindex="0" aria-label="Programar una llamada">
-                <i class="ri-calendar-2-line"></i>
-                <h3>Programa una llamada</h3>
-                <p>Elige tu horario</p>
+            {% for opcion in contact_center.opciones_contacto %}
+            <!-- {{ opcion.titulo }} -->
+            <div class="contact-center__item" data-modal="{{ opcion.modal }}" role="button" tabindex="0" aria-label="{{ opcion.aria_label }}">
+                <i class="{{ opcion.icono }}"></i>
+                <h3>{{ opcion.titulo }}</h3>
+                <p>{{ opcion.descripcion }}</p>
             </div>
- 
-            <!-- Dejar datos -->
-            <div class="contact-center__item" data-modal="data" role="button" tabindex="0" aria-label="Dejar tus datos">
-                <i class="ri-mail-send-line"></i>
-                <h3>Deja tus datos</h3>
-                <p>Te contactamos</p>
-            </div>
- 
-            <!-- Agenda visita asesor (NUEVA OPCIÓN) -->
-            <div class="contact-center__item" data-modal="advisor" role="button" tabindex="0" aria-label="Agenda una visita con un asesor">
-                <i class="ri-user-star-line"></i>
-                <h3>Agenda una visita</h3>
-                <p>Habla con un asesor</p>
-            </div>
- 
-            <!-- WhatsApp -->
-            <div class="contact-center__item" data-modal="whatsapp" role="button" tabindex="0" aria-label="Contactar por WhatsApp">
-                <i class="ri-whatsapp-line"></i>
-                <h3>Contacto directo</h3>
-                <p>WhatsApp</p>
-            </div>
+            {% endfor %}
         </div>
  
         <div class="contact-center__info">
             <p class="contact-center__phone">
-                <i class="ri-phone-line"></i> 800 1080 108
+                <i class="ri-phone-line"></i> {{ contact_center.telefono }}
             </p>
             <p class="contact-center__hours">
-                <i class="ri-time-line"></i> L-V: 8:00 - 21:00 | S-D: 8:00 - 21:00
+                <i class="ri-time-line"></i> {{ contact_center.horario }}
             </p>
         </div>
     </div>
@@ -401,7 +308,7 @@
     <!-- Popup Programar Llamada -->
     <div class="popup" id="popup-schedule" role="dialog" aria-labelledby="schedule-title">
         <div class="popup-content">
-            <h3 id="schedule-title">Programa tu llamada</h3>
+            <h3 id="schedule-title">{{ contact_center.modales.schedule.titulo }}</h3>
             <form class="popup-form" id="scheduleForm">
                 <div class="form-group">
                     <input type="text" name="name" placeholder="Nombre completo" required>
@@ -415,9 +322,9 @@
                 <div class="form-group">
                     <select name="time" required>
                         <option value="">Selecciona un horario</option>
-                        <option value="morning">8:00 - 12:00</option>
-                        <option value="afternoon">12:00 - 16:00</option>
-                        <option value="evening">16:00 - 21:00</option>
+                        {% for horario in contact_center.modales.schedule.horarios %}
+                        <option value="{{ horario.valor }}">{{ horario.texto }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="form-buttons">
@@ -432,7 +339,7 @@
     <!-- Popup Dejar Datos -->
     <div class="popup" id="popup-data" role="dialog" aria-labelledby="data-title">
         <div class="popup-content">
-            <h3 id="data-title">Déjanos tus datos</h3>
+            <h3 id="data-title">{{ contact_center.modales.data.titulo }}</h3>
             <form class="popup-form" id="dataForm">
                 <div class="form-group">
                     <input type="text" name="name" placeholder="Nombre completo" required>
@@ -449,10 +356,10 @@
         </div>
     </div>
  
-    <!-- Popup Agenda Visita con Asesor (NUEVO) -->
+    <!-- Popup Agenda Visita con Asesor -->
     <div class="popup" id="popup-advisor" role="dialog" aria-labelledby="advisor-title">
         <div class="popup-content">
-            <h3 id="advisor-title">Agenda una visita con un asesor</h3>
+            <h3 id="advisor-title">{{ contact_center.modales.advisor.titulo }}</h3>
             <form class="popup-form" id="advisorForm">
                 <div class="form-group">
                     <input type="text" name="name" placeholder="Nombre completo" required>
@@ -463,9 +370,9 @@
                 <div class="form-group">
                     <select name="location" required>
                         <option value="">Selecciona una sucursal</option>
-                        <option value="centro">Sucursal Centro</option>
-                        <option value="norte">Sucursal Norte</option>
-                        <option value="sur">Sucursal Sur</option>
+                        {% for sucursal in contact_center.modales.advisor.sucursales %}
+                        <option value="{{ sucursal.valor }}">{{ sucursal.texto }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
@@ -474,14 +381,9 @@
                 <div class="form-group">
                     <select name="time" required>
                         <option value="">Selecciona un horario</option>
-                        <option value="09:00">09:00</option>
-                        <option value="10:00">10:00</option>
-                        <option value="11:00">11:00</option>
-                        <option value="12:00">12:00</option>
-                        <option value="13:00">13:00</option>
-                        <option value="16:00">16:00</option>
-                        <option value="17:00">17:00</option>
-                        <option value="18:00">18:00</option>
+                        {% for hora in contact_center.modales.advisor.horas %}
+                        <option value="{{ hora.valor }}">{{ hora.texto }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
@@ -517,19 +419,18 @@
     <div class="footer__container container">
         <!-- Columna principal con logo y descripción -->
         <div class="footer__main">
-            <h3 class="footer__logo">Architecture</h3>
+            <h3 class="footer__logo">{{ footer.footer_logo }}</h3>
             <p class="footer__description">
-                Transformamos espacios en hogares excepcionales 
-                con presencia en las principales ciudades de México.
+                {{ footer.footer_descripcion }}
             </p>
             <div class="footer__social">
-                <a href="#" class="footer__social-link">
+                <a href="{{ footer.footer_social_facebook }}" class="footer__social-link">
                     <i class="ri-facebook-fill"></i>
                 </a>
-                <a href="#" class="footer__social-link">
+                <a href="{{ footer.footer_social_instagram }}" class="footer__social-link">
                     <i class="ri-instagram-line"></i>
                 </a>
-                <a href="#" class="footer__social-link">
+                <a href="{{ footer.footer_social_whatsapp }}" class="footer__social-link">
                     <i class="ri-whatsapp-line"></i>
                 </a>
             </div>
@@ -537,29 +438,29 @@
 
         <!-- Links rápidos -->
         <div class="footer__content">
-            <h3 class="footer__title">Enlaces</h3>
+            <h3 class="footer__title">{{ footer.footer_enlaces_titulo }}</h3>
             <ul class="footer__links">
-                <li><a href="#home-hm" class="footer__link">Inicio</a></li>
-                <li><a href="#about" class="footer__link">Nosotros</a></li>
-                <li><a href="#services" class="footer__link">Servicios</a></li>
-                <li><a href="#contact-center" class="footer__link">Contacto</a></li>
-                <li><a href="#residencias-mapa-section" class="footer__link">Proyectos</a></li>
+                <li><a href="{{ footer.footer_link_inicio }}" class="footer__link">Inicio</a></li>
+                <li><a href="{{ footer.footer_link_nosotros }}" class="footer__link">Nosotros</a></li>
+                <li><a href="{{ footer.footer_link_servicios }}" class="footer__link">Servicios</a></li>
+                <li><a href="{{ footer.footer_link_contacto }}" class="footer__link">Contacto</a></li>
+                <li><a href="{{ footer.footer_link_proyectos }}" class="footer__link">Proyectos</a></li>
             </ul>
         </div>
 
         <!-- Contacto -->
         <div class="footer__content">
-            <h3 class="footer__title">Contacto</h3>
+            <h3 class="footer__title">{{ footer.footer_contacto_titulo }}</h3>
             <div class="footer__info">
-                <p><i class="ri-map-pin-line"></i> Ciudad de México, México</p>
-                <p><i class="ri-phone-line"></i> +52 (55) 1234-5678</p>
-                <p><i class="ri-mail-line"></i> info@architecture.com</p>
+                <p><i class="ri-map-pin-line"></i> {{ footer.footer_contacto_direccion }}</p>
+                <p><i class="ri-phone-line"></i> {{ footer.footer_contacto_telefono }}</p>
+                <p><i class="ri-mail-line"></i> {{ footer.footer_contacto_email }}</p>
             </div>
         </div>
     </div>
 
     <div class="footer__copy">
-        <span>&#169; Architecture. Todos los derechos reservados</span>
+        <span>{{ footer.footer_copyright }}</span>
     </div>
 </footer>
 
