@@ -50,85 +50,62 @@ const cumbresHomeSwiper = new Swiper('.cumbres-home__swiper', {
 
 /*=============== MAPA INTERACTIVO ===============*/
 document.addEventListener('DOMContentLoaded', function () {
-  const map = L.map('cumbres-interactive-map', {
-      scrollWheelZoom: false, // Deshabilitado al inicio
-      dragging: true,
-      touchZoom: true,
-      doubleClickZoom: true,
-      zoomControl: true
-  }).setView([20.35, -98.4823], 10);
+  // Obtenemos la configuración del objeto global
+  const config = window.cumbresMapConfig;
+  
+  // Inicializamos el mapa
+  const map = L.map(config.mapId, config.options)
+    .setView(config.center, config.zoom);
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
+  // Añadimos las tiles
+  L.tileLayer(config.tilesUrl, {
+    attribution: config.tilesAttribution
   }).addTo(map);
 
-  const cumbresLocations = [
-      {
-          name: "Cumbres del Sol - Campestre",
-          coords: [20.0784, -98.4823],
-          img: "https://th.bing.com/th/id/R.db7b7f51a8816ff9c08e2342598ed4cb?rik=JI89URI6OpQf6g&pid=ImgRaw&r=0",
-          link: "https://www.google.com/maps?q=20.0784,-98.4823",
-          description: "Desarrollo campestre con lotes residenciales en un entorno natural incomparable."
-      }
-  ];
+  // Creamos el icono personalizado
+  const cumbresIcon = L.divIcon(config.markerIcon);
 
-  const cumbresIcon = L.divIcon({
-      html: '<i class="ri-map-pin-fill" style="font-size: 36px; color:rgb(0, 0, 0);"></i>',
-      className: 'custom-div-icon',
-      iconSize: [30, 42],
-      iconAnchor: [15, 42],
-      popupAnchor: [0, -42]
+  // Añadimos los marcadores
+  config.locations.forEach(loc => {
+    L.marker(loc.coords, { icon: cumbresIcon }).addTo(map)
+      .bindPopup(`
+        <div class="cumbres-popup-content">
+          <b>${loc.name}</b>
+          <img src="${loc.img}" alt="${loc.name}">
+          <p>${loc.description}</p>
+          <a href="${loc.link}" target="_blank"><i class="ri-road-map-line"></i> Cómo llegar</a>
+        </div>
+      `);
   });
 
-  cumbresLocations.forEach(loc => {
-      L.marker(loc.coords, { icon: cumbresIcon }).addTo(map)
-          .bindPopup(`
-              <div class="cumbres-popup-content">
-                  <b>${loc.name}</b>
-                  <img src="${loc.img}" alt="${loc.name}">
-                  <p>${loc.description}</p>
-                  <a href="${loc.link}" target="_blank"><i class="ri-road-map-line"></i> Cómo llegar</a>
-              </div>
-          `);
-  });
+  // Añadimos el polígono
+  L.polygon(config.polygon.coords, {
+    color: config.polygon.color,
+    fillColor: config.polygon.fillColor,
+    fillOpacity: config.polygon.fillOpacity,
+    weight: config.polygon.weight
+  }).addTo(map).bindPopup(config.polygon.popupText);
 
-  L.polygon([
-      [20.0800, -98.4850],
-      [20.0850, -98.4800],
-      [20.0830, -98.4750],
-      [20.0770, -98.4750],
-      [20.0750, -98.4790],
-      [20.0780, -98.4840]
-  ], {
-      color: '#006600',
-      fillColor: '#88cc88',
-      fillOpacity: 0.4,
-      weight: 2
-  }).addTo(map).bindPopup("Desarrollo Cumbres del Sol");
-
-  // Añadir un botón de control para activar/desactivar el zoom con scroll
+  // Añadimos el botón de control para activar/desactivar el zoom
   const zoomControlButton = document.createElement('div');
   zoomControlButton.className = 'zoom-control-button';
-  zoomControlButton.innerHTML = '<button id="toggle-zoom">Activar zoom con scroll</button>';
-  document.querySelector('#cumbres-interactive-map').parentNode.insertBefore(zoomControlButton, document.querySelector('#cumbres-interactive-map').nextSibling);
+  zoomControlButton.innerHTML = `<button id="toggle-zoom">${config.zoomControl.inactive_text}</button>`;
+  document.querySelector(`#${config.mapId}`).parentNode.insertBefore(zoomControlButton, document.querySelector(`#${config.mapId}`).nextSibling);
 
   let zoomActive = false;
   const toggleButton = document.getElementById('toggle-zoom');
 
   toggleButton.addEventListener('click', function() {
-      if (zoomActive) {
-          map.scrollWheelZoom.disable();
-          zoomActive = false;
-          toggleButton.textContent = 'Activar zoom con scroll';
-      } else {
-          map.scrollWheelZoom.enable();
-          zoomActive = true;
-          toggleButton.textContent = 'Desactivar zoom con scroll';
-      }
+    if (zoomActive) {
+      map.scrollWheelZoom.disable();
+      zoomActive = false;
+      toggleButton.textContent = config.zoomControl.inactive_text;
+    } else {
+      map.scrollWheelZoom.enable();
+      zoomActive = true;
+      toggleButton.textContent = config.zoomControl.active_text;
+    }
   });
-
-  // El mapa ya no activa automáticamente el zoom con scroll al hacer clic
-  // Solo se activará/desactivará mediante el botón
 });
 /*=============== DISEÑO ===============*/
 // Carrusel de propuestas de diseño

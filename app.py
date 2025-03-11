@@ -1,6 +1,6 @@
 from flask import Flask, render_template
-from static.py.General.configs import obtener_configs as obtener_configs_general
-from static.py.Cumbres.configs import obtener_configs as obtener_configs_cumbres
+from static.py.General.configs import obtener_configs_general as obtener_configs_general
+from static.py.Cumbres.configs import obtener_configs_cumbres as obtener_configs_cumbres
 
 app = Flask(__name__)
 
@@ -20,11 +20,20 @@ def home():
                        footer         = footer_data
                        )
                        
-# Si tienes más secciones en 'sections/', puedes definir más rutas
+
+# Ruta para la página de Cumbres
 @app.route('/projects/cumbres')
 def cumbres():
-    return render_template('projects/cumbres.html')
-
+    
+    home_data_cumbres, about_data_cumbres, mapa_data_cumbres, amenidades_data_cumbres = obtener_configs_cumbres()
+    
+    return render_template('projects/cumbres.html',
+                           home = home_data_cumbres,
+                           about = about_data_cumbres,
+                           mapa = mapa_data_cumbres,
+                           amenidades_data=amenidades_data_cumbres
+                           
+                          )
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,4 +1,4 @@
-def obtener_configs():
+def obtener_configs_general():
     '''
     Funcion que obtiene las configuraciones para la pag.
 

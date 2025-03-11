@@ -1,4 +1,4 @@
-def obtener_configs():
+def obtener_configs_cumbres():
     '''
     Funcion que obtiene las configuraciones para la pag.
 
@@ -10,285 +10,245 @@ def obtener_configs():
     '''
 
     # ==================== HOME ====================
-    # Datos para la sección Home del index.html
-    home_data = {
-        # Primer slide
-        'slide1_subtitulo': 'Architecture',
-        'slide1_titulo_parte1': 'Modern',
-        'slide1_titulo_parte2': 'Lake house',
-        'slide1_boton_texto': 'Ver Proyecto',
-        'slide1_imagen': 'static/img/home-1.jpg',
+    home_data_cumbres = {
+        # Configuración general
+        'titulo': 'Cumbres Del Sol',
+        'subtitulo': 'Residencial exclusivo',
         
-        # Segundo slide
-        'slide2_subtitulo': 'Architecture',
-        'slide2_titulo_parte1': 'Luxury House',
-        'slide2_titulo_parte2': 'In The Forest',
-        'slide2_boton_texto': 'Ver Detalles',
-        'slide2_imagen': 'static/img/home-2.jpg',
+        # Slides para el carrusel
+        'slides': [
+            {
+                'subtitulo': 'Cumbres Del Sol',
+                'titulo_parte1': 'Residencia Mirador',
+                'titulo_parte2': 'Vista al Mar',
+                'boton_texto': 'Ver detalles',
+                'boton_link': '#descripcion',
+                'imagen': '../static/img/cumbres-1.jpg', 
+                'alt': 'Residencia Mirador'
+            },
+            {
+                'subtitulo': 'Cumbres Del Sol',
+                'titulo_parte1': 'Residencia Bosque',
+                'titulo_parte2': 'Entre Pinos',
+                'boton_texto': '', # Este slide no parece tener botón en el HTML
+                'boton_link': '',
+                'imagen': '../static/img/cumbres-2.jpg',
+                'alt': 'Residencia Bosque'
+            },
+            {
+                'subtitulo': 'Cumbres Del Sol',
+                'titulo_parte1': 'Residencia Roca',
+                'titulo_parte2': 'Arquitectura Moderna',
+                'boton_texto': 'Ver detalles',
+                'boton_link': '#caracteristicas',
+                'imagen': 'static/img/cumbres-3.jpg',
+                'alt': 'Residencia Roca'
+            },
+            {
+                'subtitulo': 'Cumbres Del Sol',
+                'titulo_parte1': 'Residencia Curva',
+                'titulo_parte2': 'Diseño Exclusivo',
+                'boton_texto': 'Ver detalles',
+                'boton_link': '#planos',
+                'imagen': 'static/img/cumbres-4.jpg',
+                'alt': 'Residencia Curva'
+            }
+        ],
         
-        # Tercer slide
-        'slide3_subtitulo': 'Architecture',
-        'slide3_titulo_parte1': 'Modern House',
-        'slide3_titulo_parte2': 'On The Rock',
-        'slide3_boton_texto': 'Conocer Más',
-        'slide3_imagen': 'static/img/home-3.jpg',
-        
-        # Cuarto slide
-        'slide4_subtitulo': 'Architecture',
-        'slide4_titulo_parte1': 'Luxury',
-        'slide4_titulo_parte2': 'Curved House',
-        'slide4_boton_texto': 'Explorar',
-        'slide4_imagen': 'static/img/home-4.jpg',
-        
-        # Enlaces sociales
+        # Enlaces de redes sociales
         'social_facebook': '#',
         'social_instagram': '#',
         'social_twitter': '#',
         
-        # Ruta para el botón del primer slide
-        'ruta_cumbres': 'cumbres'
+        # Navegación
+        'nav_inicio': '#cumbres-home',
+        'nav_descripcion': '#descripcion',
+        'nav_caracteristicas': '#caracteristicas',
+        'nav_galeria': '#galeria',
+        'nav_planos': '#planos',
+        'nav_ubicacion': '#ubicacion',
+        'nav_contacto': '#contacto'
     }
     
     # ==================== ABOUT ====================
-    about_data = {
-        'about_subtitulo': 'Sobre Nosotros',
-        'about_titulo_parte1': 'Construyendo Sueños',
-        'about_titulo_parte2': 'Desde 2010',
-        'about_descripcion': (
-            "Somos una empresa líder en el desarrollo de residencias exclusivas, "
-            "comprometidos con la excelencia y la innovación en cada proyecto. "
-            "Con presencia en las principales ciudades de la república, "
-            "transformamos espacios en hogares excepcionales."
-        ),
-
-        # Estadísticas
-        'about_experiencia': '13+',
-        'about_experiencia_texto': 'Años de Experiencia',
-        'about_proyectos': '200+',
-        'about_proyectos_texto': 'Proyectos Completados',
-        'about_estados': '15',
-        'about_estados_texto': 'Estados con Presencia',
-
-        # Imágenes
-        'about_imagen1': 'static/img/home-1.jpg',
-        'about_imagen2': 'static/img/home-2.jpg'
-    }
-    
-    # ==================== SERVICES ====================
-    services_data = {
-        'services_subtitulo': 'Nuestros Servicios',
-        'services_titulo_parte1': 'Soluciones Integrales',
-        'services_titulo_parte2': 'Para Tu Hogar',
+    about_data_cumbres = {
+        # Título y subtítulo principal
+        'titulo': '¿Quiénes Somos?',
+        'subtitulo': 'Un Refugio en Armonía con la Naturaleza',
         
-        # Primera tarjeta de servicio
-        'service1_icono': 'ri-home-heart-line',
-        'service1_titulo': 'Diseño Residencial',
-        'service1_descripcion': 'Creamos espacios únicos que reflejan tu estilo de vida, combinando estética y funcionalidad en cada detalle.',
+        # Contenido principal
+        'descripcion': [
+            'En <span class="cumbres-about__highlight">Cumbres del Sol</span>, creemos que la vida debe disfrutarse con tranquilidad, rodeados de naturaleza y en un entorno seguro. Ubicado en las majestuosas montañas de <span class="cumbres-about__highlight">Singuilucan, Hidalgo</span>, nuestro desarrollo campestre ha sido diseñado para quienes buscan un equilibrio entre comodidad, bienestar y una conexión genuina con el entorno natural.',
+            'Nuestra comunidad es el lugar ideal para familias, jubilados e inversionistas que desean un espacio exclusivo donde la calidad de vida es una prioridad.'
+        ],
         
-        # Segunda tarjeta de servicio
-        'service2_icono': 'ri-building-line',
-        'service2_titulo': 'Desarrollo Inmobiliario',
-        'service2_descripcion': 'Gestionamos proyectos residenciales completos, desde la conceptualización hasta la entrega final.',
+        # Imagen de la sección
+        'imagen': 'static/img/home-1.jpg',
+        'imagen_alt': 'Vista panorámica de Cumbres del Sol',
         
-        # Tercera tarjeta de servicio
-        'service3_icono': 'ri-paint-line',
-        'service3_titulo': 'Personalización',
-        'service3_descripcion': 'Adaptamos cada espacio a tus necesidades específicas, ofreciendo acabados y materiales de primera calidad.',
-        
-        # Cuarta tarjeta de servicio
-        'service4_icono': 'ri-earth-line',
-        'service4_titulo': 'Ubicaciones Premium',
-        'service4_descripcion': 'Desarrollamos proyectos en las zonas más exclusivas y con mayor plusvalía de la república.'
-    }
-    
-    # ==================== TESTIMONIALS ====================
-    testimonials_data = {
-        'testimonials_subtitulo': 'Testimonios',
-        'testimonials_titulo_parte1': 'Lo que dicen nuestros',
-        'testimonials_titulo_parte2': 'clientes',
-        
-        # Lista de testimonios
-        'testimonios': [
+        # Sección de valores
+        'valores_titulo': 'Nuestros Valores',
+        'valores': [
             {
-                'avatar': 'static/img/avatar1.jpg',
-                'rating': 5,  # Número de estrellas (de 1 a 5)
-                'descripcion': 'Excelente ubicación y acabados de primera. La atención fue excepcional.',
-                'nombre': 'Carlos Ramírez',
-                'ubicacion': 'Viñedos 2 Residencial'
+                'icono': 'ri-plant-line',
+                'titulo': 'Tranquilidad',
+                'descripcion': 'Un ambiente sereno donde cada día es un descanso para el alma.'
             },
             {
-                'avatar': 'static/img/avatar1.jpg',
-                'rating': 5,
-                'descripcion': 'Excelente ubicación y acabados de primera. La atención fue excepcional.',
-                'nombre': 'Karla Ramírez',
-                'ubicacion': 'Viñedos 2 Residencial'
+                'icono': 'ri-home-heart-line',
+                'titulo': 'Naturaleza',
+                'descripcion': 'Un espacio rodeado de áreas verdes, diseñado para la vida al aire libre.'
             },
             {
-                'avatar': 'static/img/avatar1.jpg',
-                'rating': 5,
-                'descripcion': 'Excelente ubicación y acabados de primera. La atención fue excepcional.',
-                'nombre': 'Carlos Ramírez',
-                'ubicacion': 'Viñedos 2 Residencial'
-            },
-            {
-                'avatar': 'static/img/avatar1.jpg',
-                'rating': 5,
-                'descripcion': 'Excelente ubicación y acabados de primera. La atención fue excepcional.',
-                'nombre': 'Carlos Ramírez',
-                'ubicacion': 'Viñedos 2 Residencial'
-            }
-        ]
-    }
-    
-    # ==================== CONTACT CENTER ====================
-    contact_center_data = {
-        'contact_subtitulo': 'Contacto',
-        'contact_titulo': 'Centro de atención telefónica',
-        
-        # Opciones de contacto
-        'opciones_contacto': [
-            {
-                # Informacion sobre "PROGRAMAR LLAMADA"
-                'icono': 'ri-calendar-2-line',
-                'titulo': 'Programa una llamada',
-                'descripcion': 'Elige tu horario',
-                'modal': 'schedule',
-                'aria_label': 'Programar una llamada'
-            },
-            {
-                # Informacion sobre "DEJAR TUS DATOS"
-                'icono': 'ri-mail-send-line',
-                'titulo': 'Deja tus datos',
-                'descripcion': 'Te contactamos',
-                'modal': 'data',
-                'aria_label': 'Dejar tus datos'
-            },
-            {
-                # Informacion sobre "AGENDAR VISITA"
-                'icono': 'ri-user-star-line',
-                'titulo': 'Agenda una visita',
-                'descripcion': 'Habla con un asesor',
-                'modal': 'advisor',
-                'aria_label': 'Agenda una visita con un asesor'
-            },
-            {
-                # Informacion sobre "COTACTO POR WHATSAPP"
-                'icono': 'ri-whatsapp-line',
-                'titulo': 'Contacto directo',
-                'descripcion': 'WhatsApp',
-                'modal': 'whatsapp',
-                'aria_label': 'Contactar por WhatsApp'
+                'icono': 'ri-shield-check-line',
+                'titulo': 'Seguridad',
+                'descripcion': 'Acceso controlado y comunidad cerrada para la tranquilidad de nuestros residentes.'
             }
         ],
         
-        # Información de contacto
-        'telefono': '800 1080 108',
-        'horario': 'L-V: 8:00 - 21:00 | S-D: 8:00 - 21:00',
-        
-        # Información de modales
-        'modales': {
-            'schedule': {
-                'titulo': 'Programa tu llamada',
-                'horarios': [
-                    {'valor': 'morning', 'texto': '8:00 - 12:00'},
-                    {'valor': 'afternoon', 'texto': '12:00 - 16:00'},
-                    {'valor': 'evening', 'texto': '16:00 - 21:00'}
-                ]
-            },
-            'data': {
-                'titulo': 'Déjanos tus datos'
-            },
-            'advisor': {
-                'titulo': 'Agenda una visita con un asesor',
-                'sucursales': [
-                    {'valor': 'centro', 'texto': 'Sucursal Centro'},
-                    {'valor': 'norte', 'texto': 'Sucursal Norte'},
-                    {'valor': 'sur', 'texto': 'Sucursal Sur'}
-                ],
-                'horas': [
-                    {'valor': '09:00', 'texto': '09:00'},
-                    {'valor': '10:00', 'texto': '10:00'},
-                    {'valor': '11:00', 'texto': '11:00'},
-                    {'valor': '12:00', 'texto': '12:00'},
-                    {'valor': '13:00', 'texto': '13:00'},
-                    {'valor': '16:00', 'texto': '16:00'},
-                    {'valor': '17:00', 'texto': '17:00'},
-                    {'valor': '18:00', 'texto': '18:00'}
-                ]
-            }
-        }
+        # Conclusión
+        'conclusion': 'En <span class="cumbres-about__highlight">Cumbres del Sol</span>, más que un lugar para vivir, hemos creado un estilo de vida en armonía con el entorno. Te invitamos a descubrir un hogar donde la paz, la belleza y el bienestar se encuentran en cada rincón.'
     }
     
     # ==================== MAPA ====================
-    mapa_data = {
-        'mapa_subtitulo': 'Ubicaciones',
-        'mapa_titulo': 'Conoce nuestros proyectos',
-        'mapa_zoom_inicial': 5,
-        'mapa_centro_latitud': 23.634501,
-        'mapa_centro_longitud': -102.552784,
-        'marcadores': [
+    mapa_data_cumbres = {
+        # HTML configuration
+        'titulo': 'Ubicación Privilegiada',
+        'descripcion': 'Ubicado en el corazón de las majestuosas montañas de <em>Singuilucan, Hidalgo</em>, <em>Cumbres del Sol</em> es un desarrollo campestre que combina la paz de la naturaleza con la comodidad de la conectividad moderna.',
+        'map_id': 'cumbres-interactive-map',
+        
+        # Map configuration
+        'map_center': [20.35, -98.4823],
+        'map_zoom': 10,
+        'map_options': {
+            'scrollWheelZoom': False,
+            'dragging': True,
+            'touchZoom': True,
+            'doubleClickZoom': True,
+            'zoomControl': True
+        },
+        'tiles_url': 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        'tiles_attribution': '&copy; OpenStreetMap contributors',
+        
+        # Locations
+        'locations': [
             {
-                'nombre': 'Residencial Cumbres',
-                'latitud': 25.686613,
-                'longitud': -100.355682,
-                'descripcion': 'Desarrollo residencial de lujo en Monterrey',
-                'imagen': 'static/img/home-1.jpg',
-                'link': 'https://www.google.com/maps?q=25.686613,-100.355682'
-            },
+                'name': 'Cumbres del Sol - Campestre',
+                'coords': [20.0784, -98.4823],
+                'img': 'https://th.bing.com/th/id/R.db7b7f51a8816ff9c08e2342598ed4cb?rik=JI89URI6OpQf6g&pid=ImgRaw&r=0',
+                'link': 'https://www.google.com/maps?q=20.0784,-98.4823',
+                'description': 'Desarrollo campestre con lotes residenciales en un entorno natural incomparable.'
+            }
+        ],
+        
+        # Marker icon - Aseguramos que todos los valores estén correctamente definidos
+        'marker_icon': {
+            'html': '<i class="ri-map-pin-fill" style="font-size: 36px; color:rgb(0, 0, 0);"></i>',
+            'className': 'custom-div-icon',
+            'iconSize': [30, 42],
+            'iconAnchor': [15, 42],
+            'popupAnchor': [0, -42]
+        },
+        
+        # Polygon
+        'polygon': {
+            'coords': [
+                [20.0800, -98.4850],
+                [20.0850, -98.4800],
+                [20.0830, -98.4750],
+                [20.0770, -98.4750],
+                [20.0750, -98.4790],
+                [20.0780, -98.4840]
+            ],
+            'color': '#006600',
+            'fillColor': '#88cc88',
+            'fillOpacity': 0.4,
+            'weight': 2,
+            'popupText': 'Desarrollo Cumbres del Sol'
+        },
+        
+        # Zoom control button
+        'zoom_control': {
+            'active_text': 'Desactivar zoom con scroll',
+            'inactive_text': 'Activar zoom con scroll'
+        }
+    }
+    
+    
+    # ==================== AMENIDADES ====================
+    amenidades_data_cumbres = {
+        'titulo': 'Amenidades que Inspiran',
+        'descripcion': (
+            'Descubre las exclusivas amenidades de <em>Cumbres del Sol</em>, diseñadas para brindar comodidad, '
+            'bienestar y experiencias inolvidables en un entorno natural. Aquí, cada espacio ha sido pensado para '
+            'enriquecer tu estilo de vida y ofrecer momentos de relajación, convivencia y conexión con la naturaleza.'
+        ),
+        'amenidades': [
             {
-                'nombre': 'Bosques Modernos',
-                'latitud': 19.432608,
-                'longitud': -99.133209,
-                'descripcion': 'Casas sustentables en Ciudad de México',
+                'titulo': 'Áreas Verdes',
+                'descripcion': 'Disfruta de amplias áreas verdes rodeadas de flora autóctona, perfectas para caminatas matutinas, meditación o simplemente relajarte en un ambiente de paz y armonía.',
+                'icono': 'ri-plant-line',
                 'imagen': 'static/img/home-2.jpg',
-                'link': 'https://www.google.com/maps?q=19.432608,-99.133209'
+                'alt': 'Áreas Verdes'
             },
             {
-                'nombre': 'Lomas del Mar',
-                'latitud': 20.634980,
-                'longitud': -105.230003,
-                'descripcion': 'Villas frente al mar en Puerto Vallarta',
-                'imagen': 'static/img/home-3.jpg',
-                'link': 'https://www.google.com/maps?q=20.634980,-105.230003'
+                'titulo': 'Asadores',
+                'descripcion': 'Vive momentos inolvidables con familiares y amigos en nuestra zona de asadores. Diseñados para reuniones al aire libre donde puedas preparar deliciosos platillos.',
+                'icono': 'ri-restaurant-line',
+                'imagen': 'static/img/cumbres-4.jpg',
+                'alt': 'Asadores'
             },
             {
-                'nombre': 'Sierra Vista',
-                'latitud': 28.632996,
-                'longitud': -106.069099,
-                'descripcion': 'Residencias de montaña en Chihuahua',
-                'imagen': 'static/img/home-4.jpg',
-                'link': 'https://www.google.com/maps?q=28.632996,-106.069099'
+                'titulo': 'Fogatero',
+                'descripcion': 'Imagina una noche despejada, el sonido de la naturaleza y un cálido fuego iluminando la velada. El lugar ideal para compartir historias y crear recuerdos inolvidables.',
+                'icono': 'ri-fire-line',
+                'imagen': 'static/img/cumbres-4.jpg',
+                'alt': 'Fogatero'
+            },
+            {
+                'titulo': 'Temazcal',
+                'descripcion': 'Sumérgete en una experiencia ancestral con nuestro temazcal, un espacio diseñado para la relajación y el bienestar físico y mental.',
+                'icono': 'ri-rest-time-line',
+                'imagen': 'static/img/cumbres-4.jpg',
+                'alt': 'Temazcal'
+            },
+            {
+                'titulo': 'Área de Camping',
+                'descripcion': 'Para los amantes de la aventura, contamos con un área de camping donde puedes instalar tu tienda y disfrutar de una noche bajo las estrellas.',
+                'icono': 'ri-tent-line',
+                'imagen': 'static/img/cumbres-4.jpg',
+                'alt': 'Área de Camping'
+            },
+            {
+                'titulo': 'Palapas',
+                'descripcion': 'Nuestras palapas ofrecen sombra y comodidad en un entorno natural, ideales para reuniones, eventos o simplemente para disfrutar de un día al aire libre.',
+                'icono': 'ri-home-smile-line',
+                'imagen': 'static/img/cumbres-1.jpg',
+                'alt': 'Palapas'
+            },
+            {
+                'titulo': 'Acceso Controlado',
+                'descripcion': 'Tu bienestar es nuestra prioridad. <em>Cumbres del Sol</em> es un desarrollo con acceso controlado, brindando seguridad a nuestros residentes y visitantes.',
+                'icono': 'ri-lock-star-line',
+                'imagen': 'static/img/cumbres-2.jpg',
+                'alt': 'Acceso Controlado'
+            },
+            {
+                'titulo': 'Baños',
+                'descripcion': 'Nuestras instalaciones cuentan con baños limpios y bien equipados en las áreas comunes, asegurando el máximo confort para residentes y visitantes.',
+                'icono': 'ri-service-line',
+                'imagen': 'static/img/cumbres-4.jpg',
+                'alt': 'Baños'
+            },
+            {
+                'titulo': 'Pet Friendly',
+                'descripcion': 'Sabemos que tu mascota es parte de tu familia. Encuentra un entorno amigable para ellos, con espacios abiertos donde pueden correr, jugar y explorar con seguridad.',
+                'icono': 'ri-footprint-line',
+                'imagen': 'static/img/cumbres-3.jpg',
+                'alt': 'Pet Friendly'
             }
         ]
     }
-    
-    # ==================== FOOTER ====================
-    footer_data = {
-        # Columna principal
-        'footer_logo': 'Architecture',
-        'footer_descripcion': 'Transformamos espacios en hogares excepcionales con presencia en las principales ciudades de México.',
-        
-        # Enlaces sociales
-        'footer_social_facebook': '#',
-        'footer_social_instagram': '#',
-        'footer_social_whatsapp': '#',
-        
-        # Enlaces rápidos - títulos y links
-        'footer_enlaces_titulo': 'Enlaces',
-        'footer_link_inicio': '#home-hm',
-        'footer_link_nosotros': '#about',
-        'footer_link_servicios': '#services',
-        'footer_link_contacto': '#contact-center',
-        'footer_link_proyectos': '#residencias-mapa-section',
-        
-        # Sección de contacto
-        'footer_contacto_titulo': 'Contacto',
-        'footer_contacto_direccion': 'Ciudad de México, México',
-        'footer_contacto_telefono': '+52 (55) 1234-5678',
-        'footer_contacto_email': 'info@architecture.com',
-        
-        # Copyright
-        'footer_copyright': '© Architecture. Todos los derechos reservados'
-    }
 
-    return (home_data, about_data, services_data, testimonials_data, contact_center_data, mapa_data, footer_data)
+
+    return (home_data_cumbres, about_data_cumbres, mapa_data_cumbres, amenidades_data_cumbres)
