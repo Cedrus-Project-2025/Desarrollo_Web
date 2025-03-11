@@ -312,133 +312,78 @@
 <!-- =============== SECCIÓN CONTACTO =============== -->
 <section class="cumbres-contact" id="cumbres-contact">
   <div class="cumbres-contact__container">
-    <h2 class="cumbres-contact__title">Contacto</h2>
+    <h2 class="cumbres-contact__title">{{ contacto_data.titulo }}</h2>
     <p class="cumbres-contact__description">
-      En <span class="cumbres-contact__highlight">Cumbres del Sol</span>, estamos listos para asesorarte en cada paso de tu inversión. Ponte en contacto con nosotros a través de las siguientes opciones:
+      {{ contacto_data.descripcion|safe }}
     </p>
 
     <div class="cumbres-contact__options">
-      <!-- Opción 1: Agendar Cita -->
-      <div class="cumbres-contact__card" id="cumbres-schedule">
+      {% for opcion in contacto_data.opciones %}
+      <!-- Opción {{ loop.index }}: {{ opcion.titulo }} -->
+      <div class="cumbres-contact__card" id="{{ opcion.id }}">
         <div class="cumbres-contact__card-icon">
-          <i class="ri-calendar-line"></i>
+          <i class="{{ opcion.icono }}"></i>
         </div>
-        <h3 class="cumbres-contact__card-title">Agendar una Cita</h3>
+        <h3 class="cumbres-contact__card-title">{{ opcion.titulo }}</h3>
         <p class="cumbres-contact__card-description">
-          Programa una visita personalizada para conocer los lotes disponibles y resolver todas tus dudas.
+          {{ opcion.descripcion }}
         </p>
-        <button class="cumbres-contact__card-button" id="cumbres-schedule-btn">
-          Agendar ahora
+        <button class="cumbres-contact__card-button" id="{{ opcion.boton_id }}">
+          {{ opcion.boton_texto }}
         </button>
       </div>
-
-      <!-- Opción 2: WhatsApp -->
-      <div class="cumbres-contact__card" id="cumbres-whatsapp">
-        <div class="cumbres-contact__card-icon">
-          <i class="ri-whatsapp-line"></i>
-        </div>
-        <h3 class="cumbres-contact__card-title">WhatsApp</h3>
-        <p class="cumbres-contact__card-description">
-          Comunícate de manera rápida y directa con nuestro equipo para recibir atención inmediata.
-        </p>
-        <button class="cumbres-contact__card-button" id="cumbres-whatsapp-btn">
-          Contactar
-        </button>
-      </div>
-
-      <!-- Opción 3: Planes de Financiamiento -->
-      <div class="cumbres-contact__card" id="cumbres-financing">
-        <div class="cumbres-contact__card-icon">
-          <i class="ri-money-dollar-circle-line"></i>
-        </div>
-        <h3 class="cumbres-contact__card-title">Financiamiento</h3>
-        <p class="cumbres-contact__card-description">
-          Te ofrecemos opciones flexibles para adquirir tu lote sin comprometer tu estabilidad financiera.
-        </p>
-        <button class="cumbres-contact__card-button" id="cumbres-financing-btn">
-          Ver opciones
-        </button>
-      </div>
-
-      <!-- Opción 4: Boletín Informativo -->
-      <div class="cumbres-contact__card" id="cumbres-newsletter">
-        <div class="cumbres-contact__card-icon">
-          <i class="ri-mail-send-line"></i>
-        </div>
-        <h3 class="cumbres-contact__card-title">Boletín Informativo</h3>
-        <p class="cumbres-contact__card-description">
-          Suscríbete para recibir actualizaciones sobre el proyecto, promociones y novedades.
-        </p>
-        <button class="cumbres-contact__card-button" id="cumbres-newsletter-btn">
-          Suscribirme
-        </button>
-      </div>
+      {% endfor %}
     </div>
   </div>
 
   <!-- Modal para Agendar Cita -->
-  <div class="cumbres-modal" id="cumbres-schedule-modal">
+  <div class="cumbres-modal" id="{{ contacto_data.agenda_modal.id }}">
     <div class="cumbres-modal__content">
       <span class="cumbres-modal__close" id="cumbres-schedule-close">&times;</span>
-      <h3 class="cumbres-modal__title">Agenda tu visita personalizada</h3>
+      <h3 class="cumbres-modal__title">{{ contacto_data.agenda_modal.titulo }}</h3>
       <p class="cumbres-modal__description">
-        Te mostraremos en detalle las opciones de construcción y los beneficios de nuestra comunidad.
+        {{ contacto_data.agenda_modal.descripcion }}
       </p>
-      
+
       <form class="cumbres-modal__form">
+        {% for campo in contacto_data.agenda_modal.campos %}
         <div class="cumbres-modal__form-group">
-          <label for="cumbres-name" class="cumbres-modal__label">Nombre completo</label>
-          <input type="text" id="cumbres-name" class="cumbres-modal__input" placeholder="Ingresa tu nombre" required>
+          <label for="{{ campo.id }}" class="cumbres-modal__label">{{ campo.label }}</label>
+          <input type="{{ campo.tipo }}" id="{{ campo.id }}" class="cumbres-modal__input" 
+                 placeholder="{{ campo.placeholder }}" {% if campo.required %}required{% endif %}>
         </div>
-        
-        <div class="cumbres-modal__form-group">
-          <label for="cumbres-email" class="cumbres-modal__label">Correo electrónico</label>
-          <input type="email" id="cumbres-email" class="cumbres-modal__input" placeholder="correo@ejemplo.com" required>
-        </div>
-        
-        <div class="cumbres-modal__form-group">
-          <label for="cumbres-phone" class="cumbres-modal__label">Teléfono</label>
-          <input type="tel" id="cumbres-phone" class="cumbres-modal__input" placeholder="Tu número de contacto" required>
-        </div>
-        
-        <div class="cumbres-modal__form-group">
-          <label for="cumbres-date" class="cumbres-modal__label">Fecha de visita</label>
-          <input type="date" id="cumbres-date" class="cumbres-modal__input" required>
-        </div>
-        
+        {% endfor %}
+
         <div class="cumbres-modal__form-group">
           <label for="cumbres-time" class="cumbres-modal__label">Hora preferida</label>
           <select id="cumbres-time" class="cumbres-modal__select" required>
             <option value="" disabled selected>Selecciona una hora</option>
-            <option value="10:00">10:00 AM</option>
-            <option value="11:00">11:00 AM</option>
-            <option value="12:00">12:00 PM</option>
-            <option value="13:00">1:00 PM</option>
-            <option value="16:00">4:00 PM</option>
-            <option value="17:00">5:00 PM</option>
+            {% for horario in contacto_data.agenda_modal.horarios %}
+            <option value="{{ horario.value }}">{{ horario.label }}</option>
+            {% endfor %}
           </select>
         </div>
-        
-        <button type="submit" class="cumbres-modal__submit">Confirmar cita</button>
+
+        <button type="submit" class="cumbres-modal__submit">{{ contacto_data.agenda_modal.boton_texto }}</button>
       </form>
     </div>
   </div>
 
   <!-- Modal para WhatsApp -->
-  <div class="cumbres-modal" id="cumbres-whatsapp-modal">
+  <div class="cumbres-modal" id="{{ contacto_data.whatsapp_modal.id }}">
     <div class="cumbres-modal__content">
       <span class="cumbres-modal__close" id="cumbres-whatsapp-close">&times;</span>
-      <h3 class="cumbres-modal__title">Contacto directo vía WhatsApp</h3>
+      <h3 class="cumbres-modal__title">{{ contacto_data.whatsapp_modal.titulo }}</h3>
       <div class="cumbres-modal__whatsapp">
         <div class="cumbres-modal__whatsapp-info">
           <p class="cumbres-modal__description">
-            Nuestro equipo de asesores está listo para atenderte de inmediato.
+            {{ contacto_data.whatsapp_modal.descripcion }}
           </p>
           <p class="cumbres-modal__schedule">
-            <i class="ri-time-line"></i> Horario de atención: Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 10:00 AM - 2:00 PM
+            <i class="ri-time-line"></i> {{ contacto_data.whatsapp_modal.horario }}
           </p>
-          <a href="https://wa.me/1234567890" target="_blank" class="cumbres-modal__whatsapp-button">
-            <i class="ri-whatsapp-line"></i> Iniciar chat ahora
+          <a href="https://wa.me/{{ contacto_data.whatsapp_modal.whatsapp_numero }}" target="_blank" class="cumbres-modal__whatsapp-button">
+            <i class="ri-whatsapp-line"></i> {{ contacto_data.whatsapp_modal.whatsapp_texto }}
           </a>
         </div>
       </div>
@@ -446,130 +391,39 @@
   </div>
 
   <!-- Modal para Planes de Financiamiento -->
-  <div class="cumbres-modal" id="cumbres-financing-modal">
+  <div class="cumbres-modal" id="{{ contacto_data.financiamiento_modal.id }}">
     <div class="cumbres-modal__content cumbres-modal__content--financing">
       <span class="cumbres-modal__close" id="cumbres-financing-close">&times;</span>
       <div class="cumbres-financing">
         <div class="cumbres-financing__header">
-          <h3 class="cumbres-financing__title">Planes de Financiamiento</h3>
-          <p class="cumbres-financing__subtitle">Soluciones flexibles para tu inversión</p>
+          <h3 class="cumbres-financing__title">{{ contacto_data.financiamiento_modal.titulo }}</h3>
+          <p class="cumbres-financing__subtitle">{{ contacto_data.financiamiento_modal.subtitulo }}</p>
         </div>
-        
+
         <div class="cumbres-financing__options">
-          <div class="cumbres-financing__card">
+          {% for plan in contacto_data.financiamiento_modal.planes %}
+          <div class="cumbres-financing__card {% if plan.destacado %}cumbres-financing__card--featured{% endif %}">
+            {% if plan.destacado and plan.tag %}
+            <div class="cumbres-financing__tag">{{ plan.tag }}</div>
+            {% endif %}
             <div class="cumbres-financing__card-header">
-              <i class="ri-coin-line cumbres-financing__icon"></i>
-              <h4 class="cumbres-financing__card-title">Plan Básico</h4>
+              <i class="{{ plan.icono }} cumbres-financing__icon"></i>
+              <h4 class="cumbres-financing__card-title">{{ plan.titulo }}</h4>
             </div>
             <ul class="cumbres-financing__list">
+              {% for item in plan["items"] %}
               <li class="cumbres-financing__item">
-                <i class="ri-check-line"></i> Enganche desde 20%
+                <i class="ri-check-line"></i> {{ item }}
               </li>
-              <li class="cumbres-financing__item">
-                <i class="ri-check-line"></i> Mensualidades fijas hasta 3 años
-              </li>
-              <li class="cumbres-financing__item">
-                <i class="ri-check-line"></i> Sin revisión de buró de crédito
-              </li>
+              {% endfor %}
             </ul>
           </div>
-          
-          <div class="cumbres-financing__card cumbres-financing__card--featured">
-            <div class="cumbres-financing__tag">Recomendado</div>
-            <div class="cumbres-financing__card-header">
-              <i class="ri-building-line cumbres-financing__icon"></i>
-              <h4 class="cumbres-financing__card-title">Plan Integral</h4>
-            </div>
-            <ul class="cumbres-financing__list">
-              <li class="cumbres-financing__item">
-                <i class="ri-check-line"></i> Lote + Construcción en un solo financiamiento
-              </li>
-              <li class="cumbres-financing__item">
-                <i class="ri-check-line"></i> Tasas preferenciales
-              </li>
-              <li class="cumbres-financing__item">
-                <i class="ri-check-line"></i> Plazos hasta 15 años
-              </li>
-              <li class="cumbres-financing__item">
-                <i class="ri-check-line"></i> Asesoría personalizada
-              </li>
-            </ul>
-          </div>
-          
-          <div class="cumbres-financing__card">
-            <div class="cumbres-financing__card-header">
-              <i class="ri-bank-line cumbres-financing__icon"></i>
-              <h4 class="cumbres-financing__card-title">Plan Empresarial</h4>
-            </div>
-            <ul class="cumbres-financing__list">
-              <li class="cumbres-financing__item">
-                <i class="ri-check-line"></i> Beneficios fiscales
-              </li>
-              <li class="cumbres-financing__item">
-                <i class="ri-check-line"></i> Inversión a largo plazo
-              </li>
-              <li class="cumbres-financing__item">
-                <i class="ri-check-line"></i> Opciones para desarrolladores
-              </li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="cumbres-financing__contact">
-          <p class="cumbres-financing__contact-text">Agenda una asesoría personalizada para encontrar el plan ideal para ti</p>
-          <button class="cumbres-financing__contact-button" id="cumbres-financing-adviser-btn">
-            <i class="ri-user-line"></i> Contactar a un asesor
-          </button>
+          {% endfor %}
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Modal para Newsletter -->
-  <div class="cumbres-modal" id="cumbres-newsletter-modal">
-    <div class="cumbres-modal__content">
-      <span class="cumbres-modal__close" id="cumbres-newsletter-close">&times;</span>
-      <h3 class="cumbres-modal__title">Suscríbete a nuestro boletín</h3>
-      <div class="cumbres-newsletter">
-        <p class="cumbres-modal__description">
-          Mantente informado sobre las últimas novedades y promociones exclusivas.
-        </p>
-        
-        <div class="cumbres-newsletter__benefits">
-          <h4 class="cumbres-newsletter__benefits-title">Ventajas de estar suscrito:</h4>
-          <ul class="cumbres-newsletter__list">
-            <li class="cumbres-newsletter__item">
-              <i class="ri-star-line"></i> Ofertas exclusivas para suscriptores
-            </li>
-            <li class="cumbres-newsletter__item">
-              <i class="ri-notification-line"></i> Noticias anticipadas sobre el proyecto
-            </li>
-            <li class="cumbres-newsletter__item">
-              <i class="ri-calendar-event-line"></i> Invitaciones a eventos especiales
-            </li>
-            <li class="cumbres-newsletter__item">
-              <i class="ri-price-tag-3-line"></i> Promociones de temporada
-            </li>
-          </ul>
-        </div>
-        
-        <form class="cumbres-newsletter__form">
-          <div class="cumbres-newsletter__input-group">
-            <input type="email" class="cumbres-newsletter__input" placeholder="Tu correo electrónico" required>
-            <button type="submit" class="cumbres-newsletter__button">
-              Suscribirme <i class="ri-arrow-right-line"></i>
-            </button>
-          </div>
-          <div class="cumbres-newsletter__privacy">
-            <input type="checkbox" id="cumbres-privacy" required>
-            <label for="cumbres-privacy">Acepto recibir comunicaciones y la política de privacidad</label>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-
+</section>
 <!-- =============== FOOTER =============== -->
 <footer class="cumbres-footer">
   <div class="cumbres-footer__container">

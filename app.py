@@ -22,19 +22,18 @@ def home():
                        
 
 # Ruta para la página de Cumbres
-# Ruta para la página de Cumbres
 @app.route('/projects/cumbres')
 def cumbres():
-    
-    home_data_cumbres, about_data_cumbres, mapa_data_cumbres, amenidades_data_cumbres, diseno_personalizado_data_cumbres = obtener_configs_cumbres() 
+    home_data_cumbres, about_data_cumbres, mapa_data_cumbres, amenidades_data_cumbres, diseno_personalizado_data_cumbres, contacto_data_cumbres = obtener_configs_cumbres() 
     
     return render_template('projects/cumbres.html',
-                           home = home_data_cumbres,
-                           about = about_data_cumbres,
-                           mapa = mapa_data_cumbres,
-                           amenidades_data = amenidades_data_cumbres,
-                           diseno_personalizado_data = diseno_personalizado_data_cumbres
-                          )
+        home = home_data_cumbres,
+        about = about_data_cumbres,
+        mapa = mapa_data_cumbres,
+        amenidades_data = amenidades_data_cumbres,
+        diseno_personalizado_data = diseno_personalizado_data_cumbres,
+        contacto_data = contacto_data_cumbres
+    )
 
 if __name__ == '__main__':
     app.run(debug=True)
