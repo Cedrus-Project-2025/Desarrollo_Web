@@ -222,103 +222,61 @@
 <!-- =============== DISEÑO Y PERSONALIZACIÓN SECTION =============== -->
 <section class="diseno-personalizado" id="diseno-personalizado">
   <div class="diseno-personalizado__container">
-    <h2 class="diseno-personalizado__title">Diseño y Personalización de tu Hogar</h2>
+    <h2 class="diseno-personalizado__title">{{ diseno_personalizado_data.titulo }}</h2>
     <p class="diseno-personalizado__description">
-      En <em>Cumbres del Sol</em>, no solo adquieres un lote, sino la oportunidad de construir un hogar que se adapte a tu estilo de vida y necesidades. Con una variedad de opciones en materiales y combinaciones, puedes diseñar una casa única en armonía con la naturaleza.
+      {{ diseno_personalizado_data.descripcion|safe }}
     </p>
 
     <!-- Mapa de Lotes (Imagen grande) -->
     <div class="diseno-personalizado__map-main">
-      <img src="static/img/mapa.png" alt="Mapa General de Lotes en Cumbres del Sol" />
+      <img src="{{ diseno_personalizado_data.mapa_imagen }}" alt="{{ diseno_personalizado_data.mapa_alt }}" />
     </div>
 
     <div class="diseno-personalizado__main-grid">
-      <!-- Lotes con Diferentes Dimensiones (Container 1) -->
+      <!-- Características principales -->
+      {% for caracteristica in diseno_personalizado_data.caracteristicas %}
       <div class="diseno-personalizado__feature-card">
         <div class="diseno-personalizado__image">
-          <img src="static/img/cumbres-5.jpg" alt="Lotes con Diferentes Dimensiones" />
+          <img src="{{ caracteristica.imagen }}" alt="{{ caracteristica.alt }}" />
         </div>
         <div class="diseno-personalizado__content">
           <div class="diseno-personalizado__icon-container">
-            <i class="ri-landscape-line"></i>
+            <i class="{{ caracteristica.icono }}"></i>
           </div>
-          <h3 class="diseno-personalizado__feature-title">Lotes con Diferentes Dimensiones</h3>
+          <h3 class="diseno-personalizado__feature-title">{{ caracteristica.titulo }}</h3>
           <p class="diseno-personalizado__feature-text">
-            Cada terreno en <em>Cumbres del Sol</em> cuenta con medidas variadas para ajustarse a distintos proyectos arquitectónicos y necesidades. Ya sea que busques un espacio más compacto y funcional o un terreno amplio para desarrollar una casa con áreas recreativas, aquí encontrarás la opción ideal.
+            {{ caracteristica.descripcion|safe }}
           </p>
         </div>
       </div>
-
-      <!-- Estilo de Construcción a tu Medida (Container 2) -->
-      <div class="diseno-personalizado__feature-card">
-        <div class="diseno-personalizado__image">
-          <img src="static/img/cumbres-4.jpg" alt="Estilo de Construcción a tu Medida" />
-        </div>
-        <div class="diseno-personalizado__content">
-          <div class="diseno-personalizado__icon-container">
-            <i class="ri-home-gear-line"></i>
-          </div>
-          <h3 class="diseno-personalizado__feature-title">Estilo de Construcción a tu Medida</h3>
-          <p class="diseno-personalizado__feature-text">
-            Cada hogar puede ser diseñado con un enfoque personalizado, eligiendo entre diferentes materiales que ofrecen ventajas estéticas y funcionales.
-          </p>
-        </div>
-      </div>
+      {% endfor %}
     </div>
 
-    <!-- Materiales de Construcción (Separada y ajustada) -->
+    <!-- Materiales de Construcción -->
     <div class="diseno-personalizado__materials">
-      <h3 class="diseno-personalizado__materials-title">Materiales de Construcción</h3>
+      <h3 class="diseno-personalizado__materials-title">{{ diseno_personalizado_data.materiales_titulo }}</h3>
       <div class="diseno-personalizado__materials-grid">
+        {% for material in diseno_personalizado_data.materiales %}
         <div class="diseno-personalizado__material-item">
           <div class="diseno-personalizado__material-icon">
-            <i class="ri-home-3-line"></i>
+            <i class="{{ material.icono }}"></i>
           </div>
-          <h4 class="diseno-personalizado__material-name">Tabique</h4>
-          <p class="diseno-personalizado__material-desc">Construcción tradicional, resistente y con excelente aislamiento térmico.</p>
+          <h4 class="diseno-personalizado__material-name">{{ material.nombre }}</h4>
+          <p class="diseno-personalizado__material-desc">{{ material.descripcion }}</p>
         </div>
-        
-        <div class="diseno-personalizado__material-item">
-          <div class="diseno-personalizado__material-icon">
-            <i class="ri-home-4-line"></i>
-          </div>
-          <h4 class="diseno-personalizado__material-name">Madera</h4>
-          <p class="diseno-personalizado__material-desc">Un diseño cálido y acogedor, ideal para quienes buscan un entorno rústico y natural.</p>
-        </div>
-        
-        <div class="diseno-personalizado__material-item">
-          <div class="diseno-personalizado__material-icon">
-            <i class="ri-home-7-line"></i>
-          </div>
-          <h4 class="diseno-personalizado__material-name">Piedra</h4>
-          <p class="diseno-personalizado__material-desc">Solidez y elegancia que se integran perfectamente con el paisaje.</p>
-        </div>
-        
-        <div class="diseno-personalizado__material-item">
-          <div class="diseno-personalizado__material-icon">
-            <i class="ri-stack-line"></i>
-          </div>
-          <h4 class="diseno-personalizado__material-name">Combinaciones</h4>
-          <p class="diseno-personalizado__material-desc">Mezcla de materiales para lograr una estética equilibrada y un mayor aprovechamiento de sus propiedades.</p>
-        </div>
+        {% endfor %}
       </div>
     </div>
 
-    <!-- Propuestas de Diseño (Carrusel mantenido) -->
+    <!-- Propuestas de Diseño (Carrusel) -->
     <div class="diseno-personalizado__carousel-container">
       <div class="diseno-personalizado__carousel">
-        <div class="diseno-personalizado__carousel-slide active">
-          <img src="static/img/cumbres-4.jpg" alt="Propuesta de Diseño 1" />
-          <div class="diseno-personalizado__carousel-caption">Modelo Contemporáneo</div>
+        {% for slide in diseno_personalizado_data.propuestas_slides %}
+        <div class="diseno-personalizado__carousel-slide {% if loop.first %}active{% endif %}">
+          <img src="{{ slide.imagen }}" alt="{{ slide.alt }}" />
+          <div class="diseno-personalizado__carousel-caption">{{ slide.caption }}</div>
         </div>
-        <div class="diseno-personalizado__carousel-slide">
-          <img src="static/img/cumbres-3.jpg" alt="Propuesta de Diseño 2" />
-          <div class="diseno-personalizado__carousel-caption">Diseño Mediterráneo</div>
-        </div>
-        <div class="diseno-personalizado__carousel-slide">
-          <img src="static/img/cumbres-2.jpg" alt="Propuesta de Diseño 3" />
-          <div class="diseno-personalizado__carousel-caption">Estilo Minimalista</div>
-        </div>
+        {% endfor %}
         
         <button class="diseno-personalizado__carousel-btn prev">
           <i class="ri-arrow-left-s-line"></i>
@@ -328,30 +286,29 @@
         </button>
         
         <div class="diseno-personalizado__carousel-indicator">
-          <span class="diseno-personalizado__carousel-dot active" data-slide="0"></span>
-          <span class="diseno-personalizado__carousel-dot" data-slide="1"></span>
-          <span class="diseno-personalizado__carousel-dot" data-slide="2"></span>
+          {% for slide in diseno_personalizado_data.propuestas_slides %}
+          <span class="diseno-personalizado__carousel-dot {% if loop.first %}active{% endif %}" data-slide="{{ loop.index0 }}"></span>
+          {% endfor %}
         </div>
       </div>
       
       <div class="diseno-personalizado__carousel-content">
         <div class="diseno-personalizado__icon">
-          <i class="ri-palette-line"></i>
+          <i class="{{ diseno_personalizado_data.propuestas_icono }}"></i>
         </div>
-        <h3 class="diseno-personalizado__feature-title">Propuestas de Diseño</h3>
+        <h3 class="diseno-personalizado__feature-title">{{ diseno_personalizado_data.propuestas_titulo }}</h3>
         <p class="diseno-personalizado__feature-text">
-          Te ofrecemos diferentes opciones arquitectónicas basadas en la combinación de materiales, optimizando distribución, iluminación y funcionalidad.
+          {{ diseno_personalizado_data.propuestas_descripcion }}
         </p>
         <div class="diseno-personalizado__badges">
-          <span class="diseno-personalizado__badge"><i class="ri-home-5-line"></i> Contemporáneo</span>
-          <span class="diseno-personalizado__badge"><i class="ri-home-4-line"></i> Mediterráneo</span>
-          <span class="diseno-personalizado__badge"><i class="ri-home-3-line"></i> Minimalista</span>
+          {% for estilo in diseno_personalizado_data.propuestas_estilos %}
+          <span class="diseno-personalizado__badge"><i class="{{ estilo.icono }}"></i> {{ estilo.nombre }}</span>
+          {% endfor %}
         </div>
       </div>
     </div>
   </div>
 </section>
-
 <!-- =============== SECCIÓN CONTACTO =============== -->
 <section class="cumbres-contact" id="cumbres-contact">
   <div class="cumbres-contact__container">

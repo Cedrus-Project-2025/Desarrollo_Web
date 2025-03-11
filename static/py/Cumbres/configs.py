@@ -249,6 +249,95 @@ def obtener_configs_cumbres():
             }
         ]
     }
+    
+    # ==================== DISEÑO Y PERSONALIZACIÓN ====================
+    diseno_personalizado_data_cumbres = {
+        'titulo': 'Diseño y Personalización de tu Hogar',
+        'descripcion': 'En <em>Cumbres del Sol</em>, no solo adquieres un lote, sino la oportunidad de construir un hogar que se adapte a tu estilo de vida y necesidades. Con una variedad de opciones en materiales y combinaciones, puedes diseñar una casa única en armonía con la naturaleza.',
+        
+        # Mapa de lotes
+        'mapa_imagen': 'static/img/mapa.png',
+        'mapa_alt': 'Mapa General de Lotes en Cumbres del Sol',
+        
+        # Características principales
+        'caracteristicas': [
+            {
+                'titulo': 'Lotes con Diferentes Dimensiones',
+                'descripcion': 'Cada terreno en <em>Cumbres del Sol</em> cuenta con medidas variadas para ajustarse a distintos proyectos arquitectónicos y necesidades. Ya sea que busques un espacio más compacto y funcional o un terreno amplio para desarrollar una casa con áreas recreativas, aquí encontrarás la opción ideal.',
+                'icono': 'ri-landscape-line',
+                'imagen': 'static/img/cumbres-5.jpg',
+                'alt': 'Lotes con Diferentes Dimensiones'
+            },
+            {
+                'titulo': 'Estilo de Construcción a tu Medida',
+                'descripcion': 'Cada hogar puede ser diseñado con un enfoque personalizado, eligiendo entre diferentes materiales que ofrecen ventajas estéticas y funcionales.',
+                'icono': 'ri-home-gear-line',
+                'imagen': 'static/img/cumbres-4.jpg',
+                'alt': 'Estilo de Construcción a tu Medida'
+            }
+        ],
+        
+        # Materiales de construcción
+        'materiales_titulo': 'Materiales de Construcción',
+        'materiales': [
+            {
+                'nombre': 'Tabique',
+                'descripcion': 'Construcción tradicional, resistente y con excelente aislamiento térmico.',
+                'icono': 'ri-home-3-line'
+            },
+            {
+                'nombre': 'Madera',
+                'descripcion': 'Un diseño cálido y acogedor, ideal para quienes buscan un entorno rústico y natural.',
+                'icono': 'ri-home-4-line'
+            },
+            {
+                'nombre': 'Piedra',
+                'descripcion': 'Solidez y elegancia que se integran perfectamente con el paisaje.',
+                'icono': 'ri-home-7-line'
+            },
+            {
+                'nombre': 'Combinaciones',
+                'descripcion': 'Mezcla de materiales para lograr una estética equilibrada y un mayor aprovechamiento de sus propiedades.',
+                'icono': 'ri-stack-line'
+            }
+        ],
+        
+        # Carrusel de propuestas de diseño
+        'propuestas_titulo': 'Propuestas de Diseño',
+        'propuestas_descripcion': 'Te ofrecemos diferentes opciones arquitectónicas basadas en la combinación de materiales, optimizando distribución, iluminación y funcionalidad.',
+        'propuestas_icono': 'ri-palette-line',
+        'propuestas_slides': [
+            {
+                'imagen': 'static/img/cumbres-4.jpg',
+                'alt': 'Propuesta de Diseño 1',
+                'caption': 'Modelo Contemporáneo'
+            },
+            {
+                'imagen': 'static/img/cumbres-3.jpg',
+                'alt': 'Propuesta de Diseño 2',
+                'caption': 'Diseño Mediterráneo'
+            },
+            {
+                'imagen': 'static/img/cumbres-2.jpg',
+                'alt': 'Propuesta de Diseño 3',
+                'caption': 'Estilo Minimalista'
+            }
+        ],
+        'propuestas_estilos': [
+            {
+                'nombre': 'Contemporáneo',
+                'icono': 'ri-home-5-line'
+            },
+            {
+                'nombre': 'Mediterráneo',
+                'icono': 'ri-home-4-line'
+            },
+            {
+                'nombre': 'Minimalista',
+                'icono': 'ri-home-3-line'
+            }
+        ]
+    }
 
 
-    return (home_data_cumbres, about_data_cumbres, mapa_data_cumbres, amenidades_data_cumbres)
+    return (home_data_cumbres, about_data_cumbres, mapa_data_cumbres, amenidades_data_cumbres, diseno_personalizado_data_cumbres)
