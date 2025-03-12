@@ -425,113 +425,80 @@
   </div>
 </section>
 <!-- =============== FOOTER =============== -->
+<!-- =============== FOOTER =============== -->
 <footer class="cumbres-footer">
   <div class="cumbres-footer__container">
     <div class="cumbres-footer__content">
       <!-- Logo y descripción -->
       <div class="cumbres-footer__group">
-        <h3 class="cumbres-footer__logo">CUMBRES DEL SOL</h3>
+        <h3 class="cumbres-footer__logo">{{ footer_data.logo }}</h3>
         <p class="cumbres-footer__description">
-          Descubre nuestros exclusivos espacios diseñados para brindarte la mejor experiencia con vistas panorámicas inigualables.
+          {{ footer_data.descripcion }}
         </p>
         <div class="cumbres-footer__social">
-          <a href="#" class="cumbres-footer__social-link">
-            <i class="ri-facebook-fill"></i>
+          {% for social in footer_data.social_links %}
+          <a href="{{ social.url }}" class="cumbres-footer__social-link">
+            <i class="{{ social.icono }}"></i>
           </a>
-          <a href="#" class="cumbres-footer__social-link">
-            <i class="ri-instagram-line"></i>
-          </a>
-          <a href="#" class="cumbres-footer__social-link">
-            <i class="ri-twitter-x-fill"></i>
-          </a>
+          {% endfor %}
         </div>
       </div>
 
       <!-- Enlaces Rápidos -->
       <div class="cumbres-footer__group">
-        <h3 class="cumbres-footer__title">Enlaces Rápidos</h3>
+        <h3 class="cumbres-footer__title">{{ footer_data.enlaces_titulo }}</h3>
         <ul class="cumbres-footer__links">
+          {% for enlace in footer_data.enlaces %}
           <li>
-            <a href="#" class="cumbres-footer__link">Inicio</a>
+            <a href="{{ enlace.url }}" class="cumbres-footer__link">{{ enlace.texto }}</a>
           </li>
-          <li>
-            <a href="#cumbres-about" class="cumbres-footer__link">Acerca</a>
-          </li>
-          <li>
-            <a href="#cumbres-mapa-section" class="cumbres-footer__link">Ubicación</a>
-          </li>
-          <li>
-            <a href="#diseno-personalizado" class="cumbres-footer__link">Diseño</a>
-          </li>
-          <li>
-            <a href="#cumbres-contact" class="cumbres-footer__link">Contacto</a>
-          </li>
+          {% endfor %}
         </ul>
       </div>
 
       <!-- Información de Contacto con enlaces funcionales -->
       <div class="cumbres-footer__group">
-        <h3 class="cumbres-footer__title">Contáctanos</h3>
+        <h3 class="cumbres-footer__title">{{ footer_data.contacto_titulo }}</h3>
         <ul class="cumbres-footer__info">
+          {% for contacto in footer_data.contacto_info %}
           <li class="cumbres-footer__info-item">
-            <a href="https://maps.google.com/?q=Cumbres+Del+Sol,México" target="_blank" class="cumbres-footer__contact-link">
-              <i class="ri-map-pin-line cumbres-footer__info-icon"></i>
+            <a href="{{ contacto.url }}" target="{{ contacto.target }}" class="cumbres-footer__contact-link">
+              <i class="{{ contacto.icono }} cumbres-footer__info-icon"></i>
               <p class="cumbres-footer__info-text">
-                Av. Principal #123<br>Cumbres Del Sol, México
+                {{ contacto.texto|safe }}
               </p>
             </a>
           </li>
-          <li class="cumbres-footer__info-item">
-            <a href="tel:+525551234567" class="cumbres-footer__contact-link">
-              <i class="ri-phone-line cumbres-footer__info-icon"></i>
-              <p class="cumbres-footer__info-text">
-                +52 555 123 4567
-              </p>
-            </a>
-          </li>
-          <li class="cumbres-footer__info-item">
-            <a href="mailto:info@cumbresdelsol.com" class="cumbres-footer__contact-link">
-              <i class="ri-mail-line cumbres-footer__info-icon"></i>
-              <p class="cumbres-footer__info-text">
-                info@cumbresdelsol.com
-              </p>
-            </a>
-          </li>
+          {% endfor %}
         </ul>
       </div>
 
       <!-- Horarios de Atención -->
       <div class="cumbres-footer__group">
-        <h3 class="cumbres-footer__title">Horarios de Atención</h3>
+        <h3 class="cumbres-footer__title">{{ footer_data.horarios_titulo }}</h3>
         <div class="cumbres-footer__schedule">
+          {% for horario in footer_data.horarios %}
           <div class="cumbres-footer__schedule-item">
-            <span class="cumbres-footer__schedule-day">Lunes - Viernes:</span>
-            <span class="cumbres-footer__schedule-hours">9:00 - 19:00</span>
+            <span class="cumbres-footer__schedule-day">{{ horario.dia }}:</span>
+            <span class="cumbres-footer__schedule-hours">{{ horario.horas }}</span>
           </div>
-          <div class="cumbres-footer__schedule-item">
-            <span class="cumbres-footer__schedule-day">Sábados:</span>
-            <span class="cumbres-footer__schedule-hours">10:00 - 16:00</span>
-          </div>
-          <div class="cumbres-footer__schedule-item">
-            <span class="cumbres-footer__schedule-day">Domingos:</span>
-            <span class="cumbres-footer__schedule-hours">Solo citas previas</span>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
 
     <div class="cumbres-footer__bottom">
       <p class="cumbres-footer__copy">
-        © 2025 Cumbres Del Sol. Todos los derechos reservados
+        {{ footer_data.copyright }}
       </p>
       <div class="cumbres-footer__terms">
-        <a href="#" class="cumbres-footer__terms-link">Términos y Condiciones</a>
-        <a href="#" class="cumbres-footer__terms-link">Política de Privacidad</a>
+        {% for termino in footer_data.terminos %}
+        <a href="{{ termino.url }}" class="cumbres-footer__terms-link">{{ termino.texto }}</a>
+        {% endfor %}
       </div>
     </div>
   </div>
 </footer>
-
   
 </section>
 

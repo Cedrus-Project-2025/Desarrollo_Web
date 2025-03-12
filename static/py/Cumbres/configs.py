@@ -499,5 +499,67 @@ def obtener_configs_cumbres():
         }
     }
     
+    # ==================== FOOTER ====================
+    footer_data_cumbres = {
+    # Logo y descripción
+    'logo': 'CUMBRES DEL SOL',
+    'descripcion': 'Descubre nuestros exclusivos espacios diseñados para brindarte la mejor experiencia con vistas panorámicas inigualables.',
+    
+    # Enlaces de redes sociales
+    'social_links': [
+        {'icono': 'ri-facebook-fill', 'url': '#'},
+        {'icono': 'ri-instagram-line', 'url': '#'},
+        {'icono': 'ri-twitter-x-fill', 'url': '#'}
+    ],
+    
+    # Enlaces rápidos
+    'enlaces_titulo': 'Enlaces Rápidos',
+    'enlaces': [
+        {'texto': 'Inicio', 'url': '#'},
+        {'texto': 'Acerca', 'url': '#cumbres-about'},
+        {'texto': 'Ubicación', 'url': '#cumbres-mapa-section'},
+        {'texto': 'Diseño', 'url': '#diseno-personalizado'},
+        {'texto': 'Contacto', 'url': '#cumbres-contact'}
+    ],
+    
+    # Información de contacto
+    'contacto_titulo': 'Contáctanos',
+    'contacto_info': [
+        {
+            'icono': 'ri-map-pin-line',
+            'texto': 'Av. Principal #123<br>Cumbres Del Sol, México',
+            'url': 'https://maps.google.com/?q=Cumbres+Del+Sol,México',
+            'target': '_blank'
+        },
+        {
+            'icono': 'ri-phone-line',
+            'texto': '+52 555 123 4567',
+            'url': 'tel:+525551234567',
+            'target': '_self'
+        },
+        {
+            'icono': 'ri-mail-line',
+            'texto': 'info@cumbresdelsol.com',
+            'url': 'mailto:info@cumbresdelsol.com',
+            'target': '_self'
+        }
+    ],
+    
+    # Horarios de atención
+    'horarios_titulo': 'Horarios de Atención',
+    'horarios': [
+        {'dia': 'Lunes - Viernes', 'horas': '9:00 - 19:00'},
+        {'dia': 'Sábados', 'horas': '10:00 - 16:00'},
+        {'dia': 'Domingos', 'horas': 'Solo citas previas'}
+    ],
+    
+    # Copyright y términos
+    'copyright': '© 2025 Cumbres Del Sol. Todos los derechos reservados',
+    'terminos': [
+        {'texto': 'Términos y Condiciones', 'url': '#'},
+        {'texto': 'Política de Privacidad', 'url': '#'}
+    ]
+    }
+    
 
-    return (home_data_cumbres, about_data_cumbres, mapa_data_cumbres, amenidades_data_cumbres, diseno_personalizado_data_cumbres, contacto_data_cumbres)
+    return (home_data_cumbres, about_data_cumbres, mapa_data_cumbres, amenidades_data_cumbres, diseno_personalizado_data_cumbres, contacto_data_cumbres, footer_data_cumbres)
