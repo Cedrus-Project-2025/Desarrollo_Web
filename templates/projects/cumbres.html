@@ -75,19 +75,61 @@
 <section class="cumbres-home" id="cumbres-home">
   <div class="cumbres-home__swiper swiper">
      <div class="swiper-wrapper">
-        {% for slide in home.slides %}
         <article class="cumbres-home__article swiper-slide">
            <div class="cumbres-home__data container">
-              <h3 class="cumbres-home__subtitle" data-swiper-parallax="500">{{ slide.subtitulo }}</h3>
-              <h1 class="cumbres-home__title" data-swiper-parallax="400">{{ slide.titulo_parte1 }} <br> {{ slide.titulo_parte2 }}</h1>
-              {% if slide.boton_texto %}
-              <a href="{{ slide.boton_link }}" class="cumbres-home__button" data-swiper-parallax="300">{{ slide.boton_texto }}</a>
+              <h3 class="cumbres-home__subtitle" data-swiper-parallax="500">{{ home.slide1_subtitulo }}</h3>
+              <h1 class="cumbres-home__title" data-swiper-parallax="400">{{ home.slide1_titulo_parte1 }} <br> {{ home.slide1_titulo_parte2 }}</h1>
+              {% if home.slide1_boton_texto %}
+              <a href="{{ home.slide1_boton_link }}" class="cumbres-home__button" data-swiper-parallax="300">
+                 {{ home.slide1_boton_texto }} <i class="ri-arrow-right-s-line"></i>
+              </a>
               {% endif %}
            </div>
 
-           <img src="{{ slide.imagen }}" alt="{{ slide.alt }}" class="cumbres-home__img" data-swiper-parallax="-300">
+           <img src="{{ home.slide1_imagen }}" alt="{{ home.slide1_alt }}" class="cumbres-home__img" data-swiper-parallax="-300">
         </article>
-        {% endfor %}
+
+        <article class="cumbres-home__article swiper-slide">
+           <div class="cumbres-home__data container">
+              <h3 class="cumbres-home__subtitle" data-swiper-parallax="500">{{ home.slide2_subtitulo }}</h3>
+              <h1 class="cumbres-home__title" data-swiper-parallax="400">{{ home.slide2_titulo_parte1 }} <br> {{ home.slide2_titulo_parte2 }}</h1>
+              {% if home.slide2_boton_texto %}
+              <a href="{{ home.slide2_boton_link }}" class="cumbres-home__button" data-swiper-parallax="300">
+                 {{ home.slide2_boton_texto }} <i class="ri-arrow-right-s-line"></i>
+              </a>
+              {% endif %}
+           </div>
+
+           <img src="{{ home.slide2_imagen }}" alt="{{ home.slide2_alt }}" class="cumbres-home__img" data-swiper-parallax="-300">
+        </article>
+
+        <article class="cumbres-home__article swiper-slide">
+           <div class="cumbres-home__data container">
+              <h3 class="cumbres-home__subtitle" data-swiper-parallax="500">{{ home.slide3_subtitulo }}</h3>
+              <h1 class="cumbres-home__title" data-swiper-parallax="400">{{ home.slide3_titulo_parte1 }} <br> {{ home.slide3_titulo_parte2 }}</h1>
+              {% if home.slide3_boton_texto %}
+              <a href="{{ home.slide3_boton_link }}" class="cumbres-home__button" data-swiper-parallax="300">
+                 {{ home.slide3_boton_texto }} <i class="ri-arrow-right-s-line"></i>
+              </a>
+              {% endif %}
+           </div>
+
+           <img src="{{ home.slide3_imagen }}" alt="{{ home.slide3_alt }}" class="cumbres-home__img" data-swiper-parallax="-300">
+        </article>
+
+        <article class="cumbres-home__article swiper-slide">
+           <div class="cumbres-home__data container">
+              <h3 class="cumbres-home__subtitle" data-swiper-parallax="500">{{ home.slide4_subtitulo }}</h3>
+              <h1 class="cumbres-home__title" data-swiper-parallax="400">{{ home.slide4_titulo_parte1 }} <br> {{ home.slide4_titulo_parte2 }}</h1>
+              {% if home.slide4_boton_texto %}
+              <a href="{{ home.slide4_boton_link }}" class="cumbres-home__button" data-swiper-parallax="300">
+                 {{ home.slide4_boton_texto }} <i class="ri-arrow-right-s-line"></i>
+              </a>
+              {% endif %}
+           </div>
+
+           <img src="{{ home.slide4_imagen }}" alt="{{ home.slide4_alt }}" class="cumbres-home__img" data-swiper-parallax="-300">
+        </article>
      </div>
   </div>
 
@@ -121,7 +163,6 @@
      </div>
   </div>
 </section>
-
      <!--==================== ABOUT ====================-->
 <section class="cumbres-about" id="cumbres-about">
   <div class="cumbres-about__container container">
