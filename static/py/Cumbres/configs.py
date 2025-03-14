@@ -11,54 +11,50 @@ def obtener_configs_cumbres():
 
     # ==================== HOME ====================
     home_data_cumbres = {
-        # Configuración general
-        'titulo': 'Cumbres Del Sol',
-        'subtitulo': 'Residencial exclusivo',
+        # Primer slide
+        'slide1_subtitulo': 'Cumbres Del Sol',
+        'slide1_titulo_parte1': 'Residencia Mirador',
+        'slide1_titulo_parte2': 'Vista al Mar',
+        'slide1_boton_texto': 'Ver detalles',
+        'slide1_boton_link': '#descripcion',
+        'slide1_imagen': '../static/img/cumbres-1.jpg',
+        'slide1_alt': 'Residencia Mirador',
         
-        # Slides para el carrusel
-        'slides': [
-            {
-                'subtitulo': 'Cumbres Del Sol',
-                'titulo_parte1': 'Residencia Mirador',
-                'titulo_parte2': 'Vista al Mar',
-                'boton_texto': 'Ver detalles',
-                'boton_link': '#descripcion',
-                'imagen': '../static/img/cumbres-1.jpg', 
-                'alt': 'Residencia Mirador'
-            },
-            {
-                'subtitulo': 'Cumbres Del Sol',
-                'titulo_parte1': 'Residencia Bosque',
-                'titulo_parte2': 'Entre Pinos',
-                'boton_texto': '', # Este slide no parece tener botón en el HTML
-                'boton_link': '',
-                'imagen': '../static/img/cumbres-2.jpg',
-                'alt': 'Residencia Bosque'
-            },
-            {
-                'subtitulo': 'Cumbres Del Sol',
-                'titulo_parte1': 'Residencia Roca',
-                'titulo_parte2': 'Arquitectura Moderna',
-                'boton_texto': 'Ver detalles',
-                'boton_link': '#caracteristicas',
-                'imagen': 'static/img/cumbres-3.jpg',
-                'alt': 'Residencia Roca'
-            },
-            {
-                'subtitulo': 'Cumbres Del Sol',
-                'titulo_parte1': 'Residencia Curva',
-                'titulo_parte2': 'Diseño Exclusivo',
-                'boton_texto': 'Ver detalles',
-                'boton_link': '#planos',
-                'imagen': 'static/img/cumbres-4.jpg',
-                'alt': 'Residencia Curva'
-            }
-        ],
+        # Segundo slide
+        'slide2_subtitulo': 'Cumbres Del Sol',
+        'slide2_titulo_parte1': 'Residencia Bosque',
+        'slide2_titulo_parte2': 'Entre Pinos',
+        'slide2_boton_texto': '',  # Este slide no parece tener botón en el HTML
+        'slide2_boton_link': '',
+        'slide2_imagen': '../static/img/cumbres-2.jpg',
+        'slide2_alt': 'Residencia Bosque',
         
-        # Enlaces de redes sociales
+        # Tercer slide
+        'slide3_subtitulo': 'Cumbres Del Sol',
+        'slide3_titulo_parte1': 'Residencia Roca',
+        'slide3_titulo_parte2': 'Arquitectura Moderna',
+        'slide3_boton_texto': 'Ver detalles',
+        'slide3_boton_link': '#caracteristicas',
+        'slide3_imagen': '../static/img/cumbres-3.jpg',
+        'slide3_alt': 'Residencia Roca',
+        
+        # Cuarto slide
+        'slide4_subtitulo': 'Cumbres Del Sol',
+        'slide4_titulo_parte1': 'Residencia Curva',
+        'slide4_titulo_parte2': 'Diseño Exclusivo',
+        'slide4_boton_texto': 'Ver detalles',
+        'slide4_boton_link': '#planos',
+        'slide4_imagen': '../static/img/cumbres-4.jpg',
+        'slide4_alt': 'Residencia Curva',
+        
+        # Enlaces sociales
         'social_facebook': '#',
         'social_instagram': '#',
         'social_twitter': '#',
+        
+        # Configuración general
+        'titulo': 'Cumbres Del Sol',
+        'subtitulo': 'Residencial exclusivo',
         
         # Navegación
         'nav_inicio': '#cumbres-home',
