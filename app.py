@@ -4,13 +4,18 @@ from static.py.Cumbres.configs import obtener_configs_cumbres as obtener_configs
 
 app = Flask(__name__)
 
-# Ruta para la página principal
+# Ruta para la página principal (Chatbot)
 @app.route('/')
 def home():
-    
+    # No necesitas pasar datos al chatbot si es estático
+    return render_template('index.html')
+
+# Ruta para la página principal (main.html)
+@app.route('/projects/main')
+def main():
     home_data, about_data, services_data, testimonials_data, contact_center_data, mapa_data, footer_data = obtener_configs_general()
 
-    return render_template('index.html', 
+    return render_template('projects/main.html', 
                        home           = home_data, 
                        about          = about_data,
                        services       = services_data, 
@@ -19,7 +24,6 @@ def home():
                        mapa           = mapa_data, 
                        footer         = footer_data
                        )
-                       
 
 # Ruta para la página de Cumbres
 @app.route('/projects/cumbres')

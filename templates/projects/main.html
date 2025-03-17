@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!--=============== FAVICON ===============-->
+      <link rel="shortcut icon" href="static/img/favicon.png" type="image/x-icon">
+
+      <!--=============== REMIXICONS ===============-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+
+      <!--=============== SWIPER CSS ===============-->
+      <link rel="stylesheet" href="static/css/swiper-bundle.min.css">
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="static/css/main.css">
+
+      <!--=============== LEAFLET MAP ===============-->
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+      <title>Responsive architecture website</title>
+   </head>
+   <body>
+      <!--==================== HEADER ====================-->
+      <header class="header" id="header">
+         <nav class="nav container">
+            <a href="#" class="nav__logo">Architecture</a>
+            <div class="nav__menu" id="nav-menu">
+               <ul class="nav__list">
+                  <li>
+                     <a href="#home-hm" class="nav__link">Inicio</a>
+                  </li>
+
+                  <li>
+                     <a href="#about" class="nav__link">Acerca de nosotros</a>
+                  </li>
+
+                  <li>
+                     <a href="#services" class="nav__link">Servicios</a>
+                  </li>
+                  
+                  <li>
+
+                     <a href="#testimonials" class="nav__link">Testimonios</a>
+                  </li>
+
+                  <li>
+                     <a href="#contact-center" class="nav__link">Contacto</a>
+                  </li>
+
+                  <li>
+                    <a href="#residencias-mapa-section" class="nav__link">Proyectos</a>
+                 </li>
+               </ul>
+
+               <!--========= Close Button =========-->
+               <div class="nav__close" id="nav-close">
+                  <i class="ri-close-large-line"></i>
+               </div>
+            </div>
+
+             <!--========= Close Button =========-->
+             <div class="nav__toggle" id="nav-toggle">
+               <i class="ri-menu-line"></i>
+            </div>           
+         </nav>
+         
+      </header>
+
+      <!--==================== MAIN ====================-->
+      <main class="main">
+      <!--==================== HOME ====================-->
+<section class="home" id="home-hm">
+    <div class="home__swiper swiper">
+       <div class="swiper-wrapper">
+          <article class="home__article swiper-slide">
+             <div class="home__data container">
+                <h3 class="home__subtittle" data-swiper-parallax="500">{{ home.slide1_subtitulo }}</h3>
+                <h1 class="home__tittle" data-swiper-parallax="400">{{ home.slide1_titulo_parte1 }}<br> {{ home.slide1_titulo_parte2 }}</h1>
+                <a href="{{ url_for(home.ruta_cumbres) }}" class="home__button" data-swiper-parallax="300">
+                   {{ home.slide1_boton_texto }} <i class="ri-arrow-right-s-line"></i>
+                </a>
+             </div>
+ 
+             <img src="{{ home.slide1_imagen }}" alt="Lake house" class="home__img" data-swiper-parallax="-300">
+          </article>
+ 
+          <article class="home__article swiper-slide">
+             <div class="home__data container">
+                <h3 class="home__subtittle" data-swiper-parallax="500">{{ home.slide2_subtitulo }}</h3>
+                <h1 class="home__tittle" data-swiper-parallax="400">{{ home.slide2_titulo_parte1 }} <br> {{ home.slide2_titulo_parte2 }}</h1>
+                <a href="#" class="home__button" data-swiper-parallax="300">
+                   {{ home.slide2_boton_texto }} <i class="ri-arrow-right-s-line"></i>
+                </a>
+             </div>
+ 
+             <img src="{{ home.slide2_imagen }}" alt="Forest house" class="home__img" data-swiper-parallax="-300">
+          </article>
+ 
+          <article class="home__article swiper-slide">
+             <div class="home__data container">
+                <h3 class="home__subtittle" data-swiper-parallax="500">{{ home.slide3_subtitulo }}</h3>
+                <h1 class="home__tittle" data-swiper-parallax="400">{{ home.slide3_titulo_parte1 }} <br> {{ home.slide3_titulo_parte2 }}</h1>
+                <a href="#" class="home__button" data-swiper-parallax="300">
+                   {{ home.slide3_boton_texto }} <i class="ri-arrow-right-s-line"></i>
+                </a>
+             </div>
+ 
+             <img src="{{ home.slide3_imagen }}" alt="Rock house" class="home__img" data-swiper-parallax="-300">
+          </article>
+ 
+          <article class="home__article swiper-slide">
+             <div class="home__data container">
+                <h3 class="home__subtittle" data-swiper-parallax="500">{{ home.slide4_subtitulo }}</h3>
+                <h1 class="home__tittle" data-swiper-parallax="400">{{ home.slide4_titulo_parte1 }} <br> {{ home.slide4_titulo_parte2 }}</h1>
+                <a href="#" class="home__button" data-swiper-parallax="300">
+                   {{ home.slide4_boton_texto }} <i class="ri-arrow-right-s-line"></i>
+                </a>
+             </div>
+ 
+             <img src="{{ home.slide4_imagen }}" alt="Curved house" class="home__img" data-swiper-parallax="-300">
+          </article>
+       </div>
+    </div>
+ 
+    <div class="home__content">
+       <div class="home__social">
+          <a href="{{ home.social_facebook }}" target="_blank" class="home__social-link">
+             <i class="ri-facebook-circle-line"></i>
+          </a>
+ 
+          <a href="{{ home.social_instagram }}" target="_blank" class="home__social-link">
+             <i class="ri-instagram-line"></i>
+          </a>
+ 
+          <a href="{{ home.social_twitter }}" target="_blank" class="home__social-link">
+             <i class="ri-twitter-x-line"></i>
+          </a>
+       </div>
+ 
+       <!--==== If we need pagination ====-->
+       <div class="swiper-pagination"></div>
+ 
+       <!--==== Navigation buttons ====-->
+       <div class="swiper-navigation">
+          <div class="swiper-button-prev">
+             <i class="ri-arrow-left-s-line"></i> 
+          </div>
+          
+          <div class="swiper-button-next">
+             <i class="ri-arrow-right-s-line"></i>
+          </div>
+       </div>
+    </div>
+ </section>
+      </main>
+
+       <!--==================== ABOUT ====================-->
+    <section class="about section" id="about">
+        <div class="about__container container">
+            <span class="section__subtitle">{{ about['about_subtitulo'] }}</span>
+            <h2 class="section__title">
+                {{ about['about_titulo_parte1'] }} <br> 
+                {{ about['about_titulo_parte2'] }}
+            </h2>
+            
+            <div class="about__content">
+                <div class="about__data">
+                    <p class="about__description">{{ about['about_descripcion'] }}</p>
+
+                    <div class="about__stats">
+                        <div class="about__stat">
+                            <h3 class="about__stat-number">{{ about['about_experiencia'] }}</h3>
+                            <p class="about__stat-text">{{ about['about_experiencia_texto'] }}</p>
+                        </div>
+
+                        <div class="about__stat">
+                            <h3 class="about__stat-number">{{ about['about_proyectos'] }}</h3>
+                            <p class="about__stat-text">{{ about['about_proyectos_texto'] }}</p>
+                        </div>
+
+                        <div class="about__stat">
+                            <h3 class="about__stat-number">{{ about['about_estados'] }}</h3>
+                            <p class="about__stat-text">{{ about['about_estados_texto'] }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about__images">
+                    <div class="about__images-container">
+                        <img src="{{ about['about_imagen1'] }}" alt="Proyecto residencial" class="about__img-1">
+                        <img src="{{ about['about_imagen2'] }}" alt="Diseño interior" class="about__img-2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+        <!--==================== SERVICES ====================-->
+        <section class="services section" id="services">
+            <div class="services__container container">
+            <span class="section__subtitle">Nuestros Servicios</span>
+            <h2 class="section__title">Soluciones Integrales <br> Para Tu Hogar</h2>
+        
+            <div class="services__content">
+                <article class="services__card">
+                    <i class="ri-home-heart-line services__icon"></i>
+                    <h3 class="services__title">Diseño Residencial</h3>
+                    <p class="services__description">
+                        Creamos espacios únicos que reflejan tu estilo de vida, 
+                        combinando estética y funcionalidad en cada detalle.
+                    </p>
+                </article>
+        
+                <article class="services__card">
+                    <i class="ri-building-line services__icon"></i>
+                    <h3 class="services__title">Desarrollo Inmobiliario</h3>
+                    <p class="services__description">
+                        Gestionamos proyectos residenciales completos, 
+                        desde la conceptualización hasta la entrega final.
+                    </p>
+                </article>
+        
+                <article class="services__card">
+                    <i class="ri-paint-line services__icon"></i>
+                    <h3 class="services__title">Personalización</h3>
+                    <p class="services__description">
+                        Adaptamos cada espacio a tus necesidades específicas,
+                        ofreciendo acabados y materiales de primera calidad.
+                    </p>
+                </article>
+        
+                <article class="services__card">
+                    <i class="ri-earth-line services__icon"></i>
+                    <h3 class="services__title">Ubicaciones Premium</h3>
+                    <p class="services__description">
+                        Desarrollamos proyectos en las zonas más exclusivas
+                        y con mayor plusvalía de la república.
+                    </p>
+                </article>
+            </div>
+            </div>
+        </section>
+
+      <!--==================== TESTIMONIALS ====================-->
+<section class="testimonials section" id="testimonials">
+    <div class="testimonials__container container">
+        <span class="section__subtitle">{{ testimonials.testimonials_subtitulo }}</span>
+        <h2 class="section__title">{{ testimonials.testimonials_titulo_parte1 }} <br> {{ testimonials.testimonials_titulo_parte2 }}</h2>
+ 
+        <div class="testimonials__swiper swiper">
+            <div class="swiper-wrapper">
+                {% for testimonio in testimonials.testimonios %}
+                <!-- Testimonial {{ loop.index }} -->
+                <div class="testimonial__card swiper-slide">
+                    <div class="testimonial__avatar">
+                        <img src="{{ testimonio.avatar }}" alt="avatar" class="testimonial__img">
+                    </div>
+                    <div class="testimonial__content">
+                        <div class="testimonial__rating">
+                            {% for i in range(testimonio.rating) %}
+                            <i class="ri-star-fill"></i>
+                            {% endfor %}
+                        </div>
+                        <p class="testimonial__description">
+                            "{{ testimonio.descripcion }}"
+                        </p>
+                        <h3 class="testimonial__name">{{ testimonio.nombre }}</h3>
+                        <div class="testimonial__location">
+                            <i class="ri-map-pin-line"></i>
+                            <span>{{ testimonio.ubicacion }}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+ </section>
+<!--==================== CONTACT CENTER ====================-->
+<section class="contact-center section" id="contact-center">
+    <div class="contact-center__container container">
+       <span class="section__subtitle">{{ contact_center.contact_subtitulo }}</span>
+        <h2 class="contact-center__title">{{ contact_center.contact_titulo }}</h2>
+        
+        <div class="contact-center__grid">
+            {% for opcion in contact_center.opciones_contacto %}
+            <!-- {{ opcion.titulo }} -->
+            <div class="contact-center__item" data-modal="{{ opcion.modal }}" role="button" tabindex="0" aria-label="{{ opcion.aria_label }}">
+                <i class="{{ opcion.icono }}"></i>
+                <h3>{{ opcion.titulo }}</h3>
+                <p>{{ opcion.descripcion }}</p>
+            </div>
+            {% endfor %}
+        </div>
+ 
+        <div class="contact-center__info">
+            <p class="contact-center__phone">
+                <i class="ri-phone-line"></i> {{ contact_center.telefono }}
+            </p>
+            <p class="contact-center__hours">
+                <i class="ri-time-line"></i> {{ contact_center.horario }}
+            </p>
+        </div>
+    </div>
+ 
+    <!-- Popup Programar Llamada -->
+    <div class="popup" id="popup-schedule" role="dialog" aria-labelledby="schedule-title">
+        <div class="popup-content">
+            <h3 id="schedule-title">{{ contact_center.modales.schedule.titulo }}</h3>
+            <form class="popup-form" id="scheduleForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Número de teléfono" required>
+                </div>
+                <div class="form-group">
+                    <input type="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <select name="time" required>
+                        <option value="">Selecciona un horario</option>
+                        {% for horario in contact_center.modales.schedule.horarios %}
+                        <option value="{{ horario.valor }}">{{ horario.texto }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn-submit">Enviar</button>
+                    <button type="button" class="btn-cancel popup-close-button">Cancelar</button>
+                </div>
+            </form>
+            <button class="popup-close-button close-x" aria-label="Cerrar">&times;</button>
+        </div>
+    </div>
+ 
+    <!-- Popup Dejar Datos -->
+    <div class="popup" id="popup-data" role="dialog" aria-labelledby="data-title">
+        <div class="popup-content">
+            <h3 id="data-title">{{ contact_center.modales.data.titulo }}</h3>
+            <form class="popup-form" id="dataForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn-submit">Enviar</button>
+                    <button type="button" class="btn-cancel popup-close-button">Cancelar</button>
+                </div>
+            </form>
+            <button class="popup-close-button close-x" aria-label="Cerrar">&times;</button>
+        </div>
+    </div>
+ 
+    <!-- Popup Agenda Visita con Asesor -->
+    <div class="popup" id="popup-advisor" role="dialog" aria-labelledby="advisor-title">
+        <div class="popup-content">
+            <h3 id="advisor-title">{{ contact_center.modales.advisor.titulo }}</h3>
+            <form class="popup-form" id="advisorForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Número de teléfono" required>
+                </div>
+                <div class="form-group">
+                    <select name="location" required>
+                        <option value="">Selecciona una sucursal</option>
+                        {% for sucursal in contact_center.modales.advisor.sucursales %}
+                        <option value="{{ sucursal.valor }}">{{ sucursal.texto }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <select name="time" required>
+                        <option value="">Selecciona un horario</option>
+                        {% for hora in contact_center.modales.advisor.horas %}
+                        <option value="{{ hora.valor }}">{{ hora.texto }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea name="comments" placeholder="¿En qué podemos ayudarte?" rows="3" maxlength="200"></textarea>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn-submit">Agendar cita</button>
+                    <button type="button" class="btn-cancel popup-close-button">Cancelar</button>
+                </div>
+            </form>
+            <button class="popup-close-button close-x" aria-label="Cerrar">&times;</button>
+        </div>
+    </div>
+</section>
+<iframe src="http://localhost:3000" 
+        width="400" 
+        height="600" 
+        style="border: none; 
+               position: fixed; 
+               bottom: 20px; 
+               right: 20px; 
+               z-index: 1000; 
+               border-radius: 10px; 
+               box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);">
+</iframe>
+
+
+<!--==================== MAPA ====================-->
+<section id="residencias-mapa-section" class="residencias-mapa-container">
+    <div class="residencias-mapa-content">
+        <span class="section__subtitle">{{ mapa.mapa_subtitulo }}</span>
+        <h2 class="contact-center__title">{{ mapa.mapa_titulo }}</h2>
+    </div>
+    
+    <div id="residencias-interactive-map"
+         class="residencias-interactive-map"
+         data-zoom="{{ mapa.mapa_zoom_inicial }}"
+         data-center-lat="{{ mapa.mapa_centro_latitud }}"
+         data-center-lng="{{ mapa.mapa_centro_longitud }}"
+         data-marcadores='{{ mapa.marcadores | tojson }}'>
+    </div>
+</section>
+
+<!--==================== FOOTER ====================-->
+<footer class="footer">
+    <div class="footer__container container">
+        <!-- Columna principal con logo y descripción -->
+        <div class="footer__main">
+            <h3 class="footer__logo">{{ footer.footer_logo }}</h3>
+            <p class="footer__description">
+                {{ footer.footer_descripcion }}
+            </p>
+            <div class="footer__social">
+                <a href="{{ footer.footer_social_facebook }}" class="footer__social-link">
+                    <i class="ri-facebook-fill"></i>
+                </a>
+                <a href="{{ footer.footer_social_instagram }}" class="footer__social-link">
+                    <i class="ri-instagram-line"></i>
+                </a>
+                <a href="{{ footer.footer_social_whatsapp }}" class="footer__social-link">
+                    <i class="ri-whatsapp-line"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Links rápidos -->
+        <div class="footer__content">
+            <h3 class="footer__title">{{ footer.footer_enlaces_titulo }}</h3>
+            <ul class="footer__links">
+                <li><a href="{{ footer.footer_link_inicio }}" class="footer__link">Inicio</a></li>
+                <li><a href="{{ footer.footer_link_nosotros }}" class="footer__link">Nosotros</a></li>
+                <li><a href="{{ footer.footer_link_servicios }}" class="footer__link">Servicios</a></li>
+                <li><a href="{{ footer.footer_link_contacto }}" class="footer__link">Contacto</a></li>
+                <li><a href="{{ footer.footer_link_proyectos }}" class="footer__link">Proyectos</a></li>
+            </ul>
+        </div>
+
+        <!-- Contacto -->
+        <div class="footer__content">
+            <h3 class="footer__title">{{ footer.footer_contacto_titulo }}</h3>
+            <div class="footer__info">
+                <p><i class="ri-map-pin-line"></i> {{ footer.footer_contacto_direccion }}</p>
+                <p><i class="ri-phone-line"></i> {{ footer.footer_contacto_telefono }}</p>
+                <p><i class="ri-mail-line"></i> {{ footer.footer_contacto_email }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer__copy">
+        <span>{{ footer.footer_copyright }}</span>
+    </div>
+</footer>
+
+
+      <!--=============== SWIPER JS ===============-->
+      <script src="static/js/swiper-bundle.min.js"></script>
+
+      <!--=============== LEAFLET JS ===============-->
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+      <!--=============== MAIN JS ===============-->
+      <script src="static/js/main.js"></script>
+
+   </body>
+</html>
