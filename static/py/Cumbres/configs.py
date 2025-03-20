@@ -341,163 +341,128 @@ def obtener_configs_cumbres():
     
     # ==================== CONTACTO ====================
     contacto_data_cumbres = {
-        # Configuración general
-        'titulo': 'Contacto',
-        'descripcion': 'En <span class="cumbres-contact__highlight">Cumbres del Sol</span>, estamos listos para asesorarte en cada paso de tu inversión. Ponte en contacto con nosotros a través de las siguientes opciones:',
-        
-        # Opciones de contacto
-        'opciones': [
-            {
-                'id': 'cumbres-schedule',
-                'icono': 'ri-calendar-line',
-                'titulo': 'Agendar una Cita',
-                'descripcion': 'Programa una visita personalizada para conocer los lotes disponibles y resolver todas tus dudas.',
-                'boton_texto': 'Agendar ahora',
-                'boton_id': 'cumbres-schedule-btn'
-            },
-            {
-                'id': 'cumbres-whatsapp',
-                'icono': 'ri-whatsapp-line',
-                'titulo': 'WhatsApp',
-                'descripcion': 'Comunícate de manera rápida y directa con nuestro equipo para recibir atención inmediata.',
-                'boton_texto': 'Contactar',
-                'boton_id': 'cumbres-whatsapp-btn'
-            },
-            {
-                'id': 'cumbres-financing',
-                'icono': 'ri-money-dollar-circle-line',
-                'titulo': 'Financiamiento',
-                'descripcion': 'Te ofrecemos opciones flexibles para adquirir tu lote sin comprometer tu estabilidad financiera.',
-                'boton_texto': 'Ver opciones',
-                'boton_id': 'cumbres-financing-btn'
-            },
-            {
-                'id': 'cumbres-newsletter',
-                'icono': 'ri-mail-send-line',
-                'titulo': 'Boletín Informativo',
-                'descripcion': 'Suscríbete para recibir actualizaciones sobre el proyecto, promociones y novedades.',
-                'boton_texto': 'Suscribirme',
-                'boton_id': 'cumbres-newsletter-btn'
+    'titulo': 'Contacto',
+    'descripcion': (
+        'En <span class="cumbres-contact__highlight">Cumbres del Sol</span>, estamos listos para asesorarte en cada paso '
+        'de tu inversión. Ponte en contacto con nosotros a través de las siguientes opciones:'
+    ),
+
+    'opciones': [
+        {
+            'id': 'cumbres-schedule',
+            'icono': 'ri-calendar-line',
+            'titulo': 'Agendar una Cita',
+            'descripcion': (
+                'Programa una visita personalizada para conocer los lotes disponibles y resolver todas tus dudas.'
+            ),
+            'boton_texto': 'Agendar ahora',
+            'modal': {
+                'titulo': 'Agenda tu visita personalizada',
+                'descripcion': 'Te mostraremos en detalle las opciones de construcción y los beneficios de nuestra comunidad.',
+                'form': {
+                    'campos': [
+                        {'label': 'Nombre completo', 'type': 'text', 'id': 'cumbres-name', 'placeholder': 'Ingresa tu nombre'},
+                        {'label': 'Correo electrónico', 'type': 'email', 'id': 'cumbres-email', 'placeholder': 'correo@ejemplo.com'},
+                        {'label': 'Teléfono', 'type': 'tel', 'id': 'cumbres-phone', 'placeholder': 'Tu número de contacto'},
+                        {'label': 'Fecha de visita', 'type': 'date', 'id': 'cumbres-date', 'placeholder': ''},
+                        {'label': 'Hora preferida', 'type': 'select', 'id': 'cumbres-time', 'opciones': [
+                            '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '4:00 PM', '5:00 PM'
+                        ]}
+                    ],
+                    'boton_texto': 'Confirmar cita'
+                }
             }
-        ],
-        
-        # Modal Agenda
-        'agenda_modal': {
-            'id': 'cumbres-schedule-modal',
-            'titulo': 'Agenda tu visita personalizada',
-            'descripcion': 'Te mostraremos en detalle las opciones de construcción y los beneficios de nuestra comunidad.',
-            'campos': [
-                {
-                    'id': 'cumbres-name',
-                    'label': 'Nombre completo',
-                    'tipo': 'text',
-                    'placeholder': 'Ingresa tu nombre',
-                    'required': True
-                },
-                {
-                    'id': 'cumbres-email',
-                    'label': 'Correo electrónico',
-                    'tipo': 'email',
-                    'placeholder': 'correo@ejemplo.com',
-                    'required': True
-                },
-                {
-                    'id': 'cumbres-phone',
-                    'label': 'Teléfono',
-                    'tipo': 'tel',
-                    'placeholder': 'Tu número de contacto',
-                    'required': True
-                },
-                {
-                    'id': 'cumbres-date',
-                    'label': 'Fecha de visita',
-                    'tipo': 'date',
-                    'placeholder': '',
-                    'required': True
-                }
-            ],
-            'horarios': [
-                {'value': '10:00', 'label': '10:00 AM'},
-                {'value': '11:00', 'label': '11:00 AM'},
-                {'value': '12:00', 'label': '12:00 PM'},
-                {'value': '13:00', 'label': '1:00 PM'},
-                {'value': '16:00', 'label': '4:00 PM'},
-                {'value': '17:00', 'label': '5:00 PM'}
-            ],
-            'boton_texto': 'Confirmar cita'
         },
-        
-        # Modal WhatsApp
-        'whatsapp_modal': {
-            'id': 'cumbres-whatsapp-modal',
-            'titulo': 'Contacto directo vía WhatsApp',
-            'descripcion': 'Nuestro equipo de asesores está listo para atenderte de inmediato.',
-            'horario': 'Horario de atención: Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 10:00 AM - 2:00 PM',
-            'whatsapp_numero': '1234567890',
-            'whatsapp_texto': 'Iniciar chat ahora'
+        {
+            'id': 'cumbres-whatsapp',
+            'icono': 'ri-whatsapp-line',
+            'titulo': 'WhatsApp',
+            'descripcion': (
+                'Comunícate de manera rápida y directa con nuestro equipo para recibir atención inmediata.'
+            ),
+            'boton_texto': 'Contactar',
+            'modal': {
+                'titulo': 'Contacto directo vía WhatsApp',
+                'descripcion': 'Nuestro equipo de asesores está listo para atenderte de inmediato.',
+                'horario': 'Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 10:00 AM - 2:00 PM',
+                'link': 'https://wa.me/1234567890',
+                'boton_texto': 'Iniciar chat ahora'
+            }
         },
-        
-        # Modal Financiamiento
-        'financiamiento_modal': {
-            'id': 'cumbres-financing-modal',
-            'titulo': 'Planes de Financiamiento',
-            'subtitulo': 'Soluciones flexibles para tu inversión',
-            'planes': [
-                {
-                    'icono': 'ri-coin-line',
-                    'titulo': 'Plan Básico',
-                    'destacado': False,
-                    'items': [
-                        'Enganche desde 20%',
-                        'Mensualidades fijas hasta 3 años',
-                        'Sin revisión de buró de crédito'
-                    ]
-                },
-                {
-                    'icono': 'ri-building-line',
-                    'titulo': 'Plan Integral',
-                    'destacado': True,
-                    'tag': 'Recomendado',
-                    'items': [
-                        'Lote + Construcción en un solo financiamiento',
-                        'Tasas preferenciales',
-                        'Plazos hasta 15 años',
-                        'Asesoría personalizada'
-                    ]
-                },
-                {
-                    'icono': 'ri-bank-line',
-                    'titulo': 'Plan Empresarial',
-                    'destacado': False,
-                    'items': [
-                        'Beneficios fiscales',
-                        'Inversión a largo plazo',
-                        'Opciones para desarrolladores'
-                    ]
-                }
-            ],
-            'contacto_texto': 'Agenda una asesoría personalizada para encontrar el plan ideal para ti',
-            'contacto_boton_texto': 'Contactar a un asesor',
-            'contacto_boton_id': 'cumbres-financing-adviser-btn'
+        {
+            'id': 'cumbres-financing',
+            'icono': 'ri-money-dollar-circle-line',
+            'titulo': 'Financiamiento',
+            'descripcion': (
+                'Te ofrecemos opciones flexibles para adquirir tu lote sin comprometer tu estabilidad financiera.'
+            ),
+            'boton_texto': 'Ver opciones',
+            'modal': {
+                'titulo': 'Planes de Financiamiento',
+                'subtitulo': 'Soluciones flexibles para tu inversión',
+                'planes': [
+                    {
+                        'titulo': 'Plan Básico',
+                        'icono': 'ri-coin-line',
+                        'beneficios': [
+                            'Enganche desde 20%',
+                            'Mensualidades fijas hasta 3 años',
+                            'Sin revisión de buró de crédito'
+                        ]
+                    },
+                    {
+                        'titulo': 'Plan Integral',
+                        'icono': 'ri-building-line',
+                        'destacado': True,
+                        'tag': 'Recomendado',
+                        'beneficios': [
+                            'Lote + Construcción en un solo financiamiento',
+                            'Tasas preferenciales',
+                            'Plazos hasta 15 años',
+                            'Asesoría personalizada'
+                        ]
+                    },
+                    {
+                        'titulo': 'Plan Empresarial',
+                        'icono': 'ri-bank-line',
+                        'beneficios': [
+                            'Beneficios fiscales',
+                            'Inversión a largo plazo',
+                            'Opciones para desarrolladores'
+                        ]
+                    }
+                ],
+                'mensaje_contacto': 'Agenda una asesoría personalizada para encontrar el plan ideal para ti',
+                'boton_contacto': 'Contactar a un asesor'
+            }
         },
-        
-        # Modal Newsletter
-        'newsletter_modal': {
-            'id': 'cumbres-newsletter-modal',
-            'titulo': 'Suscríbete a nuestro boletín',
-            'descripcion': 'Mantente informado sobre las últimas novedades y promociones exclusivas.',
-            'beneficios_titulo': 'Ventajas de estar suscrito:',
-            'beneficios': [
-                {'icono': 'ri-star-line', 'texto': 'Ofertas exclusivas para suscriptores'},
-                {'icono': 'ri-notification-line', 'texto': 'Noticias anticipadas sobre el proyecto'},
-                {'icono': 'ri-calendar-event-line', 'texto': 'Invitaciones a eventos especiales'},
-                {'icono': 'ri-price-tag-3-line', 'texto': 'Promociones de temporada'}
-            ],
-            'placeholder': 'Tu correo electrónico',
+        {
+            'id': 'cumbres-newsletter',
+            'icono': 'ri-mail-send-line',
+            'titulo': 'Boletín Informativo',
+            'descripcion': (
+                'Suscríbete para recibir actualizaciones sobre el proyecto, promociones y novedades.'
+            ),
             'boton_texto': 'Suscribirme',
-            'privacidad_texto': 'Acepto recibir comunicaciones y la política de privacidad'
+            'modal': {
+                'titulo': 'Suscríbete a nuestro boletín',
+                'descripcion': 'Mantente informado sobre las últimas novedades y promociones exclusivas.',
+                'beneficios': [
+                    'Ofertas exclusivas para suscriptores',
+                    'Noticias anticipadas sobre el proyecto',
+                    'Invitaciones a eventos especiales',
+                    'Promociones de temporada'
+                ],
+                'formulario': {
+                    'placeholder': 'Tu correo electrónico',
+                    'boton_texto': 'Suscribirme',
+                    'checkbox_texto': 'Acepto recibir comunicaciones y la política de privacidad'
+                }
+            }
         }
+    ]
     }
+
     
     # ==================== FOOTER ====================
     footer_data_cumbres = {

@@ -328,7 +328,7 @@
         <p class="cumbres-contact__card-description">
           {{ opcion.descripcion }}
         </p>
-        <button class="cumbres-contact__card-button" id="{{ opcion.boton_id }}">
+        <button class="cumbres-contact__card-button" id="{{ opcion.id }}-btn">
           {{ opcion.boton_texto }}
         </button>
       </div>
@@ -336,74 +336,78 @@
     </div>
   </div>
 
+  {% for opcion in contacto_data.opciones %}
+  {% if opcion.id == 'cumbres-schedule' %}
   <!-- Modal para Agendar Cita -->
-  <div class="cumbres-modal" id="{{ contacto_data.agenda_modal.id }}">
+  <div class="cumbres-modal" id="{{ opcion.id }}-modal">
     <div class="cumbres-modal__content">
-      <span class="cumbres-modal__close" id="cumbres-schedule-close">&times;</span>
-      <h3 class="cumbres-modal__title">{{ contacto_data.agenda_modal.titulo }}</h3>
+      <span class="cumbres-modal__close" id="{{ opcion.id }}-close">&times;</span>
+      <h3 class="cumbres-modal__title">{{ opcion.modal.titulo }}</h3>
       <p class="cumbres-modal__description">
-        {{ contacto_data.agenda_modal.descripcion }}
+        {{ opcion.modal.descripcion }}
       </p>
-
+      
       <form class="cumbres-modal__form">
-        {% for campo in contacto_data.agenda_modal.campos %}
+        {% for campo in opcion.modal.form.campos %}
         <div class="cumbres-modal__form-group">
           <label for="{{ campo.id }}" class="cumbres-modal__label">{{ campo.label }}</label>
-          <input type="{{ campo.tipo }}" id="{{ campo.id }}" class="cumbres-modal__input" 
-                 placeholder="{{ campo.placeholder }}" {% if campo.required %}required{% endif %}>
-        </div>
-        {% endfor %}
-
-        <div class="cumbres-modal__form-group">
-          <label for="cumbres-time" class="cumbres-modal__label">Hora preferida</label>
-          <select id="cumbres-time" class="cumbres-modal__select" required>
+          {% if campo.type == 'select' %}
+          <select id="{{ campo.id }}" class="cumbres-modal__select" required>
             <option value="" disabled selected>Selecciona una hora</option>
-            {% for horario in contacto_data.agenda_modal.horarios %}
-            <option value="{{ horario.value }}">{{ horario.label }}</option>
+            {% for hora in campo.opciones %}
+            <option value="{{ hora|replace(' AM', '')|replace(' PM', '') }}">{{ hora }}</option>
             {% endfor %}
           </select>
+          {% else %}
+          <input type="{{ campo.type }}" id="{{ campo.id }}" class="cumbres-modal__input" placeholder="{{ campo.placeholder }}" required>
+          {% endif %}
         </div>
-
-        <button type="submit" class="cumbres-modal__submit">{{ contacto_data.agenda_modal.boton_texto }}</button>
+        {% endfor %}
+        
+        <button type="submit" class="cumbres-modal__submit">{{ opcion.modal.form.boton_texto }}</button>
       </form>
     </div>
   </div>
+  {% endif %}
 
+  {% if opcion.id == 'cumbres-whatsapp' %}
   <!-- Modal para WhatsApp -->
-  <div class="cumbres-modal" id="{{ contacto_data.whatsapp_modal.id }}">
+  <div class="cumbres-modal" id="{{ opcion.id }}-modal">
     <div class="cumbres-modal__content">
-      <span class="cumbres-modal__close" id="cumbres-whatsapp-close">&times;</span>
-      <h3 class="cumbres-modal__title">{{ contacto_data.whatsapp_modal.titulo }}</h3>
+      <span class="cumbres-modal__close" id="{{ opcion.id }}-close">&times;</span>
+      <h3 class="cumbres-modal__title">{{ opcion.modal.titulo }}</h3>
       <div class="cumbres-modal__whatsapp">
         <div class="cumbres-modal__whatsapp-info">
           <p class="cumbres-modal__description">
-            {{ contacto_data.whatsapp_modal.descripcion }}
+            {{ opcion.modal.descripcion }}
           </p>
           <p class="cumbres-modal__schedule">
-            <i class="ri-time-line"></i> {{ contacto_data.whatsapp_modal.horario }}
+            <i class="ri-time-line"></i> Horario de atención: {{ opcion.modal.horario }}
           </p>
-          <a href="https://wa.me/{{ contacto_data.whatsapp_modal.whatsapp_numero }}" target="_blank" class="cumbres-modal__whatsapp-button">
-            <i class="ri-whatsapp-line"></i> {{ contacto_data.whatsapp_modal.whatsapp_texto }}
+          <a href="{{ opcion.modal.link }}" target="_blank" class="cumbres-modal__whatsapp-button">
+            <i class="ri-whatsapp-line"></i> {{ opcion.modal.boton_texto }}
           </a>
         </div>
       </div>
     </div>
   </div>
+  {% endif %}
 
+  {% if opcion.id == 'cumbres-financing' %}
   <!-- Modal para Planes de Financiamiento -->
-  <div class="cumbres-modal" id="{{ contacto_data.financiamiento_modal.id }}">
+  <div class="cumbres-modal" id="{{ opcion.id }}-modal">
     <div class="cumbres-modal__content cumbres-modal__content--financing">
-      <span class="cumbres-modal__close" id="cumbres-financing-close">&times;</span>
+      <span class="cumbres-modal__close" id="{{ opcion.id }}-close">&times;</span>
       <div class="cumbres-financing">
         <div class="cumbres-financing__header">
-          <h3 class="cumbres-financing__title">{{ contacto_data.financiamiento_modal.titulo }}</h3>
-          <p class="cumbres-financing__subtitle">{{ contacto_data.financiamiento_modal.subtitulo }}</p>
+          <h3 class="cumbres-financing__title">{{ opcion.modal.titulo }}</h3>
+          <p class="cumbres-financing__subtitle">{{ opcion.modal.subtitulo }}</p>
         </div>
-
+        
         <div class="cumbres-financing__options">
-          {% for plan in contacto_data.financiamiento_modal.planes %}
-          <div class="cumbres-financing__card {% if plan.destacado %}cumbres-financing__card--featured{% endif %}">
-            {% if plan.destacado and plan.tag %}
+          {% for plan in opcion.modal.planes %}
+          <div class="cumbres-financing__card{% if plan.destacado %} cumbres-financing__card--featured{% endif %}">
+            {% if plan.destacado %}
             <div class="cumbres-financing__tag">{{ plan.tag }}</div>
             {% endif %}
             <div class="cumbres-financing__card-header">
@@ -411,18 +415,66 @@
               <h4 class="cumbres-financing__card-title">{{ plan.titulo }}</h4>
             </div>
             <ul class="cumbres-financing__list">
-              {% for item in plan["items"] %}
+              {% for beneficio in plan.beneficios %}
               <li class="cumbres-financing__item">
-                <i class="ri-check-line"></i> {{ item }}
+                <i class="ri-check-line"></i> {{ beneficio }}
               </li>
               {% endfor %}
             </ul>
           </div>
           {% endfor %}
         </div>
+        
+        <div class="cumbres-financing__contact">
+          <p class="cumbres-financing__contact-text">{{ opcion.modal.mensaje_contacto }}</p>
+          <button class="cumbres-financing__contact-button" id="{{ opcion.id }}-adviser-btn">
+            <i class="ri-user-line"></i> {{ opcion.modal.boton_contacto }}
+          </button>
+        </div>
       </div>
     </div>
   </div>
+  {% endif %}
+
+  {% if opcion.id == 'cumbres-newsletter' %}
+  <!-- Modal para Newsletter -->
+  <div class="cumbres-modal" id="{{ opcion.id }}-modal">
+    <div class="cumbres-modal__content">
+      <span class="cumbres-modal__close" id="{{ opcion.id }}-close">&times;</span>
+      <h3 class="cumbres-modal__title">{{ opcion.modal.titulo }}</h3>
+      <div class="cumbres-newsletter">
+        <p class="cumbres-modal__description">
+          {{ opcion.modal.descripcion }}
+        </p>
+        
+        <div class="cumbres-newsletter__benefits">
+          <h4 class="cumbres-newsletter__benefits-title">Ventajas de estar suscrito:</h4>
+          <ul class="cumbres-newsletter__list">
+            {% for beneficio in opcion.modal.beneficios %}
+            <li class="cumbres-newsletter__item">
+              <i class="ri-star-line"></i> {{ beneficio }}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        
+        <form class="cumbres-newsletter__form">
+          <div class="cumbres-newsletter__input-group">
+            <input type="email" class="cumbres-newsletter__input" placeholder="{{ opcion.modal.formulario.placeholder }}" required>
+            <button type="submit" class="cumbres-newsletter__button">
+              {{ opcion.modal.formulario.boton_texto }} <i class="ri-arrow-right-line"></i>
+            </button>
+          </div>
+          <div class="cumbres-newsletter__privacy">
+            <input type="checkbox" id="cumbres-privacy" required>
+            <label for="cumbres-privacy">{{ opcion.modal.formulario.checkbox_texto }}</label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
 </section>
 <!-- =============== FOOTER =============== -->
 <!-- =============== FOOTER =============== -->
