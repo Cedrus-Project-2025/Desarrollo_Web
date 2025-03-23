@@ -74,74 +74,42 @@
 <section class="home" id="home-hm">
     <div class="home__swiper swiper">
        <div class="swiper-wrapper">
+          {% for slide in home.slides %}
           <article class="home__article swiper-slide">
              <div class="home__data container">
-                <h3 class="home__subtittle" data-swiper-parallax="500">{{ home.slide1_subtitulo }}</h3>
-                <h1 class="home__tittle" data-swiper-parallax="400">{{ home.slide1_titulo_parte1 }}<br> {{ home.slide1_titulo_parte2 }}</h1>
-                <a href="{{ url_for(home.ruta_cumbres) }}" class="home__button" data-swiper-parallax="300">
-                   {{ home.slide1_boton_texto }} <i class="ri-arrow-right-s-line"></i>
+                <h3 class="home__subtittle" data-swiper-parallax="500">{{ slide.subtitulo }}</h3>
+                <h1 class="home__tittle" data-swiper-parallax="400">{{ slide.titulo_parte1 }} <br> {{ slide.titulo_parte2 }}</h1>
+                {% if slide.boton_texto %}
+                <a href="{% if loop.first %}{{ url_for(home.ruta_cumbres) }}{% else %}{{ slide.boton_link }}{% endif %}" class="home__button" data-swiper-parallax="300">
+                  {{ slide.boton_texto }} <i class="ri-arrow-right-s-line"></i>
                 </a>
+                {% endif %}
              </div>
- 
-             <img src="{{ home.slide1_imagen }}" alt="Lake house" class="home__img" data-swiper-parallax="-300">
+  
+             <img src="{{ slide.imagen }}" alt="{{ slide.alt }}" class="home__img" data-swiper-parallax="-300">
           </article>
- 
-          <article class="home__article swiper-slide">
-             <div class="home__data container">
-                <h3 class="home__subtittle" data-swiper-parallax="500">{{ home.slide2_subtitulo }}</h3>
-                <h1 class="home__tittle" data-swiper-parallax="400">{{ home.slide2_titulo_parte1 }} <br> {{ home.slide2_titulo_parte2 }}</h1>
-                <a href="#" class="home__button" data-swiper-parallax="300">
-                   {{ home.slide2_boton_texto }} <i class="ri-arrow-right-s-line"></i>
-                </a>
-             </div>
- 
-             <img src="{{ home.slide2_imagen }}" alt="Forest house" class="home__img" data-swiper-parallax="-300">
-          </article>
- 
-          <article class="home__article swiper-slide">
-             <div class="home__data container">
-                <h3 class="home__subtittle" data-swiper-parallax="500">{{ home.slide3_subtitulo }}</h3>
-                <h1 class="home__tittle" data-swiper-parallax="400">{{ home.slide3_titulo_parte1 }} <br> {{ home.slide3_titulo_parte2 }}</h1>
-                <a href="#" class="home__button" data-swiper-parallax="300">
-                   {{ home.slide3_boton_texto }} <i class="ri-arrow-right-s-line"></i>
-                </a>
-             </div>
- 
-             <img src="{{ home.slide3_imagen }}" alt="Rock house" class="home__img" data-swiper-parallax="-300">
-          </article>
- 
-          <article class="home__article swiper-slide">
-             <div class="home__data container">
-                <h3 class="home__subtittle" data-swiper-parallax="500">{{ home.slide4_subtitulo }}</h3>
-                <h1 class="home__tittle" data-swiper-parallax="400">{{ home.slide4_titulo_parte1 }} <br> {{ home.slide4_titulo_parte2 }}</h1>
-                <a href="#" class="home__button" data-swiper-parallax="300">
-                   {{ home.slide4_boton_texto }} <i class="ri-arrow-right-s-line"></i>
-                </a>
-             </div>
- 
-             <img src="{{ home.slide4_imagen }}" alt="Curved house" class="home__img" data-swiper-parallax="-300">
-          </article>
+          {% endfor %}
        </div>
     </div>
- 
+  
     <div class="home__content">
        <div class="home__social">
           <a href="{{ home.social_facebook }}" target="_blank" class="home__social-link">
              <i class="ri-facebook-circle-line"></i>
           </a>
- 
+  
           <a href="{{ home.social_instagram }}" target="_blank" class="home__social-link">
              <i class="ri-instagram-line"></i>
           </a>
- 
+  
           <a href="{{ home.social_twitter }}" target="_blank" class="home__social-link">
              <i class="ri-twitter-x-line"></i>
           </a>
        </div>
- 
+  
        <!--==== If we need pagination ====-->
        <div class="swiper-pagination"></div>
- 
+  
        <!--==== Navigation buttons ====-->
        <div class="swiper-navigation">
           <div class="swiper-button-prev">
@@ -153,9 +121,7 @@
           </div>
        </div>
     </div>
- </section>
-      </main>
-
+  </section>
        <!--==================== ABOUT ====================-->
     <section class="about section" id="about">
         <div class="about__container container">

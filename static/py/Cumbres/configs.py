@@ -41,7 +41,7 @@ def obtener_configs_cumbres():
                 'titulo_parte2': 'Arquitectura Moderna',
                 'boton_texto': 'Ver detalles',
                 'boton_link': '#caracteristicas',
-                'imagen': 'static/img/cumbres-3.jpg',
+                'imagen': '../static/img/cumbres-3.jpg',
                 'alt': 'Residencia Roca'
             },
             {
@@ -50,7 +50,7 @@ def obtener_configs_cumbres():
                 'titulo_parte2': 'Diseño Exclusivo',
                 'boton_texto': 'Ver detalles',
                 'boton_link': '#planos',
-                'imagen': 'static/img/cumbres-4.jpg',
+                'imagen': '../static/img/cumbres-4.jpg',
                 'alt': 'Residencia Curva'
             }
         ],

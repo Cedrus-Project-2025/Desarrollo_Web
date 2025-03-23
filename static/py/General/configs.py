@@ -10,45 +10,68 @@ def obtener_configs_general():
     '''
 
     # ==================== HOME ====================
-    # Datos para la sección Home del index.html
     home_data = {
-        # Primer slide
-        'slide1_subtitulo': 'Architecture',
-        'slide1_titulo_parte1': 'Modern',
-        'slide1_titulo_parte2': 'Lake house',
-        'slide1_boton_texto': 'Ver Proyecto',
-        'slide1_imagen': 'static/img/home-1.jpg',
-        
-        # Segundo slide
-        'slide2_subtitulo': 'Architecture',
-        'slide2_titulo_parte1': 'Luxury House',
-        'slide2_titulo_parte2': 'In The Forest',
-        'slide2_boton_texto': 'Ver Detalles',
-        'slide2_imagen': 'static/img/home-2.jpg',
-        
-        # Tercer slide
-        'slide3_subtitulo': 'Architecture',
-        'slide3_titulo_parte1': 'Modern House',
-        'slide3_titulo_parte2': 'On The Rock',
-        'slide3_boton_texto': 'Conocer Más',
-        'slide3_imagen': 'static/img/home-3.jpg',
-        
-        # Cuarto slide
-        'slide4_subtitulo': 'Architecture',
-        'slide4_titulo_parte1': 'Luxury',
-        'slide4_titulo_parte2': 'Curved House',
-        'slide4_boton_texto': 'Explorar',
-        'slide4_imagen': 'static/img/home-4.jpg',
-        
-        # Enlaces sociales
-        'social_facebook': '#',
-        'social_instagram': '#',
-        'social_twitter': '#',
-        
-        # Ruta para el botón del primer slide
-        'ruta_cumbres': 'cumbres'
-    }
+    # Configuración general
+    'titulo': 'Architecture',
+    'subtitulo': 'Modern Design',
     
+    # Slides para el carrusel
+    'slides': [
+        {
+            'subtitulo': 'Architecture',
+            'titulo_parte1': 'Modern',
+            'titulo_parte2': 'Lake house',
+            'boton_texto': 'Ver Proyecto',
+            'boton_link': '/cumbres',  # Cambiado de url_for('cumbres') a una ruta directa
+            'imagen': 'static/img/home-1.jpg',
+            'alt': 'Lake house'
+        },
+        {
+            'subtitulo': 'Architecture',
+            'titulo_parte1': 'Luxury House',
+            'titulo_parte2': 'In The Forest',
+            'boton_texto': 'Ver Detalles',
+            'boton_link': '#',
+            'imagen': 'static/img/home-2.jpg',
+            'alt': 'Forest house'
+        },
+        {
+            'subtitulo': 'Architecture',
+            'titulo_parte1': 'Modern House',
+            'titulo_parte2': 'On The Rock',
+            'boton_texto': 'Conocer Más',
+            'boton_link': '#',
+            'imagen': 'static/img/home-3.jpg',
+            'alt': 'Rock house'
+        },
+        {
+            'subtitulo': 'Architecture',
+            'titulo_parte1': 'Luxury',
+            'titulo_parte2': 'Curved House',
+            'boton_texto': 'Explorar',
+            'boton_link': '#',
+            'imagen': 'static/img/home-4.jpg',
+            'alt': 'Curved house'
+        }
+    ],
+    
+    # Enlaces de redes sociales
+    'social_facebook': '#',
+    'social_instagram': '#',
+    'social_twitter': '#',
+    
+    # Navegación
+    'nav_inicio': '#home-hm',
+    'nav_descripcion': '#descripcion',
+    'nav_caracteristicas': '#caracteristicas',
+    'nav_galeria': '#galeria',
+    'nav_planos': '#planos',
+    'nav_ubicacion': '#ubicacion',
+    'nav_contacto': '#contacto',
+    
+    # Mantenemos la ruta para compatibilidad con el código existente
+    'ruta_cumbres': 'cumbres'
+    }
     # ==================== ABOUT ====================
     about_data = {
         'about_subtitulo': 'Sobre Nosotros',
