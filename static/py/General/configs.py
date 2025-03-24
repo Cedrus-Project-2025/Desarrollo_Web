@@ -104,22 +104,22 @@ def obtener_configs_general():
         'services_titulo_parte2': 'Para Tu Hogar',
         
         # Primera tarjeta de servicio
-        'service1_icono': 'ri-home-heart-line',
+        'service1_icono': 'ti ti-buildings',
         'service1_titulo': 'Diseño Residencial',
         'service1_descripcion': 'Creamos espacios únicos que reflejan tu estilo de vida, combinando estética y funcionalidad en cada detalle.',
         
         # Segunda tarjeta de servicio
-        'service2_icono': 'ri-building-line',
+        'service2_icono': 'ti ti-building-cog',
         'service2_titulo': 'Desarrollo Inmobiliario',
         'service2_descripcion': 'Gestionamos proyectos residenciales completos, desde la conceptualización hasta la entrega final.',
         
         # Tercera tarjeta de servicio
-        'service3_icono': 'ri-paint-line',
+        'service3_icono': 'ti ti-home-star',
         'service3_titulo': 'Personalización',
         'service3_descripcion': 'Adaptamos cada espacio a tus necesidades específicas, ofreciendo acabados y materiales de primera calidad.',
         
         # Cuarta tarjeta de servicio
-        'service4_icono': 'ri-earth-line',
+        'service4_icono': 'ti ti-map-2',
         'service4_titulo': 'Ubicaciones Premium',
         'service4_descripcion': 'Desarrollamos proyectos en las zonas más exclusivas y con mayor plusvalía de la república.'
     }
@@ -172,7 +172,7 @@ def obtener_configs_general():
         'opciones_contacto': [
             {
                 # Informacion sobre "PROGRAMAR LLAMADA"
-                'icono': 'ri-calendar-2-line',
+                'icono': 'ti ti-phone-ringing',
                 'titulo': 'Programa una llamada',
                 'descripcion': 'Elige tu horario',
                 'modal': 'schedule',
@@ -180,7 +180,7 @@ def obtener_configs_general():
             },
             {
                 # Informacion sobre "DEJAR TUS DATOS"
-                'icono': 'ri-mail-send-line',
+                'icono': 'ti ti-mail',
                 'titulo': 'Deja tus datos',
                 'descripcion': 'Te contactamos',
                 'modal': 'data',
@@ -188,7 +188,7 @@ def obtener_configs_general():
             },
             {
                 # Informacion sobre "AGENDAR VISITA"
-                'icono': 'ri-user-star-line',
+                'icono': 'ti ti-user-check',
                 'titulo': 'Agenda una visita',
                 'descripcion': 'Habla con un asesor',
                 'modal': 'advisor',
@@ -196,7 +196,7 @@ def obtener_configs_general():
             },
             {
                 # Informacion sobre "COTACTO POR WHATSAPP"
-                'icono': 'ri-whatsapp-line',
+                'icono': 'ti ti-brand-whatsapp',
                 'titulo': 'Contacto directo',
                 'descripcion': 'WhatsApp',
                 'modal': 'whatsapp',

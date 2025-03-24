@@ -449,7 +449,7 @@ function initializeResidenciasMap() {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    const customIcon = '<i class="ri-map-pin-fill" style="font-size: 36px; color:rgb(0, 0, 0);"></i>';
+    const customIcon = '<i class="ti ti-map-pin" style="font-size: 36px; color:rgb(0, 0, 0);"></i>';
     const residenciasIcon = L.divIcon({
         html: customIcon,
         className: 'custom-div-icon',
@@ -466,7 +466,7 @@ function initializeResidenciasMap() {
                     <b>${loc.nombre}</b>
                     <p>${loc.descripcion}</p>
                     <img src="${loc.imagen}" alt="${loc.nombre}" style="width: 100%; margin-top: 5px;">
-                    <a href="${loc.link}" target="_blank"><i class="ri-road-map-line"></i> Cómo llegar</a>
+                    <a href="${loc.link}" target="_blank"><i class="ti ti-map-pin-2"></i> Cómo llegar</a>
                 </div>`
             );
     });

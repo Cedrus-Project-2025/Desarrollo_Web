@@ -7,8 +7,8 @@
       <!--=============== FAVICON ===============-->
       <link rel="shortcut icon" href="static/img/favicon.png" type="image/x-icon">
 
-      <!--=============== REMIXICONS ===============-->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+      <!--=============== TABLERICONS ===============-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.28.1/tabler-icons.min.css">
 
       <!--=============== SWIPER CSS ===============-->
       <link rel="stylesheet" href="static/css/swiper-bundle.min.css">
@@ -56,13 +56,13 @@
 
                <!--========= Close Button =========-->
                <div class="nav__close" id="nav-close">
-                  <i class="ri-close-large-line"></i>
+                  <i class="ti ti-x"></i>
                </div>
             </div>
 
              <!--========= Close Button =========-->
              <div class="nav__toggle" id="nav-toggle">
-               <i class="ri-menu-line"></i>
+               <i class="ti ti-menu-deep"></i>
             </div>           
          </nav>
          
@@ -81,7 +81,7 @@
                 <h1 class="home__tittle" data-swiper-parallax="400">{{ slide.titulo_parte1 }} <br> {{ slide.titulo_parte2 }}</h1>
                 {% if slide.boton_texto %}
                 <a href="{% if loop.first %}{{ url_for(home.ruta_cumbres) }}{% else %}{{ slide.boton_link }}{% endif %}" class="home__button" data-swiper-parallax="300">
-                  {{ slide.boton_texto }} <i class="ri-arrow-right-s-line"></i>
+                  {{ slide.boton_texto }} <i class="ti ti-plus"></i>
                 </a>
                 {% endif %}
              </div>
@@ -95,15 +95,15 @@
     <div class="home__content">
        <div class="home__social">
           <a href="{{ home.social_facebook }}" target="_blank" class="home__social-link">
-             <i class="ri-facebook-circle-line"></i>
+             <i class="ti ti-brand-facebook"></i>
           </a>
   
           <a href="{{ home.social_instagram }}" target="_blank" class="home__social-link">
-             <i class="ri-instagram-line"></i>
+             <i class="ti ti-brand-instagram"></i>
           </a>
   
           <a href="{{ home.social_twitter }}" target="_blank" class="home__social-link">
-             <i class="ri-twitter-x-line"></i>
+             <i class="ti ti-brand-tiktok"></i>
           </a>
        </div>
   
@@ -113,11 +113,11 @@
        <!--==== Navigation buttons ====-->
        <div class="swiper-navigation">
           <div class="swiper-button-prev">
-             <i class="ri-arrow-left-s-line"></i> 
+             <i class="ti ti-chevron-compact-left"></i> 
           </div>
           
           <div class="swiper-button-next">
-             <i class="ri-arrow-right-s-line"></i>
+             <i class="ti ti-chevron-compact-right"></i>
           </div>
        </div>
     </div>
@@ -164,51 +164,46 @@
     </section>
         
         <!--==================== SERVICES ====================-->
-        <section class="services section" id="services">
-            <div class="services__container container">
-            <span class="section__subtitle">Nuestros Servicios</span>
-            <h2 class="section__title">Soluciones Integrales <br> Para Tu Hogar</h2>
-        
-            <div class="services__content">
-                <article class="services__card">
-                    <i class="ri-home-heart-line services__icon"></i>
-                    <h3 class="services__title">Diseño Residencial</h3>
-                    <p class="services__description">
-                        Creamos espacios únicos que reflejan tu estilo de vida, 
-                        combinando estética y funcionalidad en cada detalle.
-                    </p>
-                </article>
-        
-                <article class="services__card">
-                    <i class="ri-building-line services__icon"></i>
-                    <h3 class="services__title">Desarrollo Inmobiliario</h3>
-                    <p class="services__description">
-                        Gestionamos proyectos residenciales completos, 
-                        desde la conceptualización hasta la entrega final.
-                    </p>
-                </article>
-        
-                <article class="services__card">
-                    <i class="ri-paint-line services__icon"></i>
-                    <h3 class="services__title">Personalización</h3>
-                    <p class="services__description">
-                        Adaptamos cada espacio a tus necesidades específicas,
-                        ofreciendo acabados y materiales de primera calidad.
-                    </p>
-                </article>
-        
-                <article class="services__card">
-                    <i class="ri-earth-line services__icon"></i>
-                    <h3 class="services__title">Ubicaciones Premium</h3>
-                    <p class="services__description">
-                        Desarrollamos proyectos en las zonas más exclusivas
-                        y con mayor plusvalía de la república.
-                    </p>
-                </article>
-            </div>
-            </div>
-        </section>
-
+<section class="services section" id="services">
+    <div class="services__container container">
+        <span class="section__subtitle">{{ services.services_subtitulo }}</span>
+        <h2 class="section__title">{{ services.services_titulo_parte1 }} <br> {{ services.services_titulo_parte2 }}</h2>
+    
+        <div class="services__content">
+            <article class="services__card">
+                <i class="{{ services.service1_icono }} services__icon"></i>
+                <h3 class="services__title">{{ services.service1_titulo }}</h3>
+                <p class="services__description">
+                    {{ services.service1_descripcion }}
+                </p>
+            </article>
+    
+            <article class="services__card">
+                <i class="{{ services.service2_icono }} services__icon"></i>
+                <h3 class="services__title">{{ services.service2_titulo }}</h3>
+                <p class="services__description">
+                    {{ services.service2_descripcion }}
+                </p>
+            </article>
+    
+            <article class="services__card">
+                <i class="{{ services.service3_icono }} services__icon"></i>
+                <h3 class="services__title">{{ services.service3_titulo }}</h3>
+                <p class="services__description">
+                    {{ services.service3_descripcion }}
+                </p>
+            </article>
+    
+            <article class="services__card">
+                <i class="{{ services.service4_icono }} services__icon"></i>
+                <h3 class="services__title">{{ services.service4_titulo }}</h3>
+                <p class="services__description">
+                    {{ services.service4_descripcion }}
+                </p>
+            </article>
+        </div>
+    </div>
+</section>
       <!--==================== TESTIMONIALS ====================-->
 <section class="testimonials section" id="testimonials">
     <div class="testimonials__container container">
@@ -226,7 +221,7 @@
                     <div class="testimonial__content">
                         <div class="testimonial__rating">
                             {% for i in range(testimonio.rating) %}
-                            <i class="ri-star-fill"></i>
+                            <i class="ti ti-star-filled"></i>
                             {% endfor %}
                         </div>
                         <p class="testimonial__description">
@@ -234,7 +229,7 @@
                         </p>
                         <h3 class="testimonial__name">{{ testimonio.nombre }}</h3>
                         <div class="testimonial__location">
-                            <i class="ri-map-pin-line"></i>
+                            <i class="ti ti-map-pin"></i>
                             <span>{{ testimonio.ubicacion }}</span>
                         </div>
                     </div>
@@ -263,10 +258,10 @@
  
         <div class="contact-center__info">
             <p class="contact-center__phone">
-                <i class="ri-phone-line"></i> {{ contact_center.telefono }}
+                <i class="ti ti-phone"></i> {{ contact_center.telefono }}
             </p>
             <p class="contact-center__hours">
-                <i class="ri-time-line"></i> {{ contact_center.horario }}
+                <i class="ti ti-calendar-event"></i> {{ contact_center.horario }}
             </p>
         </div>
     </div>
@@ -391,13 +386,13 @@
             </p>
             <div class="footer__social">
                 <a href="{{ footer.footer_social_facebook }}" class="footer__social-link">
-                    <i class="ri-facebook-fill"></i>
+                    <i class="ti ti-brand-facebook"></i>
                 </a>
                 <a href="{{ footer.footer_social_instagram }}" class="footer__social-link">
-                    <i class="ri-instagram-line"></i>
+                    <i class="ti ti-brand-instagram"></i>
                 </a>
                 <a href="{{ footer.footer_social_whatsapp }}" class="footer__social-link">
-                    <i class="ri-whatsapp-line"></i>
+                    <i class="ti ti-brand-whatsapp"></i>
                 </a>
             </div>
         </div>
@@ -418,9 +413,9 @@
         <div class="footer__content">
             <h3 class="footer__title">{{ footer.footer_contacto_titulo }}</h3>
             <div class="footer__info">
-                <p><i class="ri-map-pin-line"></i> {{ footer.footer_contacto_direccion }}</p>
-                <p><i class="ri-phone-line"></i> {{ footer.footer_contacto_telefono }}</p>
-                <p><i class="ri-mail-line"></i> {{ footer.footer_contacto_email }}</p>
+                <p><i class="ti ti-map-pin"></i> {{ footer.footer_contacto_direccion }}</p>
+                <p><i class="ti ti-phone"></i> {{ footer.footer_contacto_telefono }}</p>
+                <p><i class="ti ti-mail"></i> {{ footer.footer_contacto_email }}</p>
             </div>
         </div>
     </div>
