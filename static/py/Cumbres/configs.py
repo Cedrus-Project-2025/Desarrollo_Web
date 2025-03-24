@@ -90,17 +90,17 @@ def obtener_configs_cumbres():
         'valores_titulo': 'Nuestros Valores',
         'valores': [
             {
-                'icono': 'ri-plant-line',
+                'icono': 'ti ti-empathize',
                 'titulo': 'Tranquilidad',
                 'descripcion': 'Un ambiente sereno donde cada día es un descanso para el alma.'
             },
             {
-                'icono': 'ri-home-heart-line',
+                'icono': 'ti ti-leaf',
                 'titulo': 'Naturaleza',
                 'descripcion': 'Un espacio rodeado de áreas verdes, diseñado para la vida al aire libre.'
             },
             {
-                'icono': 'ri-shield-check-line',
+                'icono': 'ti ti-home-shield',
                 'titulo': 'Seguridad',
                 'descripcion': 'Acceso controlado y comunidad cerrada para la tranquilidad de nuestros residentes.'
             }
@@ -143,7 +143,7 @@ def obtener_configs_cumbres():
         
         # Marker icon - Aseguramos que todos los valores estén correctamente definidos
         'marker_icon': {
-            'html': '<i class="ri-map-pin-fill" style="font-size: 36px; color:rgb(0, 0, 0);"></i>',
+            'html': '<i class="ti ti-building-community" style="font-size: 36px; color:rgb(0, 0, 0);"></i>',
             'className': 'custom-div-icon',
             'iconSize': [30, 42],
             'iconAnchor': [15, 42],
@@ -187,63 +187,63 @@ def obtener_configs_cumbres():
             {
                 'titulo': 'Áreas Verdes',
                 'descripcion': 'Disfruta de amplias áreas verdes rodeadas de flora autóctona, perfectas para caminatas matutinas, meditación o simplemente relajarte en un ambiente de paz y armonía.',
-                'icono': 'ri-plant-line',
+                'icono': 'ti ti-plant',
                 'imagen': 'static/img/home-2.jpg',
                 'alt': 'Áreas Verdes'
             },
             {
                 'titulo': 'Asadores',
                 'descripcion': 'Vive momentos inolvidables con familiares y amigos en nuestra zona de asadores. Diseñados para reuniones al aire libre donde puedas preparar deliciosos platillos.',
-                'icono': 'ri-restaurant-line',
+                'icono': 'ti ti-grill',
                 'imagen': 'static/img/cumbres-4.jpg',
                 'alt': 'Asadores'
             },
             {
                 'titulo': 'Fogatero',
                 'descripcion': 'Imagina una noche despejada, el sonido de la naturaleza y un cálido fuego iluminando la velada. El lugar ideal para compartir historias y crear recuerdos inolvidables.',
-                'icono': 'ri-fire-line',
+                'icono': 'ti ti-campfire',
                 'imagen': 'static/img/cumbres-4.jpg',
                 'alt': 'Fogatero'
             },
             {
                 'titulo': 'Temazcal',
                 'descripcion': 'Sumérgete en una experiencia ancestral con nuestro temazcal, un espacio diseñado para la relajación y el bienestar físico y mental.',
-                'icono': 'ri-rest-time-line',
+                'icono': 'ti ti-massage',
                 'imagen': 'static/img/cumbres-4.jpg',
                 'alt': 'Temazcal'
             },
             {
                 'titulo': 'Área de Camping',
                 'descripcion': 'Para los amantes de la aventura, contamos con un área de camping donde puedes instalar tu tienda y disfrutar de una noche bajo las estrellas.',
-                'icono': 'ri-tent-line',
+                'icono': 'ti ti-tent',
                 'imagen': 'static/img/cumbres-4.jpg',
                 'alt': 'Área de Camping'
             },
             {
                 'titulo': 'Palapas',
                 'descripcion': 'Nuestras palapas ofrecen sombra y comodidad en un entorno natural, ideales para reuniones, eventos o simplemente para disfrutar de un día al aire libre.',
-                'icono': 'ri-home-smile-line',
+                'icono': 'ti ti-home-eco',
                 'imagen': 'static/img/cumbres-1.jpg',
                 'alt': 'Palapas'
             },
             {
                 'titulo': 'Acceso Controlado',
                 'descripcion': 'Tu bienestar es nuestra prioridad. <em>Cumbres del Sol</em> es un desarrollo con acceso controlado, brindando seguridad a nuestros residentes y visitantes.',
-                'icono': 'ri-lock-star-line',
+                'icono': 'ti ti-shield-lock',
                 'imagen': 'static/img/cumbres-2.jpg',
                 'alt': 'Acceso Controlado'
             },
             {
                 'titulo': 'Baños',
                 'descripcion': 'Nuestras instalaciones cuentan con baños limpios y bien equipados en las áreas comunes, asegurando el máximo confort para residentes y visitantes.',
-                'icono': 'ri-service-line',
+                'icono': 'ti ti-bath',
                 'imagen': 'static/img/cumbres-4.jpg',
                 'alt': 'Baños'
             },
             {
                 'titulo': 'Pet Friendly',
                 'descripcion': 'Sabemos que tu mascota es parte de tu familia. Encuentra un entorno amigable para ellos, con espacios abiertos donde pueden correr, jugar y explorar con seguridad.',
-                'icono': 'ri-footprint-line',
+                'icono': 'ti ti-paw',
                 'imagen': 'static/img/cumbres-3.jpg',
                 'alt': 'Pet Friendly'
             }
@@ -264,14 +264,14 @@ def obtener_configs_cumbres():
             {
                 'titulo': 'Lotes con Diferentes Dimensiones',
                 'descripcion': 'Cada terreno en <em>Cumbres del Sol</em> cuenta con medidas variadas para ajustarse a distintos proyectos arquitectónicos y necesidades. Ya sea que busques un espacio más compacto y funcional o un terreno amplio para desarrollar una casa con áreas recreativas, aquí encontrarás la opción ideal.',
-                'icono': 'ri-landscape-line',
+                'icono': 'ti ti-dimensions',
                 'imagen': 'static/img/cumbres-5.jpg',
                 'alt': 'Lotes con Diferentes Dimensiones'
             },
             {
                 'titulo': 'Estilo de Construcción a tu Medida',
                 'descripcion': 'Cada hogar puede ser diseñado con un enfoque personalizado, eligiendo entre diferentes materiales que ofrecen ventajas estéticas y funcionales.',
-                'icono': 'ri-home-gear-line',
+                'icono': 'ti ti-home-edit',
                 'imagen': 'static/img/cumbres-4.jpg',
                 'alt': 'Estilo de Construcción a tu Medida'
             }
@@ -283,29 +283,29 @@ def obtener_configs_cumbres():
             {
                 'nombre': 'Tabique',
                 'descripcion': 'Construcción tradicional, resistente y con excelente aislamiento térmico.',
-                'icono': 'ri-home-3-line'
+                'icono': 'ti ti-frustum'
             },
             {
                 'nombre': 'Madera',
                 'descripcion': 'Un diseño cálido y acogedor, ideal para quienes buscan un entorno rústico y natural.',
-                'icono': 'ri-home-4-line'
+                'icono': 'ti ti-wood'
             },
             {
                 'nombre': 'Piedra',
                 'descripcion': 'Solidez y elegancia que se integran perfectamente con el paisaje.',
-                'icono': 'ri-home-7-line'
+                'icono': 'ti ti-blocks'
             },
             {
                 'nombre': 'Combinaciones',
                 'descripcion': 'Mezcla de materiales para lograr una estética equilibrada y un mayor aprovechamiento de sus propiedades.',
-                'icono': 'ri-stack-line'
+                'icono': 'ti ti-stack'
             }
         ],
         
         # Carrusel de propuestas de diseño
         'propuestas_titulo': 'Propuestas de Diseño',
         'propuestas_descripcion': 'Te ofrecemos diferentes opciones arquitectónicas basadas en la combinación de materiales, optimizando distribución, iluminación y funcionalidad.',
-        'propuestas_icono': 'ri-palette-line',
+        'propuestas_icono': 'ti ti-home-star',
         'propuestas_slides': [
             {
                 'imagen': 'static/img/cumbres-4.jpg',
@@ -326,15 +326,15 @@ def obtener_configs_cumbres():
         'propuestas_estilos': [
             {
                 'nombre': 'Contemporáneo',
-                'icono': 'ri-home-5-line'
+                'icono': 'ti ti-home-cog'
             },
             {
                 'nombre': 'Mediterráneo',
-                'icono': 'ri-home-4-line'
+                'icono': 'ti ti-home-cog'
             },
             {
                 'nombre': 'Minimalista',
-                'icono': 'ri-home-3-line'
+                'icono': 'ti ti-home-spark'
             }
         ]
     }
@@ -350,7 +350,7 @@ def obtener_configs_cumbres():
     'opciones': [
         {
             'id': 'cumbres-schedule',
-            'icono': 'ri-calendar-line',
+            'icono': 'ti ti-calendar-clock',
             'titulo': 'Agendar una Cita',
             'descripcion': (
                 'Programa una visita personalizada para conocer los lotes disponibles y resolver todas tus dudas.'
@@ -375,7 +375,7 @@ def obtener_configs_cumbres():
         },
         {
             'id': 'cumbres-whatsapp',
-            'icono': 'ri-whatsapp-line',
+            'icono': 'ti ti-brand-whatsapp',
             'titulo': 'WhatsApp',
             'descripcion': (
                 'Comunícate de manera rápida y directa con nuestro equipo para recibir atención inmediata.'
@@ -391,7 +391,7 @@ def obtener_configs_cumbres():
         },
         {
             'id': 'cumbres-financing',
-            'icono': 'ri-money-dollar-circle-line',
+            'icono': 'ti ti-coin',
             'titulo': 'Financiamiento',
             'descripcion': (
                 'Te ofrecemos opciones flexibles para adquirir tu lote sin comprometer tu estabilidad financiera.'
@@ -403,7 +403,7 @@ def obtener_configs_cumbres():
                 'planes': [
                     {
                         'titulo': 'Plan Básico',
-                        'icono': 'ri-coin-line',
+                        'icono': 'ti ti-coin',
                         'beneficios': [
                             'Enganche desde 20%',
                             'Mensualidades fijas hasta 3 años',
@@ -412,7 +412,7 @@ def obtener_configs_cumbres():
                     },
                     {
                         'titulo': 'Plan Integral',
-                        'icono': 'ri-building-line',
+                        'icono': 'ti ti-building',
                         'destacado': True,
                         'tag': 'Recomendado',
                         'beneficios': [
@@ -424,7 +424,7 @@ def obtener_configs_cumbres():
                     },
                     {
                         'titulo': 'Plan Empresarial',
-                        'icono': 'ri-bank-line',
+                        'icono': 'ti ti-buildings',
                         'beneficios': [
                             'Beneficios fiscales',
                             'Inversión a largo plazo',
@@ -438,7 +438,7 @@ def obtener_configs_cumbres():
         },
         {
             'id': 'cumbres-newsletter',
-            'icono': 'ri-mail-send-line',
+            'icono': 'ti ti-mail',
             'titulo': 'Boletín Informativo',
             'descripcion': (
                 'Suscríbete para recibir actualizaciones sobre el proyecto, promociones y novedades.'
@@ -472,9 +472,9 @@ def obtener_configs_cumbres():
     
     # Enlaces de redes sociales
     'social_links': [
-        {'icono': 'ri-facebook-fill', 'url': '#'},
-        {'icono': 'ri-instagram-line', 'url': '#'},
-        {'icono': 'ri-twitter-x-fill', 'url': '#'}
+        {'icono': 'ti ti-brand-facebook', 'url': '#'},
+        {'icono': 'ti ti-brand-instagram', 'url': '#'},
+        {'icono': 'ti ti-brand-tiktok', 'url': '#'}
     ],
     
     # Enlaces rápidos
@@ -491,19 +491,19 @@ def obtener_configs_cumbres():
     'contacto_titulo': 'Contáctanos',
     'contacto_info': [
         {
-            'icono': 'ri-map-pin-line',
+            'icono': 'ti ti-map-pin',
             'texto': 'Av. Principal #123<br>Cumbres Del Sol, México',
             'url': 'https://maps.google.com/?q=Cumbres+Del+Sol,México',
             'target': '_blank'
         },
         {
-            'icono': 'ri-phone-line',
+            'icono': 'ti ti-phone-call',
             'texto': '+52 555 123 4567',
             'url': 'tel:+525551234567',
             'target': '_self'
         },
         {
-            'icono': 'ri-mail-line',
+            'icono': 'ti ti-mail-forward',
             'texto': 'info@cumbresdelsol.com',
             'url': 'mailto:info@cumbresdelsol.com',
             'target': '_self'

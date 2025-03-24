@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <b>${loc.name}</b>
           <img src="${loc.img}" alt="${loc.name}">
           <p>${loc.description}</p>
-          <a href="${loc.link}" target="_blank"><i class="ri-road-map-line"></i> Cómo llegar</a>
+          <a href="${loc.link}" target="_blank"><i class="ti ti-map-pin-2"></i> Cómo llegar</a>
         </div>
       `);
   });

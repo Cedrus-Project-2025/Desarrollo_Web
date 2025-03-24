@@ -7,8 +7,8 @@
    <!--=============== FAVICON ===============-->
    <link rel="shortcut icon" href="../static/img/logo.png" type="image/x-icon">
 
-   <!--=============== REMIXICONS ===============-->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+   <!--=============== TABLERICONS ===============-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.28.1/tabler-icons.min.css">
 
    <!--=============== SWIPER CSS ===============-->
    <link rel="stylesheet" href="../static/css/swiper-bundle.min.css">
@@ -57,13 +57,13 @@
 
             <!--========= Close Button =========-->
             <div class="cumbres-nav__close" id="cumbres-nav-close">
-               <i class="ri-close-large-line"></i>
+               <i class="ti ti-x"></i>
             </div>
          </div>
 
           <!--========= Toggle Button =========-->
           <div class="cumbres-nav__toggle" id="cumbres-nav-toggle">
-            <i class="ri-menu-line"></i>
+            <i class="ti ti-menu-deep"></i>
          </div>           
       </nav>
       
@@ -94,15 +94,15 @@
   <div class="cumbres-home__content">
      <div class="cumbres-home__social">
         <a href="{{ home.social_facebook }}" target="_blank" class="cumbres-home__social-link">
-           <i class="ri-facebook-circle-line"></i>
+           <i class="ti ti-brand-facebook"></i>
         </a>
 
         <a href="{{ home.social_instagram }}" target="_blank" class="cumbres-home__social-link">
-           <i class="ri-instagram-line"></i>
+           <i class="ti ti-brand-instagram"></i>
         </a>
 
         <a href="{{ home.social_twitter }}" target="_blank" class="cumbres-home__social-link">
-           <i class="ri-twitter-x-line"></i>
+           <i class="ti ti-brand-twitter"></i>
         </a>
      </div>
 
@@ -112,11 +112,11 @@
      <!--==== Navigation buttons ====-->
      <div class="cumbres-swiper-navigation">
         <div class="swiper-button-prev">
-           <i class="ri-arrow-left-s-line"></i> 
+           <i class="ti ti-chevron-compact-left"></i> 
         </div>
         
         <div class="swiper-button-next">
-           <i class="ri-arrow-right-s-line"></i>
+           <i class="ti ti-chevron-compact-right"></i>
         </div>
      </div>
   </div>
@@ -279,10 +279,10 @@
         {% endfor %}
         
         <button class="diseno-personalizado__carousel-btn prev">
-          <i class="ri-arrow-left-s-line"></i>
+          <i class="ti ti-chevron-compact-left"></i>
         </button>
         <button class="diseno-personalizado__carousel-btn next">
-          <i class="ri-arrow-right-s-line"></i>
+          <i class="ti ti-chevron-compact-right"></i>
         </button>
         
         <div class="diseno-personalizado__carousel-indicator">
@@ -382,10 +382,10 @@
             {{ opcion.modal.descripcion }}
           </p>
           <p class="cumbres-modal__schedule">
-            <i class="ri-time-line"></i> Horario de atención: {{ opcion.modal.horario }}
+            <i class="ti ti-clock"></i> Horario de atención: {{ opcion.modal.horario }}
           </p>
           <a href="{{ opcion.modal.link }}" target="_blank" class="cumbres-modal__whatsapp-button">
-            <i class="ri-whatsapp-line"></i> {{ opcion.modal.boton_texto }}
+            <i class="ti ti-brand-whatsapp"></i> {{ opcion.modal.boton_texto }}
           </a>
         </div>
       </div>
@@ -417,7 +417,7 @@
             <ul class="cumbres-financing__list">
               {% for beneficio in plan.beneficios %}
               <li class="cumbres-financing__item">
-                <i class="ri-check-line"></i> {{ beneficio }}
+                <i class="ti ti-checkbox"></i> {{ beneficio }}
               </li>
               {% endfor %}
             </ul>
@@ -428,7 +428,7 @@
         <div class="cumbres-financing__contact">
           <p class="cumbres-financing__contact-text">{{ opcion.modal.mensaje_contacto }}</p>
           <button class="cumbres-financing__contact-button" id="{{ opcion.id }}-adviser-btn">
-            <i class="ri-user-line"></i> {{ opcion.modal.boton_contacto }}
+            <i class="ti ti-user-plus"></i> {{ opcion.modal.boton_contacto }}
           </button>
         </div>
       </div>
@@ -452,7 +452,7 @@
           <ul class="cumbres-newsletter__list">
             {% for beneficio in opcion.modal.beneficios %}
             <li class="cumbres-newsletter__item">
-              <i class="ri-star-line"></i> {{ beneficio }}
+              <i class="ti ti-check"></i> {{ beneficio }}
             </li>
             {% endfor %}
           </ul>
@@ -462,7 +462,7 @@
           <div class="cumbres-newsletter__input-group">
             <input type="email" class="cumbres-newsletter__input" placeholder="{{ opcion.modal.formulario.placeholder }}" required>
             <button type="submit" class="cumbres-newsletter__button">
-              {{ opcion.modal.formulario.boton_texto }} <i class="ri-arrow-right-line"></i>
+              {{ opcion.modal.formulario.boton_texto }} <i class="ti ti-arrow-right"></i>
             </button>
           </div>
           <div class="cumbres-newsletter__privacy">
