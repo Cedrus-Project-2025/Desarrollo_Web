@@ -21,8 +21,8 @@ def obtener_configs_cumbres():
                 'subtitulo': 'Cumbres Del Sol',
                 'titulo_parte1': 'Residencia Mirador',
                 'titulo_parte2': 'Vista al Mar',
-                'boton_texto': 'Ver detalles',
-                'boton_link': '#descripcion',
+                'boton_texto': 'Regresar',
+                'boton_link': '/',
                 'imagen': '../static/img/cumbres-1.jpg', 
                 'alt': 'Residencia Mirador'
             },
@@ -30,7 +30,7 @@ def obtener_configs_cumbres():
                 'subtitulo': 'Cumbres Del Sol',
                 'titulo_parte1': 'Residencia Bosque',
                 'titulo_parte2': 'Entre Pinos',
-                'boton_texto': '', # Este slide no parece tener botón en el HTML
+                'boton_texto': '',
                 'boton_link': '',
                 'imagen': '../static/img/cumbres-2.jpg',
                 'alt': 'Residencia Bosque'
@@ -39,8 +39,8 @@ def obtener_configs_cumbres():
                 'subtitulo': 'Cumbres Del Sol',
                 'titulo_parte1': 'Residencia Roca',
                 'titulo_parte2': 'Arquitectura Moderna',
-                'boton_texto': 'Ver detalles',
-                'boton_link': '#caracteristicas',
+                'boton_texto': '',
+                'boton_link': '',
                 'imagen': '../static/img/cumbres-3.jpg',
                 'alt': 'Residencia Roca'
             },
@@ -48,8 +48,8 @@ def obtener_configs_cumbres():
                 'subtitulo': 'Cumbres Del Sol',
                 'titulo_parte1': 'Residencia Curva',
                 'titulo_parte2': 'Diseño Exclusivo',
-                'boton_texto': 'Ver detalles',
-                'boton_link': '#planos',
+                'boton_texto': '',
+                'boton_link': '',
                 'imagen': '../static/img/cumbres-4.jpg',
                 'alt': 'Residencia Curva'
             }

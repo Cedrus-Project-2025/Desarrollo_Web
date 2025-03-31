@@ -30,7 +30,7 @@ def obtener_configs_general():
             'subtitulo': 'Architecture',
             'titulo_parte1': 'Luxury House',
             'titulo_parte2': 'In The Forest',
-            'boton_texto': 'Ver Detalles',
+            'boton_texto': '',
             'boton_link': '#',
             'imagen': 'static/img/home-2.jpg',
             'alt': 'Forest house'
@@ -39,7 +39,7 @@ def obtener_configs_general():
             'subtitulo': 'Architecture',
             'titulo_parte1': 'Modern House',
             'titulo_parte2': 'On The Rock',
-            'boton_texto': 'Conocer Más',
+            'boton_texto': '',
             'boton_link': '#',
             'imagen': 'static/img/home-3.jpg',
             'alt': 'Rock house'
@@ -48,7 +48,7 @@ def obtener_configs_general():
             'subtitulo': 'Architecture',
             'titulo_parte1': 'Luxury',
             'titulo_parte2': 'Curved House',
-            'boton_texto': 'Explorar',
+            'boton_texto': '',
             'boton_link': '#',
             'imagen': 'static/img/home-4.jpg',
             'alt': 'Curved house'
