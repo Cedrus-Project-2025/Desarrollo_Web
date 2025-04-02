@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 <!-- Chatbot Body -->
                 <div class="chat-body">
-                    <!-- Los mensajes se cargarán dinámicamente desde localStorage -->
+                    <!-- Los mensajes se cargarán dinámicamente desde sessionStorage -->
                 </div>
 
                 <!-- Chatbot Footer !-->
@@ -316,17 +316,17 @@ function initChatbotFunctionality() {
     // URL de tu API de chatbot
     const API_URL = "https://tu-api-chatbot.com/endpoint"; // Reemplaza con tu URL real
     
-    // Clave para almacenar los mensajes en localStorage
+    // Clave para almacenar los mensajes en sessionStorage
     const STORAGE_KEY = "chatbot_messages";
     
     // Clave para almacenar ID de sesión (para identificar sesiones abiertas)
     const SESSION_KEY = "chatbot_session_id";
     
     // Inicializar o recuperar ID de sesión
-    let sessionId = localStorage.getItem(SESSION_KEY);
+    let sessionId = sessionStorage.getItem(SESSION_KEY);
     if (!sessionId) {
         sessionId = generateSessionId();
-        localStorage.setItem(SESSION_KEY, sessionId);
+        sessionStorage.setItem(SESSION_KEY, sessionId);
     }
     
     // Generar ID de sesión único
@@ -347,14 +347,14 @@ function initChatbotFunctionality() {
     // Inicializar altura del textarea
     messageInput.addEventListener('input', autoResizeTextarea);
     
-    // Función para guardar mensajes en localStorage
+    // Función para guardar mensajes en sessionStorage
     function saveMessages(messages) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
     }
     
-    // Función para cargar mensajes desde localStorage
+    // Función para cargar mensajes desde sessionStorage
     function loadMessages() {
-        const savedMessages = localStorage.getItem(STORAGE_KEY);
+        const savedMessages = sessionStorage.getItem(STORAGE_KEY);
         return savedMessages ? JSON.parse(savedMessages) : [];
     }
     
@@ -386,7 +386,7 @@ function initChatbotFunctionality() {
         messageDiv.innerHTML += `<div class="message-text">${message}</div>`;
         chatBody.appendChild(messageDiv);
         
-        // Guardar mensaje en localStorage si es necesario
+        // Guardar mensaje en sessionStorage si es necesario
         if (save) {
             const messages = loadMessages();
             messages.push({
@@ -485,7 +485,7 @@ function initChatbotFunctionality() {
         }
     };
     
-    // Cargar mensajes previos desde localStorage
+    // Cargar mensajes previos desde sessionStorage
     const loadChatHistory = () => {
         const messages = loadMessages();
         
@@ -539,14 +539,6 @@ function initChatbotFunctionality() {
     // Botones para mostrar/ocultar chatbot
     chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
     closeChatbot.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
-    
-    // Función para limpiar la sesión cuando el usuario cierra la página
-    // (esto es opcional, comenta o elimina si quieres que la sesión persista incluso después de cerrar el navegador)
-    /*
-    window.addEventListener('beforeunload', () => {
-        localStorage.removeItem(SESSION_KEY);
-    });
-    */
     
     // Cargar historial de chat al iniciar
     loadChatHistory();
