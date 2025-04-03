@@ -236,9 +236,10 @@
                 </div>
                 {% endfor %}
             </div>
+            
         </div>
     </div>
- </section>
+</section>
 <!--==================== CONTACT CENTER ====================-->
 <section class="contact-center section" id="contact-center">
     <div class="contact-center__container container">
@@ -376,54 +377,119 @@
 </section>
 
 <!--==================== FOOTER ====================-->
-<footer class="footer">
-    <div class="footer__container container">
-        <!-- Columna principal con logo y descripción -->
-        <div class="footer__main">
-            <h3 class="footer__logo">{{ footer.footer_logo }}</h3>
-            <p class="footer__description">
-                {{ footer.footer_descripcion }}
-            </p>
-            <div class="footer__social">
-                <a href="{{ footer.footer_social_facebook }}" class="footer__social-link">
-                    <i class="ti ti-brand-facebook"></i>
-                </a>
-                <a href="{{ footer.footer_social_instagram }}" class="footer__social-link">
-                    <i class="ti ti-brand-instagram"></i>
-                </a>
-                <a href="{{ footer.footer_social_whatsapp }}" class="footer__social-link">
-                    <i class="ti ti-brand-whatsapp"></i>
-                </a>
+<footer class="cumbres-footer">
+    <div class="cumbres-footer__container">
+      <div class="cumbres-footer__content">
+        <!-- Logo y descripción -->
+        <div class="cumbres-footer__group">
+          <h3 class="cumbres-footer__logo">{{ footer.footer_logo }}</h3>
+          <p class="cumbres-footer__description">
+            {{ footer.footer_descripcion }}
+          </p>
+          <div class="cumbres-footer__social">
+            <a href="{{ footer.footer_social_facebook }}" class="cumbres-footer__social-link">
+              <i class="ti ti-brand-facebook"></i>
+            </a>
+            <a href="{{ footer.footer_social_instagram }}" class="cumbres-footer__social-link">
+              <i class="ti ti-brand-instagram"></i>
+            </a>
+            <a href="{{ footer.footer_social_whatsapp }}" class="cumbres-footer__social-link">
+              <i class="ti ti-brand-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+  
+        <!-- Enlaces Rápidos -->
+        <div class="cumbres-footer__group">
+          <h3 class="cumbres-footer__title">{{ footer.footer_enlaces_titulo }}</h3>
+          <ul class="cumbres-footer__links">
+            <li>
+              <a href="{{ footer.footer_link_inicio }}" class="cumbres-footer__link">Inicio</a>
+            </li>
+            <li>
+              <a href="{{ footer.footer_link_nosotros }}" class="cumbres-footer__link">Nosotros</a>
+            </li>
+            <li>
+              <a href="{{ footer.footer_link_servicios }}" class="cumbres-footer__link">Servicios</a>
+            </li>
+            <li>
+              <a href="{{ footer.footer_link_contacto }}" class="cumbres-footer__link">Contacto</a>
+            </li>
+            <li>
+              <a href="{{ footer.footer_link_proyectos }}" class="cumbres-footer__link">Proyectos</a>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Información de Contacto con enlaces funcionales -->
+        <div class="cumbres-footer__group">
+          <h3 class="cumbres-footer__title">{{ footer.footer_contacto_titulo }}</h3>
+          <ul class="cumbres-footer__info">
+            <li class="cumbres-footer__info-item">
+              <a href="https://maps.google.com/?q={{ footer.footer_contacto_direccion }}" target="_blank" class="cumbres-footer__contact-link">
+                <i class="ti ti-map-pin cumbres-footer__info-icon"></i>
+                <p class="cumbres-footer__info-text">
+                  {{ footer.footer_contacto_direccion }}
+                </p>
+              </a>
+            </li>
+            <li class="cumbres-footer__info-item">
+              <a href="tel:{{ footer.footer_contacto_telefono }}" class="cumbres-footer__contact-link">
+                <i class="ti ti-phone cumbres-footer__info-icon"></i>
+                <p class="cumbres-footer__info-text">
+                  {{ footer.footer_contacto_telefono }}
+                </p>
+              </a>
+            </li>
+            <li class="cumbres-footer__info-item">
+              <a href="mailto:{{ footer.footer_contacto_email }}" class="cumbres-footer__contact-link">
+                <i class="ti ti-mail cumbres-footer__info-icon"></i>
+                <p class="cumbres-footer__info-text">
+                  {{ footer.footer_contacto_email }}
+                </p>
+              </a>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Cuarta columna (puedes añadir horarios como en el ejemplo de cumbres) -->
+        <div class="cumbres-footer__group">
+          <h3 class="cumbres-footer__title">Horarios de Atención</h3>
+          <div class="cumbres-footer__schedule">
+            <div class="cumbres-footer__schedule-item">
+              <span class="cumbres-footer__schedule-day">Lunes - Viernes:</span>
+              <span class="cumbres-footer__schedule-hours">9:00 - 18:00</span>
             </div>
-        </div>
-
-        <!-- Links rápidos -->
-        <div class="footer__content">
-            <h3 class="footer__title">{{ footer.footer_enlaces_titulo }}</h3>
-            <ul class="footer__links">
-                <li><a href="{{ footer.footer_link_inicio }}" class="footer__link">Inicio</a></li>
-                <li><a href="{{ footer.footer_link_nosotros }}" class="footer__link">Nosotros</a></li>
-                <li><a href="{{ footer.footer_link_servicios }}" class="footer__link">Servicios</a></li>
-                <li><a href="{{ footer.footer_link_contacto }}" class="footer__link">Contacto</a></li>
-                <li><a href="{{ footer.footer_link_proyectos }}" class="footer__link">Proyectos</a></li>
-            </ul>
-        </div>
-
-        <!-- Contacto -->
-        <div class="footer__content">
-            <h3 class="footer__title">{{ footer.footer_contacto_titulo }}</h3>
-            <div class="footer__info">
-                <p><i class="ti ti-map-pin"></i> {{ footer.footer_contacto_direccion }}</p>
-                <p><i class="ti ti-phone"></i> {{ footer.footer_contacto_telefono }}</p>
-                <p><i class="ti ti-mail"></i> {{ footer.footer_contacto_email }}</p>
+            <div class="cumbres-footer__schedule-item">
+              <span class="cumbres-footer__schedule-day">Sábados:</span>
+              <span class="cumbres-footer__schedule-hours">10:00 - 15:00</span>
             </div>
+            <div class="cumbres-footer__schedule-item">
+              <span class="cumbres-footer__schedule-day">Domingos:</span>
+              <span class="cumbres-footer__schedule-hours">Cerrado</span>
+            </div>
+          </div>
+          
+          <!-- Call to action button opcional -->
+          <div class="cumbres-footer__cta">
+            <a href="{{ footer.footer_link_contacto }}" class="cumbres-footer__cta-button">
+              Contáctanos <i class="ti ti-arrow-right"></i>
+            </a>
+          </div>
         </div>
+      </div>
+  
+      <div class="cumbres-footer__bottom">
+        <p class="cumbres-footer__copy">
+          {{ footer.footer_copyright }}
+        </p>
+        <div class="cumbres-footer__terms">
+          <a href="#" class="cumbres-footer__terms-link">Términos y Condiciones</a>
+          <a href="#" class="cumbres-footer__terms-link">Política de Privacidad</a>
+        </div>
+      </div>
     </div>
-
-    <div class="footer__copy">
-        <span>{{ footer.footer_copyright }}</span>
-    </div>
-</footer>
+  </footer>
 
 
       <!--=============== SWIPER JS ===============-->
