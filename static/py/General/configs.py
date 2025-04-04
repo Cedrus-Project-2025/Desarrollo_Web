@@ -104,12 +104,12 @@ def obtener_configs_general():
         'services_titulo_parte2': 'Para Tu Hogar',
         
         # Primera tarjeta de servicio
-        'service1_icono': 'ti ti-buildings',
+        'service1_icono': 'ti ti-building',
         'service1_titulo': 'Diseño Residencial',
         'service1_descripcion': 'Creamos espacios únicos que reflejan tu estilo de vida, combinando estética y funcionalidad en cada detalle.',
         
         # Segunda tarjeta de servicio
-        'service2_icono': 'ti ti-building-cog',
+        'service2_icono': 'ti ti-building-estate',
         'service2_titulo': 'Desarrollo Inmobiliario',
         'service2_descripcion': 'Gestionamos proyectos residenciales completos, desde la conceptualización hasta la entrega final.',
         
@@ -172,7 +172,7 @@ def obtener_configs_general():
         'opciones_contacto': [
             {
                 # Informacion sobre "PROGRAMAR LLAMADA"
-                'icono': 'ti ti-phone-ringing',
+                'icono': 'ti ti-phone-call',
                 'titulo': 'Programa una llamada',
                 'descripcion': 'Elige tu horario',
                 'modal': 'schedule',

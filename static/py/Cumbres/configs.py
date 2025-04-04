@@ -293,7 +293,7 @@ def obtener_configs_cumbres():
             {
                 'nombre': 'Piedra',
                 'descripcion': 'Solidez y elegancia que se integran perfectamente con el paisaje.',
-                'icono': 'ti ti-blocks'
+                'icono': 'ti ti-wall'
             },
             {
                 'nombre': 'Combinaciones',
@@ -334,7 +334,7 @@ def obtener_configs_cumbres():
             },
             {
                 'nombre': 'Minimalista',
-                'icono': 'ti ti-home-spark'
+                'icono': 'ti ti-home-share'
             }
         ]
     }
@@ -424,7 +424,7 @@ def obtener_configs_cumbres():
                     },
                     {
                         'titulo': 'Plan Empresarial',
-                        'icono': 'ti ti-buildings',
+                        'icono': 'ti ti-building-fortress',
                         'beneficios': [
                             'Beneficios fiscales',
                             'Inversión a largo plazo',
