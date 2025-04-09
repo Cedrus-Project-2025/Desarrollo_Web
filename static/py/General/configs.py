@@ -134,32 +134,33 @@ def obtener_configs_general():
         'testimonios': [
             {
                 'avatar': 'static/img/avatar1.jpg',
-                'rating': 5,  # Número de estrellas (de 1 a 5)
-                'descripcion': 'Excelente ubicación y acabados de primera. La atención fue excepcional.',
+                'rating': 5,
+                'descripcion': 'El diseño del fraccionamiento es moderno y muy funcional. Totalmente recomendado.',
                 'nombre': 'Carlos Ramírez',
                 'ubicacion': 'Viñedos 2 Residencial'
             },
             {
-                'avatar': 'static/img/avatar1.jpg',
-                'rating': 5,
-                'descripcion': 'Excelente ubicación y acabados de primera. La atención fue excepcional.',
+                'avatar': 'static/img/avatar2.jpg',
+                'rating': 4,
+                'descripcion': 'Muy buena atención al cliente, aunque faltaron algunos detalles menores en la entrega.',
                 'nombre': 'Karla Ramírez',
-                'ubicacion': 'Viñedos 2 Residencial'
+                'ubicacion': 'Altos del Sol'
             },
             {
-                'avatar': 'static/img/avatar1.jpg',
+                'avatar': 'static/img/avatar3.jpg',
                 'rating': 5,
-                'descripcion': 'Excelente ubicación y acabados de primera. La atención fue excepcional.',
-                'nombre': 'Carlos Ramírez',
-                'ubicacion': 'Viñedos 2 Residencial'
+                'descripcion': 'Nos encantó el entorno natural y la tranquilidad de la zona. Una excelente inversión.',
+                'nombre': 'Luis Mendoza',
+                'ubicacion': 'Cumbres del Lago'
             },
             {
-                'avatar': 'static/img/avatar1.jpg',
-                'rating': 5,
-                'descripcion': 'Excelente ubicación y acabados de primera. La atención fue excepcional.',
-                'nombre': 'Carlos Ramírez',
-                'ubicacion': 'Viñedos 2 Residencial'
+                'avatar': 'static/img/avatar4.jpg',
+                'rating': 4,
+                'descripcion': 'Buena relación calidad-precio y excelente ubicación. Volvería a comprar con ellos.',
+                'nombre': 'Ana López',
+                'ubicacion': 'La Rioja Residencial'
             }
+
         ]
     }
     
