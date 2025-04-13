@@ -35,6 +35,3 @@ def cumbres():
         contacto_data = contacto_data_cumbres,
         footer_data = footer_data_cumbres
     )
-
-if __name__ == '__main__':
-    app.run(debug=True)
