@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!--=============== FAVICON ===============-->
+   <link rel="shortcut icon" href="../static/img/logo.png" type="image/x-icon">
+
+   <!--=============== TABLERICONS ===============-->
+   <link rel="preload" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" as="style">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+   <!--=============== SWIPER CSS ===============-->
+   <link rel="stylesheet" href="../static/css/swiper-bundle.min.css">
+
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="../static/css/cumbres.css">
+
+   <!--=============== LEAFLET MAP ===============-->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+   <title>Cumbres Del Sol</title>
+</head>
+<body>
+   <!--==================== HEADER ====================-->
+   <header class="cumbres-header" id="cumbres-header">
+      <nav class="cumbres-nav container">
+         <a href="#" class="cumbres-nav__logo">
+            <div class="cumbres-logo-container">
+                <img src="../static/img/logo.png" alt="Logo Cumbres Del Sol" class="cumbres-logo-img">
+                <span class="cumbres-logo-text">Cumbres Del Sol</span>
+            </div>
+        </a>
+         <div class="cumbres-nav__menu" id="cumbres-nav-menu">
+            <ul class="cumbres-nav__list">
+               <li>
+                  <a href="#cumbres-home" class="cumbres-nav__link">Inicio</a>
+               </li>
+
+               <li>
+                  <a href="#cumbres-about" class="cumbres-nav__link">Acerca de nosotros</a>
+               </li>
+
+               <li>
+                  <a href="#cumbres-mapa-section" class="cumbres-nav__link">Ubicación</a>
+               </li>
+               
+               <li>
+                  <a href="#diseno-personalizado" class="cumbres-nav__link">Diseño</a>
+               </li>
+
+               <li>
+                  <a href="#cumbres-contact" class="cumbres-nav__link">Contacto</a>
+               </li>
+
+            </ul>
+
+            <!--========= Close Button =========-->
+            <div class="cumbres-nav__close" id="cumbres-nav-close">
+               <i class="ti ti-x"></i>
+            </div>
+         </div>
+
+          <!--========= Toggle Button =========-->
+          <div class="cumbres-nav__toggle" id="cumbres-nav-toggle">
+            <i class="ti ti-menu-deep"></i>
+         </div>           
+      </nav>
+      
+   </header>
+
+   <!--==================== MAIN ====================-->
+   <main class="cumbres-main">
+     <!--==================== HOME ====================-->
+<section class="cumbres-home" id="cumbres-home">
+  <div class="cumbres-home__swiper swiper">
+     <div class="swiper-wrapper">
+        {% for slide in home.slides %}
+        <article class="cumbres-home__article swiper-slide">
+           <div class="cumbres-home__data container">
+              <h3 class="cumbres-home__subtitle" data-swiper-parallax="500">{{ slide.subtitulo }}</h3>
+              <h1 class="cumbres-home__title" data-swiper-parallax="400">{{ slide.titulo_parte1 }} <br> {{ slide.titulo_parte2 }}</h1>
+              {% if slide.boton_texto %}
+              <a href="{{ slide.boton_link }}" class="cumbres-home__button" data-swiper-parallax="300">{{ slide.boton_texto }}</a>
+              {% endif %}
+           </div>
+
+           <img src="{{ slide.imagen }}" alt="{{ slide.alt }}" class="cumbres-home__img" data-swiper-parallax="-300">
+        </article>
+        {% endfor %}
+     </div>
+  </div>
+
+  <div class="cumbres-home__content">
+     <div class="cumbres-home__social">
+        <a href="{{ home.social_facebook }}" target="_blank" class="cumbres-home__social-link">
+           <i class="ti ti-brand-facebook"></i>
+        </a>
+
+        <a href="{{ home.social_instagram }}" target="_blank" class="cumbres-home__social-link">
+           <i class="ti ti-brand-instagram"></i>
+        </a>
+
+        <a href="{{ home.social_twitter }}" target="_blank" class="cumbres-home__social-link">
+           <i class="ti ti-brand-twitter"></i>
+        </a>
+     </div>
+
+     <!--==== If we need pagination ====-->
+     <div class="swiper-pagination"></div>
+
+     <!--==== Navigation buttons ====-->
+     <div class="cumbres-swiper-navigation">
+        <div class="swiper-button-prev">
+           <i class="ti ti-chevron-compact-left"></i> 
+        </div>
+        
+        <div class="swiper-button-next">
+           <i class="ti ti-chevron-compact-right"></i>
+        </div>
+     </div>
+  </div>
+</section>
+
+     <!--==================== ABOUT ====================-->
+<section class="cumbres-about" id="cumbres-about">
+  <div class="cumbres-about__container container">
+     <div class="cumbres-about__content">
+        <div class="cumbres-about__data">
+           <h2 class="cumbres-section__title">{{ about.titulo }}</h2>
+           <h3 class="cumbres-about__subtitle">{{ about.subtitulo }}</h3>
+           
+           {% for parrafo in about.descripcion %}
+           <p class="cumbres-about__description">
+              {{ parrafo|safe }}
+           </p>
+           {% endfor %}
+        </div>
+        
+        <div class="cumbres-about__image">
+           <img src="{{ about.imagen }}" alt="{{ about.imagen_alt }}" class="cumbres-about__img">
+        </div>
+     </div>
+     
+     <div class="cumbres-about__values">
+        <h3 class="cumbres-about__subtitle">{{ about.valores_titulo }}</h3>
+        <div class="cumbres-about__values-grid">
+           {% for valor in about.valores %}
+           <div class="cumbres-about__value-card">
+              <i class="{{ valor.icono }} cumbres-about__value-icon"></i>
+              <h4 class="cumbres-about__value-title">{{ valor.titulo }}</h4>
+              <p class="cumbres-about__value-description">{{ valor.descripcion }}</p>
+           </div>
+           {% endfor %}
+        </div>
+     </div>
+     
+     <p class="cumbres-about__conclusion">
+        {{ about.conclusion|safe }}
+     </p>
+  </div>
+</section>
+<!--==================== MAPA DE CUMBRES DEL SOL ====================-->
+<section id="cumbres-mapa-section" class="cumbres-mapa-container">
+   <div class="cumbres-mapa-content">
+       <h2 class="cumbres-title">{{ mapa.titulo }}</h2>
+       <div class="cumbres-description">
+           <p>{{ mapa.descripcion|safe }}</p>
+       </div>
+   </div>
+   <div id="{{ mapa.map_id }}" class="cumbres-interactive-map"></div>
+   
+   <!-- Pasamos los datos de configuración al JavaScript -->
+   <script>
+       // Creamos un objeto global con los datos del mapa
+       window.cumbresMapConfig = {
+           mapId: "{{ mapa.map_id }}",
+           center: {{ mapa.map_center|tojson|safe }},
+           zoom: {{ mapa.map_zoom }},
+           options: {{ mapa.map_options|tojson|safe }},
+           tilesUrl: "{{ mapa.tiles_url }}",
+           tilesAttribution: "{{ mapa.tiles_attribution }}",
+           locations: {{ mapa.locations|tojson|safe }},
+           markerIcon: {{ mapa.marker_icon|tojson|safe }},
+           polygon: {{ mapa.polygon|tojson|safe }},
+           zoomControl: {{ mapa.zoom_control|tojson|safe }}
+       };
+   </script>
+   
+   <!-- Incluimos el archivo JavaScript -->
+   <script src="{{ url_for('static', filename='js/mapa_cumbres.js') }}"></script>
+</section>
+
+<!--==================== AMENIDADES ====================-->
+{% if amenidades_data %}
+    <section class="amenidades" id="amenidades">
+        <div class="amenidades__container">
+            <h2 class="section__title">{{ amenidades_data.titulo }}</h2>
+            <p class="section__description">{{ amenidades_data.descripcion }}</p>
+
+            <div class="amenidades__grid">
+                {% for item in amenidades_data.amenidades %}
+                <div class="amenidades__card">
+                    <div class="amenidades__image">
+                        <img src="{{ item.imagen }}" alt="{{ item.alt }}" />
+                    </div>
+                    <div class="amenidades__content">
+                        <div class="amenidades__icon-container">
+                            <i class="{{ item.icono }}"></i>
+                        </div>
+                        <h3 class="amenidades__title">{{ item.titulo }}</h3>
+                        <p class="amenidades__description">{{ item.descripcion }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endif %}
+
+    
+<!-- =============== DISEÑO Y PERSONALIZACIÓN SECTION =============== -->
+<section class="diseno-personalizado" id="diseno-personalizado">
+  <div class="diseno-personalizado__container">
+    <h2 class="diseno-personalizado__title">{{ diseno_personalizado_data.titulo }}</h2>
+    <p class="diseno-personalizado__description">
+      {{ diseno_personalizado_data.descripcion|safe }}
+    </p>
+
+    <!-- Mapa de Lotes (Imagen grande) -->
+    <div class="diseno-personalizado__map-main">
+      <img src="{{ diseno_personalizado_data.mapa_imagen }}" alt="{{ diseno_personalizado_data.mapa_alt }}" />
+    </div>
+
+    <div class="diseno-personalizado__main-grid">
+      <!-- Características principales -->
+      {% for caracteristica in diseno_personalizado_data.caracteristicas %}
+      <div class="diseno-personalizado__feature-card">
+        <div class="diseno-personalizado__image">
+          <img src="{{ caracteristica.imagen }}" alt="{{ caracteristica.alt }}" />
+        </div>
+        <div class="diseno-personalizado__content">
+          <div class="diseno-personalizado__icon-container">
+            <i class="{{ caracteristica.icono }}"></i>
+          </div>
+          <h3 class="diseno-personalizado__feature-title">{{ caracteristica.titulo }}</h3>
+          <p class="diseno-personalizado__feature-text">
+            {{ caracteristica.descripcion|safe }}
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Materiales de Construcción -->
+    <div class="diseno-personalizado__materials">
+      <h3 class="diseno-personalizado__materials-title">{{ diseno_personalizado_data.materiales_titulo }}</h3>
+      <div class="diseno-personalizado__materials-grid">
+        {% for material in diseno_personalizado_data.materiales %}
+        <div class="diseno-personalizado__material-item">
+          <div class="diseno-personalizado__material-icon">
+            <i class="{{ material.icono }}"></i>
+          </div>
+          <h4 class="diseno-personalizado__material-name">{{ material.nombre }}</h4>
+          <p class="diseno-personalizado__material-desc">{{ material.descripcion }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Propuestas de Diseño (Carrusel) -->
+    <div class="diseno-personalizado__carousel-container">
+      <div class="diseno-personalizado__carousel">
+        {% for slide in diseno_personalizado_data.propuestas_slides %}
+        <div class="diseno-personalizado__carousel-slide {% if loop.first %}active{% endif %}">
+          <img src="{{ slide.imagen }}" alt="{{ slide.alt }}" />
+          <div class="diseno-personalizado__carousel-caption">{{ slide.caption }}</div>
+        </div>
+        {% endfor %}
+        
+        <button class="diseno-personalizado__carousel-btn prev">
+          <i class="ti ti-chevron-compact-left"></i>
+        </button>
+        <button class="diseno-personalizado__carousel-btn next">
+          <i class="ti ti-chevron-compact-right"></i>
+        </button>
+        
+        <div class="diseno-personalizado__carousel-indicator">
+          {% for slide in diseno_personalizado_data.propuestas_slides %}
+          <span class="diseno-personalizado__carousel-dot {% if loop.first %}active{% endif %}" data-slide="{{ loop.index0 }}"></span>
+          {% endfor %}
+        </div>
+      </div>
+      
+      <div class="diseno-personalizado__carousel-content">
+        <div class="diseno-personalizado__icon">
+          <i class="{{ diseno_personalizado_data.propuestas_icono }}"></i>
+        </div>
+        <h3 class="diseno-personalizado__feature-title">{{ diseno_personalizado_data.propuestas_titulo }}</h3>
+        <p class="diseno-personalizado__feature-text">
+          {{ diseno_personalizado_data.propuestas_descripcion }}
+        </p>
+        <div class="diseno-personalizado__badges">
+          {% for estilo in diseno_personalizado_data.propuestas_estilos %}
+          <span class="diseno-personalizado__badge"><i class="{{ estilo.icono }}"></i> {{ estilo.nombre }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- =============== SECCIÓN CONTACTO =============== -->
+<section class="cumbres-contact" id="cumbres-contact">
+  <div class="cumbres-contact__container">
+    <h2 class="cumbres-contact__title">{{ contacto_data.titulo }}</h2>
+    <p class="cumbres-contact__description">
+      {{ contacto_data.descripcion|safe }}
+    </p>
+
+    <div class="cumbres-contact__options">
+      {% for opcion in contacto_data.opciones %}
+      <!-- Opción {{ loop.index }}: {{ opcion.titulo }} -->
+      <div class="cumbres-contact__card" id="{{ opcion.id }}">
+        <div class="cumbres-contact__card-icon">
+          <i class="{{ opcion.icono }}"></i>
+        </div>
+        <h3 class="cumbres-contact__card-title">{{ opcion.titulo }}</h3>
+        <p class="cumbres-contact__card-description">
+          {{ opcion.descripcion }}
+        </p>
+        <button class="cumbres-contact__card-button" id="{{ opcion.id }}-btn">
+          {{ opcion.boton_texto }}
+        </button>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% for opcion in contacto_data.opciones %}
+  {% if opcion.id == 'cumbres-schedule' %}
+  <!-- Modal para Agendar Cita -->
+  <div class="cumbres-modal" id="{{ opcion.id }}-modal">
+    <div class="cumbres-modal__content">
+      <span class="cumbres-modal__close" id="{{ opcion.id }}-close">&times;</span>
+      <h3 class="cumbres-modal__title">{{ opcion.modal.titulo }}</h3>
+      <p class="cumbres-modal__description">
+        {{ opcion.modal.descripcion }}
+      </p>
+      
+      <form class="cumbres-modal__form">
+        {% for campo in opcion.modal.form.campos %}
+        <div class="cumbres-modal__form-group">
+          <label for="{{ campo.id }}" class="cumbres-modal__label">{{ campo.label }}</label>
+          {% if campo.type == 'select' %}
+          <select id="{{ campo.id }}" class="cumbres-modal__select" required>
+            <option value="" disabled selected>Selecciona una hora</option>
+            {% for hora in campo.opciones %}
+            <option value="{{ hora|replace(' AM', '')|replace(' PM', '') }}">{{ hora }}</option>
+            {% endfor %}
+          </select>
+          {% else %}
+          <input type="{{ campo.type }}" id="{{ campo.id }}" class="cumbres-modal__input" placeholder="{{ campo.placeholder }}" required>
+          {% endif %}
+        </div>
+        {% endfor %}
+        
+        <button type="submit" class="cumbres-modal__submit">{{ opcion.modal.form.boton_texto }}</button>
+      </form>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if opcion.id == 'cumbres-whatsapp' %}
+  <!-- Modal para WhatsApp -->
+  <div class="cumbres-modal" id="{{ opcion.id }}-modal">
+    <div class="cumbres-modal__content">
+      <span class="cumbres-modal__close" id="{{ opcion.id }}-close">&times;</span>
+      <h3 class="cumbres-modal__title">{{ opcion.modal.titulo }}</h3>
+      <div class="cumbres-modal__whatsapp">
+        <div class="cumbres-modal__whatsapp-info">
+          <p class="cumbres-modal__description">
+            {{ opcion.modal.descripcion }}
+          </p>
+          <p class="cumbres-modal__schedule">
+            <i class="ti ti-clock"></i> Horario de atención: {{ opcion.modal.horario }}
+          </p>
+          <a href="{{ opcion.modal.link }}" target="_blank" class="cumbres-modal__whatsapp-button">
+            <i class="ti ti-brand-whatsapp"></i> {{ opcion.modal.boton_texto }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if opcion.id == 'cumbres-financing' %}
+  <!-- Modal para Planes de Financiamiento -->
+  <div class="cumbres-modal" id="{{ opcion.id }}-modal">
+    <div class="cumbres-modal__content cumbres-modal__content--financing">
+      <span class="cumbres-modal__close" id="{{ opcion.id }}-close">&times;</span>
+      <div class="cumbres-financing">
+        <div class="cumbres-financing__header">
+          <h3 class="cumbres-financing__title">{{ opcion.modal.titulo }}</h3>
+          <p class="cumbres-financing__subtitle">{{ opcion.modal.subtitulo }}</p>
+        </div>
+        
+        <div class="cumbres-financing__options">
+          {% for plan in opcion.modal.planes %}
+          <div class="cumbres-financing__card{% if plan.destacado %} cumbres-financing__card--featured{% endif %}">
+            {% if plan.destacado %}
+            <div class="cumbres-financing__tag">{{ plan.tag }}</div>
+            {% endif %}
+            <div class="cumbres-financing__card-header">
+              <i class="{{ plan.icono }} cumbres-financing__icon"></i>
+              <h4 class="cumbres-financing__card-title">{{ plan.titulo }}</h4>
+            </div>
+            <ul class="cumbres-financing__list">
+              {% for beneficio in plan.beneficios %}
+              <li class="cumbres-financing__item">
+                <i class="ti ti-checkbox"></i> {{ beneficio }}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </div>
+        
+        <div class="cumbres-financing__contact">
+          <p class="cumbres-financing__contact-text">{{ opcion.modal.mensaje_contacto }}</p>
+          <button class="cumbres-financing__contact-button" id="{{ opcion.id }}-adviser-btn">
+            <i class="ti ti-user-plus"></i> {{ opcion.modal.boton_contacto }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if opcion.id == 'cumbres-newsletter' %}
+  <!-- Modal para Newsletter -->
+  <div class="cumbres-modal" id="{{ opcion.id }}-modal">
+    <div class="cumbres-modal__content">
+      <span class="cumbres-modal__close" id="{{ opcion.id }}-close">&times;</span>
+      <h3 class="cumbres-modal__title">{{ opcion.modal.titulo }}</h3>
+      <div class="cumbres-newsletter">
+        <p class="cumbres-modal__description">
+          {{ opcion.modal.descripcion }}
+        </p>
+        
+        <div class="cumbres-newsletter__benefits">
+          <h4 class="cumbres-newsletter__benefits-title">Ventajas de estar suscrito:</h4>
+          <ul class="cumbres-newsletter__list">
+            {% for beneficio in opcion.modal.beneficios %}
+            <li class="cumbres-newsletter__item">
+              <i class="ti ti-check"></i> {{ beneficio }}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        
+        <form class="cumbres-newsletter__form">
+          <div class="cumbres-newsletter__input-group">
+            <input type="email" class="cumbres-newsletter__input" placeholder="{{ opcion.modal.formulario.placeholder }}" required>
+            <button type="submit" class="cumbres-newsletter__button">
+              {{ opcion.modal.formulario.boton_texto }} <i class="ti ti-arrow-right"></i>
+            </button>
+          </div>
+          <div class="cumbres-newsletter__privacy">
+            <input type="checkbox" id="cumbres-privacy" required>
+            <label for="cumbres-privacy">{{ opcion.modal.formulario.checkbox_texto }}</label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+</section>
+<!-- =============== FOOTER =============== -->
+<footer class="cumbres-footer">
+  <div class="cumbres-footer__container">
+    <div class="cumbres-footer__content">
+      <!-- Logo y descripción -->
+      <div class="cumbres-footer__group">
+        <h3 class="cumbres-footer__logo">{{ footer_data.logo }}</h3>
+        <p class="cumbres-footer__description">
+          {{ footer_data.descripcion }}
+        </p>
+        <div class="cumbres-footer__social">
+          {% for social in footer_data.social_links %}
+          <a href="{{ social.url }}" class="cumbres-footer__social-link">
+            <i class="{{ social.icono }}"></i>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Enlaces Rápidos -->
+      <div class="cumbres-footer__group">
+        <h3 class="cumbres-footer__title">{{ footer_data.enlaces_titulo }}</h3>
+        <ul class="cumbres-footer__links">
+          {% for enlace in footer_data.enlaces %}
+          <li>
+            <a href="{{ enlace.url }}" class="cumbres-footer__link">{{ enlace.texto }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Información de Contacto con enlaces funcionales -->
+      <div class="cumbres-footer__group">
+        <h3 class="cumbres-footer__title">{{ footer_data.contacto_titulo }}</h3>
+        <ul class="cumbres-footer__info">
+          {% for contacto in footer_data.contacto_info %}
+          <li class="cumbres-footer__info-item">
+            <a href="{{ contacto.url }}" target="{{ contacto.target }}" class="cumbres-footer__contact-link">
+              <i class="{{ contacto.icono }} cumbres-footer__info-icon"></i>
+              <p class="cumbres-footer__info-text">
+                {{ contacto.texto|safe }}
+              </p>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Horarios de Atención -->
+      <div class="cumbres-footer__group">
+        <h3 class="cumbres-footer__title">{{ footer_data.horarios_titulo }}</h3>
+        <div class="cumbres-footer__schedule">
+          {% for horario in footer_data.horarios %}
+          <div class="cumbres-footer__schedule-item">
+            <span class="cumbres-footer__schedule-day">{{ horario.dia }}:</span>
+            <span class="cumbres-footer__schedule-hours">{{ horario.horas }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="cumbres-footer__bottom">
+      <p class="cumbres-footer__copy">
+        {{ footer_data.copyright }}
+      </p>
+      <div class="cumbres-footer__terms">
+        {% for termino in footer_data.terminos %}
+        <a href="{{ termino.url }}" class="cumbres-footer__terms-link">{{ termino.texto }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</footer>
+  
+</section>
+
+   </main>
+
+   <!--=============== SWIPER JS ===============-->
+   <script src="../static/js/swiper-bundle.min.js"></script>
+
+   <!--=============== LEAFLET JS ===============-->
+   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+   <!--=============== MAIN JS ===============-->
+   <script src="../static/js/cumbres.js"></script>
+
+   <!--=============== CHATBOT ===============-->
+   <script src="../static/js/chatbot-loader.js"></script>
+
+
+</body>
+</html>

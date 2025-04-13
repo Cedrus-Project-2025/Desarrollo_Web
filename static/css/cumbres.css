@@ -1,0 +1,2350 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --cumbres-header-height: 3.5rem;
+  
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --cumbres-white-color: hsl(0, 0%, 100%);
+  --cumbres-black-color: hsl(0, 0%, 0%);
+  --cumbres-primary-color: hsl(0, 0%, 0%); /* Nuevo color principal para Cumbres Del Sol */
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --cumbres-body-font: "Montserrat Alternates", sans-serif;
+  --cumbres-biggest-font-size: 2rem;
+  --cumbres-big-font-size: 1.5rem;
+  --cumbres-h3-font-size: 1rem;
+  --cumbres-normal-font-size: .938rem;
+  --cumbres-small-font-size: .813rem;
+
+  /*========== Font weight ==========*/
+  --cumbres-font-regular: 400;
+  --cumbres-font-semi-bold: 600;
+  --cumbres-font-bold: 700;
+
+  /*========== z index ==========*/
+  --cumbres-z-tooltip: 10;
+  --cumbres-z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --cumbres-biggest-font-size: 4rem;
+    --cumbres-big-font-size: 3rem;
+    --cumbres-h3-font-size: 1.25rem;
+    --cumbres-normal-font-size: 1rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--cumbres-body-font);
+  font-size: var(--cumbres-normal-font-size);
+  background-color: var(--cumbres-black-color);
+  color: var(--cumbres-white-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+.cumbres-main {
+  overflow: visible;
+}
+
+/*=============== HEADER & NAV ===============*/
+.cumbres-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.cumbres-nav{
+  position: relative;
+  height: var(--cumbres-header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.cumbres-nav__logo{
+  color: var(--cumbres-white-color);
+  font-weight: var(--cumbres-font-semi-bold);
+}
+
+/* Estilos para el contenedor del logo */
+.cumbres-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilos base para la imagen del logo (móviles pequeños) */
+.cumbres-logo-img {
+  width: 20;
+  height: 20;
+  max-height: 30px;
+  object-fit: contain;
+  margin-bottom: 2px;
+}
+
+/* Estilos para el texto del logo en móviles */
+.cumbres-logo-text {
+  font-weight: var(--cumbres-font-semi-bold);
+  font-size: 0.3rem; /* Tamaño más pequeño para móviles */
+}
+
+.cumbres-nav__toggle,
+.cumbres-nav__close{
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Navigation for mobile devices */
+@media screen and (max-width: 1150px){
+  .cumbres-nav__menu{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: hsla(210, 60%, 30%, .1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    width: 80%;
+    height: 100%;
+    padding: 6rem 3rem 0;
+    transition: right .4s;
+  }
+}
+
+.cumbres-nav__list{
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+}
+
+.cumbres-nav__link {
+  color: var(--cumbres-white-color);
+  font-weight: var(--cumbres-font-semi-bold);
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+.cumbres-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--cumbres-white-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cumbres-nav__link:hover::after {
+  transform: scaleX(1);
+}
+
+.cumbres-nav__close{
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
+
+/* Show menu */
+.cumbres-show-menu{
+  right: 0;
+}
+
+/* Responsive para móviles medianos */
+@media screen and (min-width: 375px) {
+  .cumbres-logo-img {
+    width: 20px;
+    max-height: 20px;
+  }
+  
+  .cumbres-logo-text {
+    font-size: 0.50rem;
+  }
+}
+
+/* Responsive para tablets pequeñas */
+@media screen and (min-width: 576px) {
+  .cumbres-logo-img {
+    width: 33px;
+    max-height: 33px;
+  }
+  
+  .cumbres-logo-text {
+    font-size: var(--cumbres-small-font-size);
+  }
+}
+
+/* Responsive para tablets */
+@media screen and (min-width: 768px) {
+  .cumbres-logo-img {
+    width: 30px;
+    max-height: 30px;
+    margin-bottom: 1px;
+    margin-top: 5px; /* Añade margen superior para bajar el logo */
+  }
+  
+  .cumbres-logo-text {
+    font-size: var(--cumbres-normal-font-size);
+  }
+}
+
+/* Responsive para dispositivos más grandes */
+@media screen and (min-width: 1150px) {
+  .cumbres-logo-img {
+    width: 55px;
+    max-height: 55px;
+  }
+}
+
+/* Estilo para cuando se hace scroll */
+header.cumbres-header.cumbres-scroll-header {
+  background-color: #000000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/*=============== HOME ===============*/
+.cumbres-home__swiper{
+  position: relative;
+  z-index: var(--cumbres-z-tooltip);
+}
+
+.cumbres-home__article{
+  position: relative;
+  padding-top: 13rem;
+  width: 100%;
+  height: 100vh;
+}
+
+.cumbres-home__img,
+.cumbres-home__shadow,
+.cumbres-home__content{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cumbres-home__img{
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+}
+
+.cumbres-home__shadow{
+  background-color: hsla(0, 0%, 0%, .05);
+  z-index: -1;
+}
+
+.cumbres-home__data{
+  text-align: center;
+}
+
+.cumbres-home__subtitle{
+  font-size: var(--cumbres-h3-font-size);
+  margin-bottom: .5rem;
+}
+
+.cumbres-home__title{
+  font-size: var(--cumbres-biggest-font-size);
+  margin-bottom: 2.5rem;
+  font-weight: var(--cumbres-font-bold);
+}
+
+.cumbres-home__button{
+  color: var(--cumbres-white-color);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: .5rem;
+  font-weight: var(--cumbres-font-semi-bold);
+}
+
+.cumbres-home__button i{
+  font-size: 1.5rem;
+  font-weight: initial;
+  transition: transform .4s;
+}
+
+.cumbres-home__button:hover i{
+  transform: translateX(.5rem);
+}
+
+.cumbres-home__social{
+  position: absolute;
+  z-index: var(--cumbres-z-tooltip);
+  left: 1.5rem;
+  bottom: 4rem;
+  display: grid;
+  row-gap: 1.5rem;
+}
+
+.cumbres-home__social-link{
+  color: var(--cumbres-white-color);
+  font-size: 1.5rem;
+}
+
+/* Swiper class */
+.swiper{
+  height: 100vh;
+}
+
+.swiper-pagination{
+  width: initial;
+  height: max-content;
+  top: 6rem;
+  left: initial;
+  right: 4rem;
+  font-size: var(--cumbres-big-font-size);
+  font-weight: var(--cumbres-font-semi-bold);
+  display: flex;
+  column-gap: .25rem;
+  align-items: center;
+}
+
+.swiper-pagination-total{
+  font-size: var(--cumbres-normal-font-size);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after{
+  content: '';
+}
+
+.swiper-button-prev,
+.swiper-button-next{
+  font-size: 2rem;
+  color: var(--cumbres-white-color);
+  width: initial;
+  height: initial;
+  position: initial;
+  outline: none;
+}
+
+.cumbres-swiper-navigation{
+  position: absolute;
+  z-index: var(--cumbres-z-tooltip);
+  height: max-content;
+  bottom: 4rem;
+  right: 1.5rem;
+  display: flex;
+  column-gap: 2.5rem;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For medium devices */
+@media screen and (min-width: 768px){
+  .cumbres-nav__menu{
+    width: 50%;
+  }
+}
+/* For large devices */
+@media screen and (min-width: 1150px){
+  .container{
+    margin-inline: auto;
+  }
+
+  .cumbres-nav{
+    height: calc(var(--cumbres-header-height) + 2rem);
+  }
+  .cumbres-nav__toggle,
+  .cumbres-nav__close{
+    display: none;
+  }
+  .cumbres-nav__menu{
+    width: initial;
+  }
+  .cumbres-nav__list{
+    flex-direction: row;
+    column-gap: 4rem;
+  }
+  .cumbres-home__data{
+    text-align: initial;
+  }
+  .cumbres-home__subtitle{
+    margin-bottom: 1rem;
+  }
+  .cumbres-home__title{
+    margin-bottom: 4.5rem;
+  }
+  .cumbres-home__content{
+    max-width: 1120px;
+    margin-inline: auto;
+    left: 0;
+    right: 0;
+  }
+  .cumbres-home__social{
+    left: 0;
+  }
+  .swiper-pagination{
+    top: 10rem;
+  }
+  .swiper-pagination-total{
+    font-size: 1.5rem;
+  }
+  .cumbres-swiper-navigation{
+    right: 0;
+    column-gap: 3.5rem;
+  }
+  .swiper-button-prev,
+  .swiper-button-next{
+    font-size: 3rem;    
+  }
+}
+/* For taller devices */
+@media screen and (min-width: 800px) and (min-height: 800px){
+  .cumbres-home__article{
+    padding-top: 17rem;
+  }
+
+  .swiper-pagination{
+    top: 13rem;
+  }
+}
+
+/* For 2K resolutions (2048 x 1152) */
+@media screen and (min-width: 2048px){
+  .container,
+  .cumbres-home__content{
+    max-width: 1550px;
+  }
+
+  .cumbres-home__swiper,
+  .cumbres-home__content,
+  .cumbres-home__img,
+  .cumbres-home__shadow{
+    max-height: 1000px;
+  }
+}
+
+.cumbres-scroll-header {
+  background-color: var(--cumbres-primary-color);
+}
+
+
+/*=============== ABOUT ===============*/
+.cumbres-about {
+  margin-top: 2rem;
+  background-color: var(--cumbres-black-color);
+  margin-bottom: 0rem;
+}
+
+.cumbres-section__title {
+  font-size: var(--cumbres-big-font-size);
+  font-weight: var(--cumbres-font-bold);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.cumbres-about__content {
+  display: grid;
+  gap:2.5rem;
+}
+
+.cumbres-about__data {
+  text-align: center;
+}
+
+.cumbres-about__subtitle {
+  font-size: var(--cumbres-h3-font-size);
+  font-weight: var(--cumbres-font-semi-bold);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.cumbres-about__description {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.cumbres-about__highlight {
+  font-weight: var(--cumbres-font-semi-bold);
+}
+
+.cumbres-about__image {
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.cumbres-about__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.cumbres-about__img:hover {
+  transform: scale(1.05);
+}
+
+.cumbres-about__values-grid {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.cumbres-about__values {
+  margin-top: 2rem;
+}
+
+.cumbres-about__value-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.cumbres-about__value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.355), 0 0 20px rgba(51, 51, 51, 0.15);
+
+}
+
+.cumbres-about__value-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cumbres-about__value-title {
+  font-size: var(--cumbres-normal-font-size);
+  font-weight: var(--cumbres-font-semi-bold);
+  margin-bottom: 0.75rem;
+}
+
+.cumbres-about__value-description {
+  font-size: var(--cumbres-small-font-size);
+}
+
+.cumbres-about__conclusion {
+  margin-top: 4rem;
+  text-align: center;
+  font-size: var(--cumbres-normal-font-size);
+  line-height: 1.8;
+}
+
+/* Media queries para hacer la sección responsive */
+@media screen and (min-width: 768px) {
+  .cumbres-about__content {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  
+  .cumbres-about__data,
+  .cumbres-about__location {
+    text-align: left;
+  }
+  
+  .cumbres-about__values-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .cumbres-about {
+    padding: 12rem 0 6rem;
+  }
+  
+  .cumbres-section__title {
+    font-size: calc(var(--cumbres-big-font-size) * 1.2);
+  }
+  
+  .cumbres-about__subtitle {
+    font-size: calc(var(--cumbres-h3-font-size) * 1.2);
+  }
+  
+  .cumbres-about__description {
+    font-size: var(--cumbres-normal-font-size);
+  }
+  
+  .cumbres-about__image {
+    height: 400px;
+  }
+}
+
+/* ==================== CUMBRES DEL SOL - MAPA Y UBICACIÓN ==================== */
+
+.zoom-control-button {
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.zoom-control-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(62, 62, 62, 0.4);
+}
+
+.zoom-control-button button {
+  padding: 8px 15px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: calc(var(--cumbres-h3-font-size) * 1.2);
+}
+
+.zoom-control-button button:hover {
+  background-color: #252525; 
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.355), 0 0 20px rgba(51, 51, 51, 0.15);
+}
+
+
+/* Modificar el contenedor principal */
+.cumbres-mapa-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem;
+  background-color: var(--cumbres-black-color); /* Usando la variable ya definida */
+  min-height: 100vh;
+  padding-top: 80px;
+  position: relative;
+  z-index: 1;
+  gap: 1rem;
+  margin-top: 0rem;
+}
+
+/* Ajustar el contenedor del contenido */
+.cumbres-mapa-content {
+  width: 100%;
+  max-width: 1120px; /* Usando el mismo ancho que otros contenedores */
+  margin-bottom: -1rem;
+  color: var(--cumbres-white-color); /* Usando la variable ya definida */
+}
+
+/* Ajustar el mapa */
+.cumbres-interactive-map {
+  height: 70vh;
+  width: 90%;
+  max-width: 1120px; /* Manteniendo consistencia */
+  border-radius: 1rem; /* Consistente con otros elementos redondeados */
+  box-shadow: 0 8px 25px rgba(107, 107, 107, 0.251); /* Similar al shadow de about__image */
+  margin-top: 2rem;
+}
+
+/* Títulos y subtítulos */
+.cumbres-title {
+  color: var(--cumbres-white-color);
+  text-align: center;
+  font-size: var(--cumbres-big-font-size);
+  font-weight: var(--cumbres-font-bold);
+  margin-bottom: 1.5rem;
+}
+
+/* Descripción */
+.cumbres-description {
+  color: var(--cumbres-white-color);
+  line-height: 1.8; /* Consistente con about__description */
+  margin-bottom: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: var(--cumbres-body-font);
+  font-size: var(--cumbres-normal-font-size);
+}
+
+.cumbres-description p {
+  margin-bottom: 1.5rem;
+}
+
+.cumbres-description em {
+  font-weight: var(--cumbres-font-semi-bold);
+}
+
+/* Estado activo del mapa */
+.cumbres-interactive-map.active {
+  pointer-events: auto;
+}
+
+/* Estilos específicos para los popups del mapa */
+.cumbres-popup-content {
+  text-align: center;
+  padding: 15px;
+  font-family: var(--cumbres-body-font);
+}
+
+.cumbres-popup-content img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 0.8rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(110, 110, 110, 0.1);
+}
+
+.cumbres-popup-content a {
+  color: var(--cumbres-white-color);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: rgba(92, 92, 92, 0.689);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-weight: var(--cumbres-font-semi-bold);
+}
+
+.cumbres-popup-content a:hover {
+  background-color: rgb(113, 113, 113);
+  transform: translateY(-2px);
+}
+
+.cumbres-popup-content b {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--cumbres-black-color);
+  font-size: 1.2em;
+  font-weight: var(--cumbres-font-bold);
+}
+
+/* Responsive */
+@media screen and (min-width: 768px) {
+  .cumbres-description {
+    padding: 0 1rem;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .cumbres-mapa-container {
+    padding-top: 120px; /* Mayor padding para pantallas grandes */
+  }
+  
+  .cumbres-title {
+    font-size: calc(var(--cumbres-big-font-size) * 1.2);
+  }
+  
+  .cumbres-interactive-map {
+    height: 600px; /* Altura fija para pantallas grandes */
+  }
+}
+
+/* ==================== AMENIDADES ==================== */
+
+.amenidades__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section__title {
+  color: var(--cumbres-white-color);
+  text-align: center;
+  font-size: var(--cumbres-big-font-size);
+  font-weight: var(--cumbres-font-bold);
+  margin-bottom: 1.5rem;
+}
+
+.section__description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  color: var(--cumbres-white-color);
+  font-size: var(--cumbres-normal-font-size);
+  line-height: 1.8;
+}
+
+.amenidades__grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2.5rem;
+}
+
+.amenidades__card {
+  background-color: var(--cumbres-primary-color);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.amenidades__card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.355), 0 0 20px rgba(51, 51, 51, 0.15);
+}
+
+.amenidades__image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.amenidades__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.amenidades__card:hover .amenidades__image img {
+  transform: scale(1.1);
+}
+
+.amenidades__content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  background-color: var(--cumbres-primary-color);
+}
+
+.amenidades__icon-container {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cumbres-white-color), #949494);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  margin-top: -55px;
+  border: 5px solid var(--cumbres-primary-color);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.amenidades__card:hover .amenidades__icon-container {
+  transform: rotate(360deg);
+}
+
+.amenidades__icon-container i {
+  font-size: 1.8rem;
+  color: var(--cumbres-black-color);
+}
+
+.amenidades__title {
+  font-size: var(--cumbres-h3-font-size);
+  font-weight: var(--cumbres-font-semi-bold);
+  margin-bottom: 1rem;
+  color: var(--cumbres-white-color);
+  position: relative;
+  padding-bottom: 0.8rem;
+}
+
+.amenidades__description {
+  font-size: var(--cumbres-small-font-size);
+  line-height: 1.8;
+  color: #a0a0a0;
+  text-align: center;
+}
+
+/* Media queries */
+@media screen and (min-width: 576px) {
+  .amenidades__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .amenidades__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .amenidades {
+    padding: 7rem 0;
+  }
+
+  .section__title {
+    font-size: var(--cumbres-biggest-font-size);
+  }
+
+  .amenidades__icon-container {
+    width: 80px;
+    height: 80px;
+  }
+
+  .amenidades__icon-container i {
+    font-size: 2.2rem;
+  }
+  
+  .amenidades__title {
+    font-size: var(--cumbres-h3-font-size);
+  }
+  
+  .amenidades__description {
+    font-size: var(--cumbres-normal-font-size);
+  }
+}
+
+/*=============== DISEÑO SECTION ===============*/
+.diseno-personalizado {
+  padding: 5rem 0;
+  background-color: var(--cumbres-black-color);
+  color: var(--cumbres-white-color);
+  position: relative;
+  overflow: hidden;
+  font-family: var(--cumbres-body-font);
+}
+
+.diseno-personalizado::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 100%);
+  z-index: 0;
+}
+
+.diseno-personalizado__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.diseno-personalizado__title {
+  font-size: var(--cumbres-biggest-font-size);
+  text-align: center;
+  margin-bottom: 1rem;
+  background: var(--cumbres-white-color);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  letter-spacing: 1px;
+}
+
+.diseno-personalizado__description {
+  text-align: center;
+  max-width: 800px;
+  margin: 2rem auto 3.5rem;
+  font-size: var(--cumbres-normal-font-size);
+  line-height: 1.8;
+  color: #d0d0d0;
+  font-weight: var(--cumbres-font-regular);
+}
+
+/* Mapa principal */
+.diseno-personalizado__map-main {
+  width: 100%;
+  margin-bottom: 4rem;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.diseno-personalizado__map-main img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.diseno-personalizado__map-main:hover img {
+  transform: scale(1.02);
+}
+
+.diseno-personalizado__map-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Grid principal */
+.diseno-personalizado__main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+/* Tarjetas de características */
+.diseno-personalizado__feature-card {
+  background-color: rgba(20, 20, 20, 0.9);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+}
+
+.diseno-personalizado__feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.355), 0 0 20px rgba(51, 51, 51, 0.15);
+}
+
+.diseno-personalizado__image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.diseno-personalizado__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.diseno-personalizado__feature-card:hover .diseno-personalizado__image img {
+  transform: scale(1.1);
+}
+
+.diseno-personalizado__content {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  background-color: rgba(20, 20, 20, 0.9);
+  flex: 1;
+}
+
+.diseno-personalizado__icon-container {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffffff, #a7a7a7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.8rem;
+  margin-top: -60px;
+  border: 6px solid #141414;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.diseno-personalizado__feature-card:hover .diseno-personalizado__icon-container,
+.diseno-personalizado__carousel-container:hover .diseno-personalizado__icon-container {
+  transform: rotate(360deg) scale(1.1);
+}
+
+.diseno-personalizado__icon-container i {
+  font-size: 2rem;
+  color: #000000;
+}
+
+.diseno-personalizado__feature-title {
+  font-size: var(--cumbres-h3-font-size);
+  font-weight: var(--cumbres-font-semi-bold);
+  margin-bottom: 1.2rem;
+  color: #ffffff;
+  position: relative;
+  padding-bottom: 1rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.diseno-personalizado__feature-text {
+  font-size: var(--cumbres-small-font-size);
+  line-height: 1.8;
+  color: #a0a0a0;
+  text-align: center;
+}
+
+/* Sección de materiales */
+.diseno-personalizado__materials {
+  background-color: rgba(20, 20, 20, 0.9);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  margin-bottom: 4rem;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.diseno-personalizado__materials-title {
+  text-align: center;
+  font-size: var(--cumbres-h3-font-size);
+  font-weight: var(--cumbres-font-semi-bold);
+  margin-bottom: 2.5rem;
+  color: #ffffff;
+  position: relative;
+  padding-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.diseno-personalizado__materials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.diseno-personalizado__material-item {
+  text-align: center;
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+  background-color: rgba(30, 30, 30, 0.5);
+}
+
+.diseno-personalizado__material-item:hover {
+  transform: translateY(-5px);
+  background-color: rgba(40, 40, 40, 0.7);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.355), 0 0 20px rgba(51, 51, 51, 0.15);
+
+}
+
+.diseno-personalizado__material-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #ffffff, #a7a7a7);
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.diseno-personalizado__material-icon i {
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.diseno-personalizado__material-name {
+  font-size: var(--cumbres-normal-font-size);
+  color: var(--cumbres-white-color);
+  margin-bottom: 0.7rem;
+  font-weight: var(--cumbres-font-semi-bold);
+}
+
+.diseno-personalizado__material-desc {
+  font-size: var(--cumbres-small-font-size);
+  color: #a0a0a0;
+  line-height: 1.6;
+}
+
+/* Carrusel de propuestas */
+.diseno-personalizado__carousel-container {
+  background-color: rgba(20, 20, 20, 0.9);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  margin-bottom: 0rem;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+}
+
+.diseno-personalizado__carousel {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.diseno-personalizado__carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateX(100%);
+}
+
+.diseno-personalizado__carousel-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.diseno-personalizado__carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.diseno-personalizado__carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  padding: 3rem;
+  font-weight: var(--cumbres-font-semi-bold);
+  text-align: center;
+  letter-spacing: 0.5px;
+  font-size: var(--cumbres-normal-font-size);
+}
+
+.diseno-personalizado__carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--cumbres-white-color);
+  color: #000;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+.diseno-personalizado__carousel:hover .diseno-personalizado__carousel-btn {
+  opacity: 1;
+}
+
+.diseno-personalizado__carousel-btn:hover {
+  background: rgb(195, 195, 195);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.diseno-personalizado__carousel-btn.prev {
+  left: 15px;
+}
+
+.diseno-personalizado__carousel-btn.next {
+  right: 15px;
+}
+
+.diseno-personalizado__carousel-btn i {
+  font-size: 1.5rem;
+}
+
+.diseno-personalizado__carousel-indicator {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.diseno-personalizado__carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.diseno-personalizado__carousel-dot.active {
+  background: #ffffff;
+  transform: scale(1.2);
+}
+
+.diseno-personalizado__carousel-content {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  background-color: rgba(20, 20, 20, 0.9);
+}
+
+
+/* Badges de diseño */
+.diseno-personalizado__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.diseno-personalizado__badge {
+  background: rgba(177, 177, 177, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: var(--cumbres-small-font-size);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+  font-weight: var(--cumbres-font-regular);
+}
+
+.diseno-personalizado__badge:hover {
+  background: rgba(255, 255, 255, 0.551);
+  transform: translateY(-3px);
+}
+
+.diseno-personalizado__icon-container i {
+  font-size: 3rem; /* Aumenta el tamaño del icono */
+  color: #000000; /* Color negro */
+  transition: all 0.3s ease-in-out;
+}
+
+.diseno-personalizado__icon {
+  width: 70px; /* Aumenta el tamaño del contenedor del icono */
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffffff, #a7a7a7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.8rem;
+  margin-top: -30px;
+  border: 6px solid #141414;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/* Efecto en hover */
+.diseno-personalizado__feature-card:hover .diseno-personalizado__icon,
+.diseno-personalizado__carousel-container:hover .diseno-personalizado__icon {
+  transform: rotate(360deg) scale(1.1);
+}
+
+.diseno-personalizado__icon i {
+  font-size: 1.8rem;
+  color: var(--cumbres-black-color);
+}
+
+
+
+/* Media queries */
+@media screen and (min-width: 576px) {
+  .diseno-personalizado__materials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .diseno-personalizado__main-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .diseno-personalizado__materials-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .diseno-personalizado__carousel-container {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  
+  .diseno-personalizado__carousel {
+    width: 50%;
+    height: auto;
+  }
+  
+  .diseno-personalizado__carousel-content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .diseno-personalizado {
+    padding-top: 3rem;
+    height: auto;
+  }
+  
+  .diseno-personalizado__title {
+    margin-bottom: 1.5rem;
+  }
+  
+  .diseno-personalizado__description {
+    margin-bottom: 4rem;
+  }
+
+  .diseno-personalizado__icon-container {
+    width: 85px;
+    height: 85px;
+  }
+
+  .diseno-personalizado__icon-container i {
+    font-size: 2.4rem;
+  }
+  
+  .diseno-personalizado__feature-text {
+    font-size: var(--cumbres-normal-font-size);
+  }
+  
+  .diseno-personalizado__material-desc {
+    font-size: var(--cumbres-normal-font-size);
+  }
+  
+  .diseno-personalizado__carousel {
+    height: 350px;
+  }
+  
+  .diseno-personalizado__map-button {
+    padding: 1rem 2.5rem;
+  }
+}
+
+/*=============== SECCIÓN CONTACTO ===============*/
+.cumbres-contact {
+  margin-top: 0rem;
+  background-color: var(--cumbres-black-color);
+  margin-bottom: 0rem;
+}
+
+.cumbres-contact__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.cumbres-contact__title {
+  font-size: var(--cumbres-big-font-size);
+  font-weight: var(--cumbres-font-bold);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.cumbres-contact__description {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cumbres-contact__highlight {
+  font-weight: var(--cumbres-font-bold);
+}
+
+.cumbres-contact__options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.cumbres-contact__card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+.cumbres-contact__card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.355), 0 0 20px rgba(51, 51, 51, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cumbres-contact__card-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--cumbres-white-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: transform 0.5s ease;
+}
+
+.cumbres-contact__card:hover .cumbres-contact__card-icon {
+  transform: rotate(360deg);
+}
+
+.cumbres-contact__card-icon i {
+  font-size: 1.5rem;
+  color: var(--cumbres-black-color);
+}
+
+.cumbres-contact__card-title {
+  font-size: var(--cumbres-h3-font-size);
+  font-weight: var(--cumbres-font-semi-bold);
+  margin-bottom: 1rem;
+}
+
+.cumbres-contact__card-description {
+  margin-bottom: 1.5rem;
+  font-size: var(--cumbres-small-font-size);
+  opacity: 0.8;
+}
+
+.cumbres-contact__card-button {
+  background: transparent;
+  color: var(--cumbres-white-color);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--cumbres-white-color);
+  border-radius: 2rem;
+  cursor: pointer;
+  font-family: var(--cumbres-body-font);
+  font-size: var(--cumbres-small-font-size);
+  transition: all 0.3s ease;
+}
+
+.cumbres-contact__card-button:hover {
+  background: var(--cumbres-white-color);
+  color: var(--cumbres-black-color);
+}
+
+/* Modales */
+.cumbres-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: var(--cumbres-z-fixed);
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cumbres-modal.active {
+  display: flex;
+  opacity: 1;
+}
+
+.cumbres-modal__content {
+  background: var(--cumbres-black-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  width: 70%;
+  max-width: 550px;
+  position: relative;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.cumbres-modal.active .cumbres-modal__content {
+  transform: translateY(0);
+}
+
+.cumbres-modal__content--financing {
+  max-width: 850px;
+}
+
+.cumbres-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cumbres-modal__close:hover {
+  transform: rotate(90deg);
+}
+
+.cumbres-modal__title {
+  font-size: var(--cumbres-h3-font-size);
+  font-weight: var(--cumbres-font-bold);
+  margin-bottom: 1.5rem;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cumbres-modal__description {
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+/* Formulario en modal de cita */
+.cumbres-modal__form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.cumbres-modal__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cumbres-modal__label {
+  font-size: var(--cumbres-small-font-size);
+  font-weight: var(--cumbres-font-semi-bold);
+}
+
+.cumbres-modal__input,
+.cumbres-modal__select {
+  background: rgb(0, 0, 0);
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: var(--cumbres-white-color);
+  font-family: var(--cumbres-body-font);
+  transition: all 0.3s ease;
+}
+
+.cumbres-modal__input:focus,
+.cumbres-modal__select:focus {
+  border-color: var(--cumbres-white-color);
+  outline: none;
+}
+
+.cumbres-modal__submit {
+  background: var(--cumbres-white-color);
+  color: var(--cumbres-black-color);
+  border: none;
+  border-radius: 2rem;
+  padding: 0.875rem 2rem;
+  font-family: var(--cumbres-body-font);
+  font-weight: var(--cumbres-font-semi-bold);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.cumbres-modal__submit:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-3px);
+}
+
+/* WhatsApp modal */
+.cumbres-modal__whatsapp {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.cumbres-modal__whatsapp-icon {
+  font-size: 3rem;
+  align-items: center;
+  color: #25D366;
+}
+
+.cumbres-modal__whatsapp-info {
+  flex: 1;
+  align-items: center;
+}
+
+.cumbres-modal__description{
+  align-items: center;
+}
+
+.cumbres-modal__schedule {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: var(--cumbres-small-font-size);
+  opacity: 0.8;
+}
+
+.cumbres-modal__whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #25D366;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: var(--cumbres-font-semi-bold);
+  transition: all 0.3s ease;
+}
+
+.cumbres-modal__whatsapp-button:hover {
+  background: #22c55e;
+  transform: translateY(-3px);
+}
+
+/* Financiamiento */
+.cumbres-financing__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.cumbres-financing__title {
+  font-size: var(--cumbres-big-font-size);
+  font-weight: var(--cumbres-font-bold);
+  margin-bottom: 0.5rem;
+}
+
+.cumbres-financing__subtitle {
+  opacity: 0.8;
+}
+
+.cumbres-financing__options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.cumbres-financing__card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cumbres-financing__card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cumbres-financing__card--featured {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cumbres-financing__tag {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  background: var(--cumbres-white-color);
+  color: var(--cumbres-black-color);
+  padding: 0.25rem 1rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: var(--cumbres-font-semi-bold);
+}
+
+.cumbres-financing__card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cumbres-financing__icon {
+  font-size: 1.5rem;
+}
+
+.cumbres-financing__card-title {
+  font-size: var(--cumbres-h3-font-size);
+  font-weight: var(--cumbres-font-semi-bold);
+}
+
+.cumbres-financing__list {
+  list-style: none;
+}
+
+.cumbres-financing__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.cumbres-financing__item i {
+  color: var(--cumbres-white-color);
+  font-size: 1.25rem;
+}
+
+.cumbres-financing__contact {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cumbres-financing__contact-text {
+  margin-bottom: 1rem;
+}
+
+.cumbres-financing__contact-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--cumbres-white-color);
+  color: var(--cumbres-black-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  border: none;
+  font-family: var(--cumbres-body-font);
+  font-weight: var(--cumbres-font-semi-bold);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cumbres-financing__contact-button:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-3px);
+}
+
+/* Newsletter */
+.cumbres-newsletter__benefits {
+  margin: 1.5rem 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.cumbres-newsletter__benefits-title {
+  font-size: var(--cumbres-normal-font-size);
+  font-weight: var(--cumbres-font-semi-bold);
+  margin-bottom: 1rem;
+}
+
+.cumbres-newsletter__list {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.cumbres-newsletter__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cumbres-newsletter__item i {
+  color: var(--cumbres-white-color);
+}
+
+.cumbres-newsletter__form {
+  margin-top: 2rem;
+}
+
+.cumbres-newsletter__input-group {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.cumbres-newsletter__input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2rem 0 0 2rem;
+  padding: 0.75rem 1.5rem;
+  color: var(--cumbres-white-color);
+  font-family: var(--cumbres-body-font);
+}
+
+.cumbres-newsletter__input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cumbres-newsletter__button {
+  background: var(--cumbres-white-color);
+  color: var(--cumbres-black-color);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0 2rem 2rem 0;
+  cursor: pointer;
+  font-family: var(--cumbres-body-font);
+  font-weight: var(--cumbres-font-semi-bold);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.cumbres-newsletter__button:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.cumbres-newsletter__privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: var(--cumbres-small-font-size);
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media screen and (min-width: 576px) {
+  .cumbres-modal__content {
+    padding: 3rem;
+  }
+  
+  .cumbres-newsletter__input-group {
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cumbres-contact__container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .cumbres-contact__options {
+    padding: 0 1.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .cumbres-contact__options {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 2rem;
+  }
+  
+  .cumbres-financing__options {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .cumbres-newsletter__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .cumbres-contact {
+    padding: 6rem 2rem;
+  }
+  
+  .cumbres-contact__title {
+    font-size: calc(var(--cumbres-big-font-size) + 0.5rem);
+  }
+  
+  .cumbres-contact__description {
+    margin-bottom: 4rem;
+  }
+  
+  .cumbres-contact__container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .cumbres-contact__options {
+    gap: 2.5rem;
+    padding: 0 2.5rem;
+  }
+  
+  .cumbres-contact__card {
+    padding: 2rem 1.5rem;
+    height: auto;
+  }
+  
+  .cumbres-contact__card-icon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .cumbres-contact__card-icon i {
+    font-size: 1.75rem;
+  }
+  
+  .cumbres-modal__content {
+    padding: 3.5rem;
+  }
+  
+  .cumbres-financing__header {
+    margin-bottom: 3rem;
+  }
+  
+  .cumbres-financing__card {
+    padding: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .cumbres-contact {
+    padding-top: 3rem;
+    height: auto;
+  }
+  
+  .cumbres-contact__options {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 3rem;
+  }
+  
+  /* Hacemos que los cards sean más anchos y menos altos */
+  .cumbres-contact__card {
+    padding: 2rem 1rem;
+    min-height: 320px; /* Altura mínima para mantener consistencia */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Reducimos los márgenes internos para contenido más compacto */
+  .cumbres-contact__card-description {
+    margin-bottom: 1rem;
+  }
+  
+  /* Ajustamos el icono para que no sea tan dominante verticalmente */
+  .cumbres-contact__card-icon {
+    margin-bottom: 1rem;
+  }
+  
+  /* Reducimos el espacio entre el título y la descripción */
+  .cumbres-contact__card-title {
+    margin-bottom: 0.75rem;
+  }
+}
+
+/*=============== FOOTER ===============*/
+.cumbres-footer {
+  position: relative;
+  background-color: var(--cumbres-black-color);
+  padding: 4rem 0 0;
+  overflow: hidden;
+}
+
+.cumbres-footer::before {
+  content: ''; /* Eliminado el borde superior */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0; /* Cambiado a 0 para eliminar el borde */
+  background: none; /* Eliminado el degradado */
+}
+
+.cumbres-footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  /* Eliminados los bordes del contenedor */
+}
+
+.cumbres-footer__content {
+  display: grid;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.cumbres-footer__group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cumbres-footer__logo {
+  font-size: var(--cumbres-big-font-size);
+  font-weight: var(--cumbres-font-bold);
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #fff, #aaa);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.cumbres-footer__description {
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.cumbres-footer__social {
+  display: flex;
+  gap: 1rem;
+}
+
+.cumbres-footer__social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--cumbres-white-color);
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.cumbres-footer__social-link:hover {
+  background-color: var(--cumbres-white-color);
+  color: var(--cumbres-black-color);
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.cumbres-footer__title {
+  font-size: var(--cumbres-h3-font-size);
+  font-weight: var(--cumbres-font-semi-bold);
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+/* Eliminado el pseudo-elemento ::after para quitar la línea debajo de los títulos */
+.cumbres-footer__title::after {
+  content: none; /* Elimina la línea */
+}
+
+.cumbres-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.cumbres-footer__link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+  padding-left: 0;
+}
+
+.cumbres-footer__link:hover {
+  color: var(--cumbres-white-color);
+  transform: translateX(5px);
+}
+
+.cumbres-footer__link::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--cumbres-white-color);
+  transition: width 0.3s ease;
+}
+
+.cumbres-footer__link:hover::before {
+  width: 100%;
+}
+
+.cumbres-footer__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+}
+
+.cumbres-footer__info-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.cumbres-footer__contact-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cumbres-footer__contact-link:hover {
+  transform: translateX(5px);
+}
+
+.cumbres-footer__contact-link:hover .cumbres-footer__info-icon {
+  color: var(--cumbres-white-color);
+}
+
+.cumbres-footer__contact-link:hover .cumbres-footer__info-text {
+  color: var(--cumbres-white-color);
+}
+
+.cumbres-footer__info-icon {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.cumbres-footer__info-text {
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.3s ease;
+}
+
+.cumbres-footer__schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.cumbres-footer__schedule-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cumbres-footer__schedule-day {
+  font-weight: var(--cumbres-font-semi-bold);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cumbres-footer__schedule-hours {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.cumbres-footer__cta {
+  margin-top: 1rem;
+}
+
+.cumbres-footer__cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: var(--cumbres-white-color);
+  text-decoration: none;
+  font-weight: var(--cumbres-font-semi-bold);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.cumbres-footer__cta-button:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cumbres-footer__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  margin-bottom: 0; /* Espacio inferior eliminado */
+}
+
+.cumbres-footer__copy {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--cumbres-small-font-size);
+}
+
+.cumbres-footer__terms {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cumbres-footer__terms-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: var(--cumbres-small-font-size);
+  transition: color 0.3s ease;
+}
+
+.cumbres-footer__terms-link:hover {
+  color: var(--cumbres-white-color);
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media screen and (min-width: 576px) {
+  .cumbres-footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .cumbres-footer__terms {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .cumbres-footer__content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .cumbres-footer__content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .cumbres-footer__group:first-child {
+    grid-column: 1 / 3;
+  }
+  
+  .cumbres-footer__group:last-child {
+    grid-column: 3 / 5;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .cumbres-footer {
+    padding-top: 8rem;
+    height: auto; /* Hacerlo automático para adaptarse al contenido */
+  }
+  
+  .cumbres-footer__content {
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    gap: 4rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cumbres-footer__group:first-child,
+  .cumbres-footer__group:last-child {
+    grid-column: auto;
+  }
+}

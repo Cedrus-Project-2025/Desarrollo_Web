@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!--=============== FAVICON ===============-->
+      <link rel="shortcut icon" href="static/img/favicon.png" type="image/x-icon">
+      
+      <!--=============== TABLERICONS ===============-->
+      <link rel="preload" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" as="style">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">      
+      <!--=============== SWIPER CSS ===============-->
+      <link rel="stylesheet" href="static/css/swiper-bundle.min.css">
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="static/css/main.css">
+
+      <!--=============== LEAFLET MAP ===============-->
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+      <title>Responsive architecture website</title>
+   </head>
+   <body>
+      <!--==================== HEADER ====================-->
+      <header class="header" id="header">
+         <nav class="nav container">
+            <a href="#" class="nav__logo">Architecture</a>
+            <div class="nav__menu" id="nav-menu">
+               <ul class="nav__list">
+                  <li>
+                     <a href="#home-hm" class="nav__link">Inicio</a>
+                  </li>
+
+                  <li>
+                     <a href="#about" class="nav__link">Acerca de nosotros</a>
+                  </li>
+
+                  <li>
+                     <a href="#services" class="nav__link">Servicios</a>
+                  </li>
+                  
+                  <li>
+
+                     <a href="#testimonials" class="nav__link">Testimonios</a>
+                  </li>
+
+                  <li>
+                     <a href="#contact-center" class="nav__link">Contacto</a>
+                  </li>
+
+                  <li>
+                    <a href="#residencias-mapa-section" class="nav__link">Proyectos</a>
+                 </li>
+               </ul>
+
+               <!--========= Close Button =========-->
+               <div class="nav__close" id="nav-close">
+                  <i class="ti ti-x"></i>
+               </div>
+            </div>
+
+             <!--========= Close Button =========-->
+             <div class="nav__toggle" id="nav-toggle">
+               <i class="ti ti-menu-deep"></i>
+            </div>           
+         </nav>
+         
+      </header>
+
+      <!--==================== MAIN ====================-->
+      <main class="main">
+      <!--==================== HOME ====================-->
+<section class="home" id="home-hm">
+    <div class="home__swiper swiper">
+       <div class="swiper-wrapper">
+          {% for slide in home.slides %}
+          <article class="home__article swiper-slide">
+             <div class="home__data container">
+                <h3 class="home__subtittle" data-swiper-parallax="500">{{ slide.subtitulo }}</h3>
+                <h1 class="home__tittle" data-swiper-parallax="400">{{ slide.titulo_parte1 }} <br> {{ slide.titulo_parte2 }}</h1>
+                {% if slide.boton_texto %}
+                <a href="{% if loop.first %}{{ url_for(home.ruta_cumbres) }}{% else %}{{ slide.boton_link }}{% endif %}" class="home__button" data-swiper-parallax="300">
+                  {{ slide.boton_texto }} <i class="ti ti-plus"></i>
+                </a>
+                {% endif %}
+             </div>
+  
+             <img src="{{ slide.imagen }}" alt="{{ slide.alt }}" class="home__img" data-swiper-parallax="-300">
+          </article>
+          {% endfor %}
+       </div>
+    </div>
+  
+    <div class="home__content">
+       <div class="home__social">
+          <a href="{{ home.social_facebook }}" target="_blank" class="home__social-link">
+             <i class="ti ti-brand-facebook"></i>
+          </a>
+  
+          <a href="{{ home.social_instagram }}" target="_blank" class="home__social-link">
+             <i class="ti ti-brand-instagram"></i>
+          </a>
+  
+          <a href="{{ home.social_twitter }}" target="_blank" class="home__social-link">
+             <i class="ti ti-brand-tiktok"></i>
+          </a>
+       </div>
+  
+       <!--==== If we need pagination ====-->
+       <div class="swiper-pagination"></div>
+  
+       <!--==== Navigation buttons ====-->
+       <div class="swiper-navigation">
+          <div class="swiper-button-prev">
+             <i class="ti ti-chevron-compact-left"></i> 
+          </div>
+          
+          <div class="swiper-button-next">
+             <i class="ti ti-chevron-compact-right"></i>
+          </div>
+       </div>
+    </div>
+  </section>
+       <!--==================== ABOUT ====================-->
+    <section class="about section" id="about">
+        <div class="about__container container">
+            <span class="section__subtitle">{{ about['about_subtitulo'] }}</span>
+            <h2 class="section__title">
+                {{ about['about_titulo_parte1'] }} <br> 
+                {{ about['about_titulo_parte2'] }}
+            </h2>
+            
+            <div class="about__content">
+                <div class="about__data">
+                    <p class="about__description">{{ about['about_descripcion'] }}</p>
+
+                    <div class="about__stats">
+                        <div class="about__stat">
+                            <h3 class="about__stat-number">{{ about['about_experiencia'] }}</h3>
+                            <p class="about__stat-text">{{ about['about_experiencia_texto'] }}</p>
+                        </div>
+
+                        <div class="about__stat">
+                            <h3 class="about__stat-number">{{ about['about_proyectos'] }}</h3>
+                            <p class="about__stat-text">{{ about['about_proyectos_texto'] }}</p>
+                        </div>
+
+                        <div class="about__stat">
+                            <h3 class="about__stat-number">{{ about['about_estados'] }}</h3>
+                            <p class="about__stat-text">{{ about['about_estados_texto'] }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about__images">
+                    <div class="about__images-container">
+                        <img src="{{ about['about_imagen1'] }}" alt="Proyecto residencial" class="about__img-1">
+                        <img src="{{ about['about_imagen2'] }}" alt="Diseño interior" class="about__img-2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+        <!--==================== SERVICES ====================-->
+<section class="services section" id="services">
+    <div class="services__container container">
+        <span class="section__subtitle">{{ services.services_subtitulo }}</span>
+        <h2 class="section__title">{{ services.services_titulo_parte1 }} <br> {{ services.services_titulo_parte2 }}</h2>
+    
+        <div class="services__content">
+            <article class="services__card">
+                <i class="{{ services.service1_icono }} services__icon"></i>
+                <h3 class="services__title">{{ services.service1_titulo }}</h3>
+                <p class="services__description">
+                    {{ services.service1_descripcion }}
+                </p>
+            </article>
+    
+            <article class="services__card">
+                <i class="{{ services.service2_icono }} services__icon"></i>
+                <h3 class="services__title">{{ services.service2_titulo }}</h3>
+                <p class="services__description">
+                    {{ services.service2_descripcion }}
+                </p>
+            </article>
+    
+            <article class="services__card">
+                <i class="{{ services.service3_icono }} services__icon"></i>
+                <h3 class="services__title">{{ services.service3_titulo }}</h3>
+                <p class="services__description">
+                    {{ services.service3_descripcion }}
+                </p>
+            </article>
+    
+            <article class="services__card">
+                <i class="{{ services.service4_icono }} services__icon"></i>
+                <h3 class="services__title">{{ services.service4_titulo }}</h3>
+                <p class="services__description">
+                    {{ services.service4_descripcion }}
+                </p>
+            </article>
+        </div>
+    </div>
+</section>
+      <!--==================== TESTIMONIALS ====================-->
+<section class="testimonials section" id="testimonials">
+    <div class="testimonials__container container">
+        <span class="section__subtitle">{{ testimonials.testimonials_subtitulo }}</span>
+        <h2 class="section__title">{{ testimonials.testimonials_titulo_parte1 }} <br> {{ testimonials.testimonials_titulo_parte2 }}</h2>
+ 
+        <div class="testimonials__swiper swiper">
+            <div class="swiper-wrapper">
+                {% for testimonio in testimonials.testimonios %}
+                <!-- Testimonial {{ loop.index }} -->
+                <div class="testimonial__card swiper-slide">
+                    <div class="testimonial__avatar">
+                        <img src="{{ testimonio.avatar }}" alt="avatar" class="testimonial__img">
+                    </div>
+                    <div class="testimonial__content">
+                        <div class="testimonial__rating">
+                            {% for i in range(testimonio.rating) %}
+                            <i class="ti ti-star-filled"></i>
+                            {% endfor %}
+                        </div>
+                        <p class="testimonial__description">
+                            "{{ testimonio.descripcion }}"
+                        </p>
+                        <h3 class="testimonial__name">{{ testimonio.nombre }}</h3>
+                        <div class="testimonial__location">
+                            <i class="ti ti-map-pin"></i>
+                            <span>{{ testimonio.ubicacion }}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+    </div>
+</section>
+<!--==================== CONTACT CENTER ====================-->
+<section class="contact-center section" id="contact-center">
+    <div class="contact-center__container container">
+       <span class="section__subtitle">{{ contact_center.contact_subtitulo }}</span>
+        <h2 class="contact-center__title">{{ contact_center.contact_titulo }}</h2>
+        
+        <div class="contact-center__grid">
+            {% for opcion in contact_center.opciones_contacto %}
+            <!-- {{ opcion.titulo }} -->
+            <div class="contact-center__item" data-modal="{{ opcion.modal }}" role="button" tabindex="0" aria-label="{{ opcion.aria_label }}">
+                <i class="{{ opcion.icono }}"></i>
+                <h3>{{ opcion.titulo }}</h3>
+                <p>{{ opcion.descripcion }}</p>
+            </div>
+            {% endfor %}
+        </div>
+ 
+        <div class="contact-center__info">
+            <p class="contact-center__phone">
+                <i class="ti ti-phone"></i> {{ contact_center.telefono }}
+            </p>
+            <p class="contact-center__hours">
+                <i class="ti ti-calendar-event"></i> {{ contact_center.horario }}
+            </p>
+        </div>
+    </div>
+ 
+    <!-- Popup Programar Llamada -->
+    <div class="popup" id="popup-schedule" role="dialog" aria-labelledby="schedule-title">
+        <div class="popup-content">
+            <h3 id="schedule-title">{{ contact_center.modales.schedule.titulo }}</h3>
+            <form class="popup-form" id="scheduleForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Número de teléfono" required>
+                </div>
+                <div class="form-group">
+                    <input type="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <select name="time" required>
+                        <option value="">Selecciona un horario</option>
+                        {% for horario in contact_center.modales.schedule.horarios %}
+                        <option value="{{ horario.valor }}">{{ horario.texto }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn-submit">Enviar</button>
+                    <button type="button" class="btn-cancel popup-close-button">Cancelar</button>
+                </div>
+            </form>
+            <button class="popup-close-button close-x" aria-label="Cerrar">&times;</button>
+        </div>
+    </div>
+ 
+    <!-- Popup Dejar Datos -->
+    <div class="popup" id="popup-data" role="dialog" aria-labelledby="data-title">
+        <div class="popup-content">
+            <h3 id="data-title">{{ contact_center.modales.data.titulo }}</h3>
+            <form class="popup-form" id="dataForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn-submit">Enviar</button>
+                    <button type="button" class="btn-cancel popup-close-button">Cancelar</button>
+                </div>
+            </form>
+            <button class="popup-close-button close-x" aria-label="Cerrar">&times;</button>
+        </div>
+    </div>
+ 
+    <!-- Popup Agenda Visita con Asesor -->
+    <div class="popup" id="popup-advisor" role="dialog" aria-labelledby="advisor-title">
+        <div class="popup-content">
+            <h3 id="advisor-title">{{ contact_center.modales.advisor.titulo }}</h3>
+            <form class="popup-form" id="advisorForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Número de teléfono" required>
+                </div>
+                <div class="form-group">
+                    <select name="location" required>
+                        <option value="">Selecciona una sucursal</option>
+                        {% for sucursal in contact_center.modales.advisor.sucursales %}
+                        <option value="{{ sucursal.valor }}">{{ sucursal.texto }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <select name="time" required>
+                        <option value="">Selecciona un horario</option>
+                        {% for hora in contact_center.modales.advisor.horas %}
+                        <option value="{{ hora.valor }}">{{ hora.texto }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea name="comments" placeholder="¿En qué podemos ayudarte?" rows="3" maxlength="200"></textarea>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn-submit">Agendar cita</button>
+                    <button type="button" class="btn-cancel popup-close-button">Cancelar</button>
+                </div>
+            </form>
+            <button class="popup-close-button close-x" aria-label="Cerrar">&times;</button>
+        </div>
+    </div>
+</section>
+<!--==================== MAPA ====================-->
+<section id="residencias-mapa-section" class="residencias-mapa-container">
+    <div class="residencias-mapa-content">
+        <span class="section__subtitle">{{ mapa.mapa_subtitulo }}</span>
+        <h2 class="contact-center__title">{{ mapa.mapa_titulo }}</h2>
+    </div>
+    
+    <div id="residencias-interactive-map"
+         class="residencias-interactive-map"
+         data-zoom="{{ mapa.mapa_zoom_inicial }}"
+         data-center-lat="{{ mapa.mapa_centro_latitud }}"
+         data-center-lng="{{ mapa.mapa_centro_longitud }}"
+         data-marcadores='{{ mapa.marcadores | tojson }}'>
+    </div>
+</section>
+
+<!--==================== FOOTER ====================-->
+<footer class="cumbres-footer">
+    <div class="cumbres-footer__container">
+      <div class="cumbres-footer__content">
+        <!-- Logo y descripción -->
+        <div class="cumbres-footer__group">
+          <h3 class="cumbres-footer__logo">{{ footer.footer_logo }}</h3>
+          <p class="cumbres-footer__description">
+            {{ footer.footer_descripcion }}
+          </p>
+          <div class="cumbres-footer__social">
+            <a href="{{ footer.footer_social_facebook }}" class="cumbres-footer__social-link">
+              <i class="ti ti-brand-facebook"></i>
+            </a>
+            <a href="{{ footer.footer_social_instagram }}" class="cumbres-footer__social-link">
+              <i class="ti ti-brand-instagram"></i>
+            </a>
+            <a href="{{ footer.footer_social_whatsapp }}" class="cumbres-footer__social-link">
+              <i class="ti ti-brand-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+  
+        <!-- Enlaces Rápidos -->
+        <div class="cumbres-footer__group">
+          <h3 class="cumbres-footer__title">{{ footer.footer_enlaces_titulo }}</h3>
+          <ul class="cumbres-footer__links">
+            <li>
+              <a href="{{ footer.footer_link_inicio }}" class="cumbres-footer__link">Inicio</a>
+            </li>
+            <li>
+              <a href="{{ footer.footer_link_nosotros }}" class="cumbres-footer__link">Nosotros</a>
+            </li>
+            <li>
+              <a href="{{ footer.footer_link_servicios }}" class="cumbres-footer__link">Servicios</a>
+            </li>
+            <li>
+              <a href="{{ footer.footer_link_contacto }}" class="cumbres-footer__link">Contacto</a>
+            </li>
+            <li>
+              <a href="{{ footer.footer_link_proyectos }}" class="cumbres-footer__link">Proyectos</a>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Información de Contacto con enlaces funcionales -->
+        <div class="cumbres-footer__group">
+          <h3 class="cumbres-footer__title">{{ footer.footer_contacto_titulo }}</h3>
+          <ul class="cumbres-footer__info">
+            <li class="cumbres-footer__info-item">
+              <a href="https://maps.google.com/?q={{ footer.footer_contacto_direccion }}" target="_blank" class="cumbres-footer__contact-link">
+                <i class="ti ti-map-pin cumbres-footer__info-icon"></i>
+                <p class="cumbres-footer__info-text">
+                  {{ footer.footer_contacto_direccion }}
+                </p>
+              </a>
+            </li>
+            <li class="cumbres-footer__info-item">
+              <a href="tel:{{ footer.footer_contacto_telefono }}" class="cumbres-footer__contact-link">
+                <i class="ti ti-phone cumbres-footer__info-icon"></i>
+                <p class="cumbres-footer__info-text">
+                  {{ footer.footer_contacto_telefono }}
+                </p>
+              </a>
+            </li>
+            <li class="cumbres-footer__info-item">
+              <a href="mailto:{{ footer.footer_contacto_email }}" class="cumbres-footer__contact-link">
+                <i class="ti ti-mail cumbres-footer__info-icon"></i>
+                <p class="cumbres-footer__info-text">
+                  {{ footer.footer_contacto_email }}
+                </p>
+              </a>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Cuarta columna (puedes añadir horarios como en el ejemplo de cumbres) -->
+        <div class="cumbres-footer__group">
+          <h3 class="cumbres-footer__title">Horarios de Atención</h3>
+          <div class="cumbres-footer__schedule">
+            <div class="cumbres-footer__schedule-item">
+              <span class="cumbres-footer__schedule-day">Lunes - Viernes:</span>
+              <span class="cumbres-footer__schedule-hours">9:00 - 18:00</span>
+            </div>
+            <div class="cumbres-footer__schedule-item">
+              <span class="cumbres-footer__schedule-day">Sábados:</span>
+              <span class="cumbres-footer__schedule-hours">10:00 - 15:00</span>
+            </div>
+            <div class="cumbres-footer__schedule-item">
+              <span class="cumbres-footer__schedule-day">Domingos:</span>
+              <span class="cumbres-footer__schedule-hours">Cerrado</span>
+            </div>
+          </div>
+          
+          <!-- Call to action button opcional -->
+          <div class="cumbres-footer__cta">
+            <a href="{{ footer.footer_link_contacto }}" class="cumbres-footer__cta-button">
+              Contáctanos <i class="ti ti-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="cumbres-footer__bottom">
+        <p class="cumbres-footer__copy">
+          {{ footer.footer_copyright }}
+        </p>
+        <div class="cumbres-footer__terms">
+          <a href="#" class="cumbres-footer__terms-link">Términos y Condiciones</a>
+          <a href="#" class="cumbres-footer__terms-link">Política de Privacidad</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+      <!--=============== SWIPER JS ===============-->
+      <script src="static/js/swiper-bundle.min.js"></script>
+
+      <!--=============== LEAFLET JS ===============-->
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+      <!--=============== MAIN JS ===============-->
+      <script src="static/js/main.js"></script>
+
+      <!--=============== CHATBOT ===============-->
+      <script src="static/js/chatbot-loader.js"></script>
+
+   </body>
+
+</html>
