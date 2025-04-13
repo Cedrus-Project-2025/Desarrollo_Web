@@ -43,12 +43,32 @@ navLink.forEach(n => n.addEventListener('click', linkAction));
 /*=============== CHANGE BACKGROUND HEADER ===============*/
 function scrollHeader() {
     const header = document.getElementById('header');
-    // Cambia el color de fondo del header cuando el scroll es mayor a 50 pixels
-    if (this.scrollY >= 50) header.classList.add('scroll-header');
-    else header.classList.remove('scroll-header');
+    
+    // Aseguramos que header exista antes de proceder
+    if (header) {
+        // Si no tiene la clase de transición, la añadimos primero (solo una vez)
+        if (!header.classList.contains('header-transition')) {
+            header.classList.add('header-transition');
+        }
+        
+        // Cambia el color de fondo del header cuando el scroll es mayor a 50 pixels
+        if (this.scrollY >= 50) {
+            header.classList.add('scroll-header');
+        } else {
+            header.classList.remove('scroll-header');
+        }
+    }
 }
-window.addEventListener('scroll', scrollHeader);
 
+// Añadimos la clase de transición inmediatamente al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.getElementById('header');
+    if (header) {
+        header.classList.add('header-transition');
+    }
+});
+
+window.addEventListener('scroll', scrollHeader);
 /*=============== SWIPER HOMES ===============*/
 const swiperHome = new Swiper('.home__swiper', {
     loop: true,
@@ -68,32 +88,135 @@ const swiperHome = new Swiper('.home__swiper', {
 });
 
 /*=============== SWIPER TESTIMONIALS ===============*/
-const swiperTestimonials = new Swiper('.testimonials__swiper', {
-    slidesPerView: 3,
-    spaceBetween: 30,
-    loop: true,
-    speed: 800,
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
-    breakpoints: {
-        320: {
-            slidesPerView: 1,
-            spaceBetween: 20
+document.addEventListener('DOMContentLoaded', function() {
+    // Crear elementos de navegación específicos para esta sección
+    const testimonialsContainer = document.querySelector('.testimonials__container');
+    
+    // Verificar si ya existen los elementos para evitar duplicados
+    if (!document.querySelector('.testimonials__pagination')) {
+        // Crear contenedor de paginación específico
+        const paginationEl = document.createElement('div');
+        paginationEl.className = 'testimonials__pagination';
+        testimonialsContainer.appendChild(paginationEl);
+    }
+    
+    if (!document.querySelector('.testimonials__nav-prev')) {
+        // Crear botones de navegación específicos
+        const prevButton = document.createElement('div');
+        prevButton.className = 'testimonials__nav-prev';
+        
+        // Añadir el icono directamente
+        const prevIcon = document.createElement('i');
+        prevIcon.className = 'ti ti-chevron-compact-left';
+        prevButton.appendChild(prevIcon);
+        
+        testimonialsContainer.appendChild(prevButton);
+    }
+    
+    if (!document.querySelector('.testimonials__nav-next')) {
+        const nextButton = document.createElement('div');
+        nextButton.className = 'testimonials__nav-next';
+        
+        // Añadir el icono directamente
+        const nextIcon = document.createElement('i');
+        nextIcon.className = 'ti ti-chevron-compact-right';
+        nextButton.appendChild(nextIcon);
+        
+        testimonialsContainer.appendChild(nextButton);
+    }
+    
+    // Destruir instancia previa de Swiper si existe
+    let swiperTestimonials = document.querySelector('.testimonials__swiper').swiper;
+    if (swiperTestimonials) {
+        swiperTestimonials.destroy(true, true);
+    }
+    
+    // Inicializar Swiper con los controles personalizados
+    swiperTestimonials = new Swiper('.testimonials__swiper', {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        loop: true,
+        speed: 800,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
         },
-        768: {
-            slidesPerView: 2,
-            spaceBetween: 20
+        grabCursor: true,
+        // Usar los controles personalizados
+        navigation: {
+            nextEl: '.testimonials__nav-next',
+            prevEl: '.testimonials__nav-prev',
         },
-        1024: {
-            slidesPerView: 3,
-            spaceBetween: 30
+        // Paginación personalizada
+        pagination: {
+            el: '.testimonials__pagination',
+            clickable: true,
+            bulletClass: 'testimonials__pagination-bullet',
+            bulletActiveClass: 'testimonials__pagination-bullet-active',
+            renderBullet: function(index, className) {
+                return '<span class="' + className + '"></span>';
+            }
+        },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 10
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 15
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 20
+            }
+        },
+        // Ajustar posición de los botones después de inicializar
+        on: {
+            init: function() {
+                setTimeout(adjustNavButtons, 100);
+            },
+            resize: function() {
+                setTimeout(adjustNavButtons, 100);
+            }
+        }
+    });
+    
+    // Función para ajustar la posición de los botones de navegación
+    function adjustNavButtons() {
+        const swiperHeight = document.querySelector('.testimonials__swiper').offsetHeight;
+        const prevButton = document.querySelector('.testimonials__nav-prev');
+        const nextButton = document.querySelector('.testimonials__nav-next');
+        
+        if (prevButton && nextButton) {
+            // Para bajar los botones, usa un valor como 1.2, 1.3, etc.
+            prevButton.style.top = (swiperHeight * 1.18) + 'px';
+            nextButton.style.top = (swiperHeight * 1.18) + 'px';
         }
     }
+    
+    // Asegurarse de que la sección tenga la altura correcta
+    function updateSectionHeight() {
+        const swiperHeight = document.querySelector('.testimonials__swiper').offsetHeight;
+        const paginationHeight = document.querySelector('.testimonials__pagination').offsetHeight;
+        const section = document.querySelector('.testimonials.section');
+        
+        // Ajustar altura mínima para la sección
+        const minHeight = swiperHeight + paginationHeight + 80; // Añadir margen
+        if (section && section.offsetHeight < minHeight) {
+            section.style.minHeight = minHeight + 'px';
+        }
+        
+        // Ajustar botones de navegación
+        adjustNavButtons();
+    }
+    
+    // Actualizar altura después de que el swiper esté listo
+    setTimeout(updateSectionHeight, 500);
+    
+    // Actualizar también en resize
+    window.addEventListener('resize', updateSectionHeight);
 });
-
-
 
 
 /*=============== CONTACT CENTER FUNCTIONALITY ===============*/
@@ -449,7 +572,7 @@ function initializeResidenciasMap() {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    const customIcon = '<i class="ri-map-pin-fill" style="font-size: 36px; color:rgb(0, 0, 0);"></i>';
+    const customIcon = '<i class="ti ti-map-pin" style="font-size: 36px; color:rgb(0, 0, 0);"></i>';
     const residenciasIcon = L.divIcon({
         html: customIcon,
         className: 'custom-div-icon',
@@ -466,7 +589,7 @@ function initializeResidenciasMap() {
                     <b>${loc.nombre}</b>
                     <p>${loc.descripcion}</p>
                     <img src="${loc.imagen}" alt="${loc.nombre}" style="width: 100%; margin-top: 5px;">
-                    <a href="${loc.link}" target="_blank"><i class="ri-road-map-line"></i> Cómo llegar</a>
+                    <a href="${loc.link}" target="_blank"><i class="ti ti-map-pin-2"></i> Cómo llegar</a>
                 </div>`
             );
     });
@@ -522,3 +645,46 @@ document.querySelectorAll('.footer__link').forEach(link => {
         }
     });
 });
+
+
+// Script para desplazamiento suave al hacer clic en enlaces del footer
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleccionar todos los enlaces del footer que podrían dirigir a secciones internas
+    const footerLinks = document.querySelectorAll('.cumbres-footer__link, .cumbres-footer__contact-link, .cumbres-footer__cta-button, .cumbres-footer__terms-link');
+    
+    footerLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        // Verificar si el enlace es interno (comienza con # o contiene # después del nombre de la página)
+        if (href && (href.startsWith('#') || (href.includes('#') && !href.startsWith('http')))) {
+          // Prevenir comportamiento predeterminado
+          e.preventDefault();
+          
+          let targetId;
+          
+          // Extraer el ID del elemento destino
+          if (href.startsWith('#')) {
+            targetId = href;
+          } else {
+            // Si es formato página.html#seccion
+            targetId = '#' + href.split('#')[1];
+          }
+          
+          // Buscar el elemento destino
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            // Realizar desplazamiento suave
+            window.scrollTo({
+              top: targetElement.offsetTop,
+              behavior: 'smooth'
+            });
+          } else {
+            // Si no encuentra el elemento en la página actual, navegar normalmente
+            window.location.href = href;
+          }
+        }
+      });
+    });
+  });

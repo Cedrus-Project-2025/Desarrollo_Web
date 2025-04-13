@@ -10,45 +10,68 @@ def obtener_configs_general():
     '''
 
     # ==================== HOME ====================
-    # Datos para la sección Home del index.html
     home_data = {
-        # Primer slide
-        'slide1_subtitulo': 'Architecture',
-        'slide1_titulo_parte1': 'Modern',
-        'slide1_titulo_parte2': 'Lake house',
-        'slide1_boton_texto': 'Ver Proyecto',
-        'slide1_imagen': 'static/img/home-1.jpg',
-        
-        # Segundo slide
-        'slide2_subtitulo': 'Architecture',
-        'slide2_titulo_parte1': 'Luxury House',
-        'slide2_titulo_parte2': 'In The Forest',
-        'slide2_boton_texto': 'Ver Detalles',
-        'slide2_imagen': 'static/img/home-2.jpg',
-        
-        # Tercer slide
-        'slide3_subtitulo': 'Architecture',
-        'slide3_titulo_parte1': 'Modern House',
-        'slide3_titulo_parte2': 'On The Rock',
-        'slide3_boton_texto': 'Conocer Más',
-        'slide3_imagen': 'static/img/home-3.jpg',
-        
-        # Cuarto slide
-        'slide4_subtitulo': 'Architecture',
-        'slide4_titulo_parte1': 'Luxury',
-        'slide4_titulo_parte2': 'Curved House',
-        'slide4_boton_texto': 'Explorar',
-        'slide4_imagen': 'static/img/home-4.jpg',
-        
-        # Enlaces sociales
-        'social_facebook': '#',
-        'social_instagram': '#',
-        'social_twitter': '#',
-        
-        # Ruta para el botón del primer slide
-        'ruta_cumbres': 'cumbres'
-    }
+    # Configuración general
+    'titulo': 'Architecture',
+    'subtitulo': 'Modern Design',
     
+    # Slides para el carrusel
+    'slides': [
+        {
+            'subtitulo': 'Architecture',
+            'titulo_parte1': 'Modern',
+            'titulo_parte2': 'Lake house',
+            'boton_texto': 'Ver Proyecto',
+            'boton_link': '/cumbres',  # Cambiado de url_for('cumbres') a una ruta directa
+            'imagen': 'static/img/home-1.jpg',
+            'alt': 'Lake house'
+        },
+        {
+            'subtitulo': 'Architecture',
+            'titulo_parte1': 'Luxury House',
+            'titulo_parte2': 'In The Forest',
+            'boton_texto': '',
+            'boton_link': '#',
+            'imagen': 'static/img/home-2.jpg',
+            'alt': 'Forest house'
+        },
+        {
+            'subtitulo': 'Architecture',
+            'titulo_parte1': 'Modern House',
+            'titulo_parte2': 'On The Rock',
+            'boton_texto': '',
+            'boton_link': '#',
+            'imagen': 'static/img/home-3.jpg',
+            'alt': 'Rock house'
+        },
+        {
+            'subtitulo': 'Architecture',
+            'titulo_parte1': 'Luxury',
+            'titulo_parte2': 'Curved House',
+            'boton_texto': '',
+            'boton_link': '#',
+            'imagen': 'static/img/home-4.jpg',
+            'alt': 'Curved house'
+        }
+    ],
+    
+    # Enlaces de redes sociales
+    'social_facebook': '#',
+    'social_instagram': '#',
+    'social_twitter': '#',
+    
+    # Navegación
+    'nav_inicio': '#home-hm',
+    'nav_descripcion': '#descripcion',
+    'nav_caracteristicas': '#caracteristicas',
+    'nav_galeria': '#galeria',
+    'nav_planos': '#planos',
+    'nav_ubicacion': '#ubicacion',
+    'nav_contacto': '#contacto',
+    
+    # Mantenemos la ruta para compatibilidad con el código existente
+    'ruta_cumbres': 'cumbres'
+    }
     # ==================== ABOUT ====================
     about_data = {
         'about_subtitulo': 'Sobre Nosotros',
@@ -81,22 +104,22 @@ def obtener_configs_general():
         'services_titulo_parte2': 'Para Tu Hogar',
         
         # Primera tarjeta de servicio
-        'service1_icono': 'ri-home-heart-line',
+        'service1_icono': 'ti ti-building',
         'service1_titulo': 'Diseño Residencial',
         'service1_descripcion': 'Creamos espacios únicos que reflejan tu estilo de vida, combinando estética y funcionalidad en cada detalle.',
         
         # Segunda tarjeta de servicio
-        'service2_icono': 'ri-building-line',
+        'service2_icono': 'ti ti-building-estate',
         'service2_titulo': 'Desarrollo Inmobiliario',
         'service2_descripcion': 'Gestionamos proyectos residenciales completos, desde la conceptualización hasta la entrega final.',
         
         # Tercera tarjeta de servicio
-        'service3_icono': 'ri-paint-line',
+        'service3_icono': 'ti ti-home-star',
         'service3_titulo': 'Personalización',
         'service3_descripcion': 'Adaptamos cada espacio a tus necesidades específicas, ofreciendo acabados y materiales de primera calidad.',
         
         # Cuarta tarjeta de servicio
-        'service4_icono': 'ri-earth-line',
+        'service4_icono': 'ti ti-map-2',
         'service4_titulo': 'Ubicaciones Premium',
         'service4_descripcion': 'Desarrollamos proyectos en las zonas más exclusivas y con mayor plusvalía de la república.'
     }
@@ -111,32 +134,33 @@ def obtener_configs_general():
         'testimonios': [
             {
                 'avatar': 'static/img/avatar1.jpg',
-                'rating': 5,  # Número de estrellas (de 1 a 5)
-                'descripcion': 'Excelente ubicación y acabados de primera. La atención fue excepcional.',
+                'rating': 5,
+                'descripcion': 'El diseño del fraccionamiento es moderno y muy funcional. Totalmente recomendado.',
                 'nombre': 'Carlos Ramírez',
                 'ubicacion': 'Viñedos 2 Residencial'
             },
             {
-                'avatar': 'static/img/avatar1.jpg',
-                'rating': 5,
-                'descripcion': 'Excelente ubicación y acabados de primera. La atención fue excepcional.',
+                'avatar': 'static/img/avatar2.jpg',
+                'rating': 4,
+                'descripcion': 'Muy buena atención al cliente, aunque faltaron algunos detalles menores en la entrega.',
                 'nombre': 'Karla Ramírez',
-                'ubicacion': 'Viñedos 2 Residencial'
+                'ubicacion': 'Altos del Sol'
             },
             {
-                'avatar': 'static/img/avatar1.jpg',
+                'avatar': 'static/img/avatar3.jpg',
                 'rating': 5,
-                'descripcion': 'Excelente ubicación y acabados de primera. La atención fue excepcional.',
-                'nombre': 'Carlos Ramírez',
-                'ubicacion': 'Viñedos 2 Residencial'
+                'descripcion': 'Nos encantó el entorno natural y la tranquilidad de la zona. Una excelente inversión.',
+                'nombre': 'Luis Mendoza',
+                'ubicacion': 'Cumbres del Lago'
             },
             {
-                'avatar': 'static/img/avatar1.jpg',
-                'rating': 5,
-                'descripcion': 'Excelente ubicación y acabados de primera. La atención fue excepcional.',
-                'nombre': 'Carlos Ramírez',
-                'ubicacion': 'Viñedos 2 Residencial'
+                'avatar': 'static/img/avatar4.jpg',
+                'rating': 4,
+                'descripcion': 'Buena relación calidad-precio y excelente ubicación. Volvería a comprar con ellos.',
+                'nombre': 'Ana López',
+                'ubicacion': 'La Rioja Residencial'
             }
+
         ]
     }
     
@@ -149,7 +173,7 @@ def obtener_configs_general():
         'opciones_contacto': [
             {
                 # Informacion sobre "PROGRAMAR LLAMADA"
-                'icono': 'ri-calendar-2-line',
+                'icono': 'ti ti-phone-call',
                 'titulo': 'Programa una llamada',
                 'descripcion': 'Elige tu horario',
                 'modal': 'schedule',
@@ -157,7 +181,7 @@ def obtener_configs_general():
             },
             {
                 # Informacion sobre "DEJAR TUS DATOS"
-                'icono': 'ri-mail-send-line',
+                'icono': 'ti ti-mail',
                 'titulo': 'Deja tus datos',
                 'descripcion': 'Te contactamos',
                 'modal': 'data',
@@ -165,7 +189,7 @@ def obtener_configs_general():
             },
             {
                 # Informacion sobre "AGENDAR VISITA"
-                'icono': 'ri-user-star-line',
+                'icono': 'ti ti-user-check',
                 'titulo': 'Agenda una visita',
                 'descripcion': 'Habla con un asesor',
                 'modal': 'advisor',
@@ -173,7 +197,7 @@ def obtener_configs_general():
             },
             {
                 # Informacion sobre "COTACTO POR WHATSAPP"
-                'icono': 'ri-whatsapp-line',
+                'icono': 'ti ti-brand-whatsapp',
                 'titulo': 'Contacto directo',
                 'descripcion': 'WhatsApp',
                 'modal': 'whatsapp',
