@@ -480,7 +480,7 @@ def obtener_configs_cumbres():
     # Enlaces rápidos
     'enlaces_titulo': 'Enlaces Rápidos',
     'enlaces': [
-        {'texto': 'Inicio', 'url': '#'},
+        {'texto': 'Inicio', 'url': '#cumbres-home'},
         {'texto': 'Acerca', 'url': '#cumbres-about'},
         {'texto': 'Ubicación', 'url': '#cumbres-mapa-section'},
         {'texto': 'Diseño', 'url': '#diseno-personalizado'},
