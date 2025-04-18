@@ -1,6 +1,13 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
+import os
+import requests  
+from dotenv import load_dotenv
 from static.py.General.configs import obtener_configs_general as obtener_configs_general
 from static.py.Cumbres.configs import obtener_configs_cumbres as obtener_configs_cumbres
+import json 
+
+# Cargar variables de entorno
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -35,3 +42,32 @@ def cumbres():
         contacto_data = contacto_data_cumbres,
         footer_data = footer_data_cumbres
     )
+
+# Nueva ruta para la API del chatbot
+@app.route('/api/chatbot', methods=['POST'])
+def chatbot_api():
+    try:
+        data = request.json
+        pregunta = data.get('pregunta')
+        
+        # Obtener la URL de la API desde las variables de entorno con validación
+        URL_API = os.getenv('URL_API')
+        if not URL_API:
+            app.logger.error("URL_API no está definida en las variables de entorno")
+            return jsonify({"respuesta": "Lo siento, hay un problema de configuración en el servidor. Por favor, contacta al administrador."}), 500
+        
+        # Hacer la solicitud POST a la API externa
+        response = requests.post(f'{URL_API}/api/a/chat', data=json.dumps({"pregunta": pregunta}), headers={"Content-Type": "application/json; charset=utf-8"})
+        response.raise_for_status()  # Lanza una excepción si hay un error HTTP
+        
+        # Obtener la respuesta de la API externa
+        respuesta = response.json().get('respuesta', 'No se pudo obtener una respuesta')
+        
+        return jsonify({"respuesta": respuesta})
+    
+    except Exception as e:
+        app.logger.error(f"Error en la API del chatbot: {e}")
+        return jsonify({"respuesta": "Lo siento, ocurrió un error al procesar tu solicitud. Por favor, intenta de nuevo más tarde."}), 500
+    
+if __name__ == '__main__':
+    app.run(debug=True)
