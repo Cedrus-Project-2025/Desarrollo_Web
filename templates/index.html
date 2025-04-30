@@ -163,46 +163,24 @@
         </div>
     </section>
         
-        <!--==================== SERVICES ====================-->
+       <!--==================== SERVICES ====================-->
 <section class="services section" id="services">
-    <div class="services__container container">
-        <span class="section__subtitle">{{ services.services_subtitulo }}</span>
-        <h2 class="section__title">{{ services.services_titulo_parte1 }} <br> {{ services.services_titulo_parte2 }}</h2>
-    
-        <div class="services__content">
-            <article class="services__card">
-                <i class="{{ services.service1_icono }} services__icon"></i>
-                <h3 class="services__title">{{ services.service1_titulo }}</h3>
-                <p class="services__description">
-                    {{ services.service1_descripcion }}
-                </p>
-            </article>
-    
-            <article class="services__card">
-                <i class="{{ services.service2_icono }} services__icon"></i>
-                <h3 class="services__title">{{ services.service2_titulo }}</h3>
-                <p class="services__description">
-                    {{ services.service2_descripcion }}
-                </p>
-            </article>
-    
-            <article class="services__card">
-                <i class="{{ services.service3_icono }} services__icon"></i>
-                <h3 class="services__title">{{ services.service3_titulo }}</h3>
-                <p class="services__description">
-                    {{ services.service3_descripcion }}
-                </p>
-            </article>
-    
-            <article class="services__card">
-                <i class="{{ services.service4_icono }} services__icon"></i>
-                <h3 class="services__title">{{ services.service4_titulo }}</h3>
-                <p class="services__description">
-                    {{ services.service4_descripcion }}
-                </p>
-            </article>
-        </div>
-    </div>
+  <div class="services__container container">
+      <span class="section__subtitle">{{ services.services_subtitulo }}</span>
+      <h2 class="section__title">{{ services.services_titulo_parte1 }} <br> {{ services.services_titulo_parte2 }}</h2>
+  
+      <div class="services__content">
+          {% for item in services.services_items %}
+              <article class="services__card">
+                  <i class="{{ item.icono }} services__icon"></i>
+                  <h3 class="services__title">{{ item.titulo }}</h3>
+                  <p class="services__description">
+                      {{ item.descripcion }}
+                  </p>
+              </article>
+          {% endfor %}
+      </div>
+  </div>
 </section>
       <!--==================== TESTIMONIALS ====================-->
 <section class="testimonials section" id="testimonials">

@@ -175,16 +175,16 @@
    <script>
        // Creamos un objeto global con los datos del mapa
        window.cumbresMapConfig = {
-           mapId: "{{ mapa.map_id }}",
-           center: {{ mapa.map_center|tojson|safe }},
-           zoom: {{ mapa.map_zoom }},
-           options: {{ mapa.map_options|tojson|safe }},
-           tilesUrl: "{{ mapa.tiles_url }}",
-           tilesAttribution: "{{ mapa.tiles_attribution }}",
-           locations: {{ mapa.locations|tojson|safe }},
-           markerIcon: {{ mapa.marker_icon|tojson|safe }},
-           polygon: {{ mapa.polygon|tojson|safe }},
-           zoomControl: {{ mapa.zoom_control|tojson|safe }}
+          mapId: "{{ mapa.map_id }}",
+          center: {{ (mapa.map_center or [0, 0])|tojson|safe }},
+          zoom: {{ mapa.map_zoom or 10 }},
+          options: {{ (mapa.map_options or {})|tojson|safe }},
+          tilesUrl: "{{ mapa.tiles_url or 'https://tile.openstreetmap.org/{z}/{x}/{y}.png' }}",
+          tilesAttribution: "{{ mapa.tiles_attribution or '&copy; OpenStreetMap contributors' }}",
+          locations: {{ (mapa.locations or [])|tojson|safe }},
+          markerIcon: {{ (mapa.marker_icon or {})|tojson|safe }},
+          polygon: {{ (mapa.polygon or [])|tojson|safe }},
+          zoomControl: {{ (mapa.zoom_control or True)|tojson|safe }}
        };
    </script>
    
