@@ -1,5 +1,5 @@
 # ========== Comando para crear y levantar docker
-# clear; docker build -t cumbres-web .; docker run -p 10000:10000 cumbres-web
+# clear; docker build -t permont-web . && docker run -d --name PermontWEB -p 501:501 permont-web
 # ========== 
 
 # Imagen base de Python
@@ -15,7 +15,7 @@ COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Exponer el puerto en el que corre Flask
-EXPOSE 10000
+EXPOSE 501
 
 # Ejecutar la aplicación
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:10000", "app:app"]
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:501", "app:app"]
