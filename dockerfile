@@ -18,4 +18,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 501
 
 # Ejecutar la aplicación
-CMD ["gunicorn", "-w", "4", "-b", "195.35.32.126:501", "app:app"]
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:501", "app:app"]
