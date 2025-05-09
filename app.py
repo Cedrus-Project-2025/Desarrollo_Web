@@ -31,7 +31,8 @@ def home():
                           )
     except Exception as e:
         app.logger.error(f"Error cargando la página principal: {e}")
-        return render_template('error.html', mensaje="No se pudieron cargar los datos. Por favor intente más tarde.")
+        # Cambio aquí: Pasar 'error' en lugar de 'mensaje'
+        return render_template('error.html', error=str(e))
 
 @app.route('/projects/cumbres')
 def cumbres():
@@ -49,7 +50,8 @@ def cumbres():
         )
     except Exception as e:
         app.logger.error(f"Error cargando la página de Cumbres: {e}")
-        return render_template('error.html', mensaje="No se pudieron cargar los datos. Por favor intente más tarde.")
+        # Cambio aquí: Pasar 'error' en lugar de 'mensaje'
+        return render_template('error.html', error=str(e))
 
 # Nueva ruta para la API del chatbot
 @app.route('/api/chatbot', methods=['POST'])
@@ -57,6 +59,8 @@ def chatbot_api():
     try:
         data = request.json
         pregunta = data.get('pregunta')
+        context_page = data.get('contextPage', 'principal')  # Valor por defecto: principal
+        session_id = data.get('sessionId')
         
         # Obtener la URL de la API desde las variables de entorno con validación
         URL_API = os.getenv('URL_API')
@@ -64,15 +68,21 @@ def chatbot_api():
             app.logger.error("URL_API no está definida en las variables de entorno")
             return jsonify({"respuesta": "Lo siento, hay un problema de configuración en el servidor. Por favor, contacta al administrador."}), 500
         
-        # Hacer la solicitud POST a la API externa
-        response = requests.post(f'{URL_API}/api/a/chat', data=json.dumps({"pregunta": pregunta}), headers={"Content-Type": "application/json; charset=utf-8"})
-        response.raise_for_status()  # Lanza una excepción si hay un error HTTP
+        # Hacer la solicitud POST a la API externa incluyendo el contexto de la página
+        response = requests.post(
+            f'{URL_API}/api/a/chat', 
+            data=json.dumps({
+                "pregunta": pregunta,
+                "contextPage": context_page,
+                "sessionId": session_id
+            }), 
+            headers={"Content-Type": "application/json; charset=utf-8"}
+        )
+        response.raise_for_status()
         
         # Obtener la respuesta de la API externa
         respuesta = response.json().get('respuesta', 'No se pudo obtener una respuesta')
-        
         return jsonify({"respuesta": respuesta})
-    
     except Exception as e:
         app.logger.error(f"Error en la API del chatbot: {e}")
         return jsonify({"respuesta": "Lo siento, ocurrió un error al procesar tu solicitud. Por favor, intenta de nuevo más tarde."}), 500
