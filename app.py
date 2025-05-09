@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, jsonify
-from flask_restful import Api
 import os
 import requests  
 from dotenv import load_dotenv
@@ -11,7 +10,6 @@ import json
 load_dotenv()
 
 app = Flask(__name__)
-api = Api(app)
 
 # Ruta para la página principal
 @app.route('/')
