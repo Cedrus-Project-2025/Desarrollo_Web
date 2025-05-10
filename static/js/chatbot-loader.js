@@ -605,19 +605,39 @@ function initChatbotFunctionality() {
     const URL_API = '/api/chatbot'; // Usamos una ruta relativa para la API
     
     // Clave para almacenar los mensajes en sessionStorage
-    const STORAGE_KEY = "chatbot_messages";
-    
+    function getStorageKey() {
+        const currentPage = window.location.pathname;
+        let contextPage = "principal";
+        
+        if (currentPage.includes("/projects/")) {
+            const pathParts = currentPage.split("/");
+            const projectName = pathParts[pathParts.length - 1];
+            contextPage = projectName;
+        }
+        
+        return `chatbot_messages_${contextPage}`;
+    }
     // Clave para almacenar ID de sesión (para identificar sesiones abiertas)
-    const SESSION_KEY = "chatbot_session_id";
-    
+    function getSessionKey() {
+        const currentPage = window.location.pathname;
+        let contextPage = "principal";
+        
+        if (currentPage.includes("/projects/")) {
+            const pathParts = currentPage.split("/");
+            const projectName = pathParts[pathParts.length - 1];
+            contextPage = projectName;
+        }
+        
+        return `chatbot_session_id_${contextPage}`;
+    }
     // Variable para controlar si estamos esperando respuesta
     let waitingForResponse = false;
     
     // Inicializar o recuperar ID de sesión
-    let sessionId = sessionStorage.getItem(SESSION_KEY);
+    let sessionId = sessionStorage.getItem(getSessionKey());
     if (!sessionId) {
         sessionId = generateSessionId();
-        sessionStorage.setItem(SESSION_KEY, sessionId);
+        sessionStorage.setItem(getSessionKey(), sessionId);
     }
     
     // Generar ID de sesión único
@@ -655,12 +675,12 @@ function initChatbotFunctionality() {
     
     // Función para guardar mensajes en sessionStorage
     function saveMessages(messages) {
-        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+        sessionStorage.setItem(getStorageKey(), JSON.stringify(messages));
     }
     
     // Función para cargar mensajes desde sessionStorage
     function loadMessages() {
-        const savedMessages = sessionStorage.getItem(STORAGE_KEY);
+        const savedMessages = sessionStorage.getItem(getStorageKey());
         return savedMessages ? JSON.parse(savedMessages) : [];
     }
     
@@ -814,23 +834,37 @@ function initChatbotFunctionality() {
     };
     
     // Función para obtener respuesta del bot
-    const fetchBotResponse = async (userMessage, thinkingIndicator) => {
-        try {
-            // Agregar un pequeño retraso para mejorar la UX (mínimo 700ms)
-            const startTime = Date.now();
-            
-            // Realizar la petición al servidor
-            const response = await fetch(URL_API, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ 
-                    pregunta: userMessage,
-                    // sessionId: sessionId  // Enviamos el ID de sesión para tracking
-                })
-            });
-            
+    // Función para obtener respuesta del bot
+const fetchBotResponse = async (userMessage, thinkingIndicator) => {
+    try {
+        // Determinar la página actual basado en la URL
+        const currentPage = window.location.pathname;
+        let contextPage = "principal";
+        
+        // Detectar si estamos en página de proyecto específico
+        if (currentPage.includes("/projects/")) {
+            // Extraer el nombre del proyecto desde la URL
+            const pathParts = currentPage.split("/");
+            const projectName = pathParts[pathParts.length - 1];
+            contextPage = projectName; // Por ejemplo "cumbres"
+        }
+        
+        // Agregar un pequeño retraso para mejorar la UX (mínimo 700ms)
+        const startTime = Date.now();
+        
+        // Realizar la petición al servidor
+        const response = await fetch(URL_API, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+                pregunta: userMessage,
+                contextPage: contextPage,  // Enviar el contexto de la página
+                sessionId: sessionId  // Enviamos el ID de sesión para tracking
+            })
+        });
+
             // Procesar la respuesta
             const data = await response.json();
             
