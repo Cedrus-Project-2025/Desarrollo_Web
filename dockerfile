@@ -1,5 +1,5 @@
 # ========== Comando para crear y levantar docker
-# clear; docker build -t permont-web .; docker run --name PermontWEB -p 501:501 permont-web
+# clear; docker build -t permont-web .; docker run -d --name PermontWEB -p 501:501 permont-web
 # ========== 
 
 # Imagen base de Python
